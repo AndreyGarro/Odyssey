@@ -71,7 +71,7 @@
             // linkNew
             // 
             this.linkNew.AutoSize = true;
-            this.linkNew.Location = new System.Drawing.Point(179, 377);
+            this.linkNew.Location = new System.Drawing.Point(188, 376);
             this.linkNew.Name = "linkNew";
             this.linkNew.Size = new System.Drawing.Size(116, 13);
             this.linkNew.TabIndex = 8;
@@ -192,7 +192,6 @@
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.imgLogo);
             this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

@@ -29,7 +29,7 @@ public class Server extends Thread{
 				while(true) {
 					xmlLine = scanner.nextLine();
 					xml += xmlLine+"\n";
-					if (xmlLine.equals("</Cancion>")) {
+					if (xmlLine.equals("</Cancion>") || xmlLine.equals("</Inicio>")) {
 						break;
 					}					
 				}

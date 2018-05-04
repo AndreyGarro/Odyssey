@@ -52,6 +52,7 @@
     <Compile Include="Aplicacion.Designer.cs">
       <DependentUpon>Aplicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="DocumentoXML.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>

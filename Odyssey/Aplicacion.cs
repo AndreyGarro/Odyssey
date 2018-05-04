@@ -25,46 +25,24 @@ namespace Odyssey
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Abre la ventana de Windows para seleccionar la cancion
             OpenFileDialog abrirArchivo = new OpenFileDialog();
             abrirArchivo.InitialDirectory = "C:\\";
-            txtDir.Text = abrirArchivo.FileName;
             abrirArchivo.Filter = "Music (.mp3)|*.mp3|ALL Files (*.*)|*.*";
             //abrirArchivo.FilterIndex = 2;
             abrirArchivo.RestoreDirectory = true;
 
             if (abrirArchivo.ShowDialog() == DialogResult.OK)
             {
+                // Lee los datos de la cancion seleccionada y los convierte en bytes y String
                 musicArray = File.ReadAllBytes(abrirArchivo.FileName);
                 String stringSong;
                 stringSong = Convert.ToBase64String(musicArray);
 
-                XmlDocument song = new XmlDocument();
-
-                XmlElement raiz = song.CreateElement("Cancion");
-                song.AppendChild(raiz);
-
-                XmlElement id = song.CreateElement("id");
-                raiz.AppendChild(id);
-                id.AppendChild(song.CreateTextNode("00"));
-
-                XmlElement nombre = song.CreateElement("name");
-                raiz.AppendChild(nombre);
-                nombre.AppendChild(song.CreateTextNode("nombreCancion.mp3"));
-
-                XmlElement cancion = song.CreateElement("song");
-                raiz.AppendChild(cancion);
-                cancion.AppendChild(song.CreateTextNode(stringSong));
-
-                song.Save("C:\\Users\\diego\\Desktop\\Odyssey3.0\\Odyssey\\Xml\\song.xml");
-
+                XmlDocument song = DocumentoXML.agregaCancion(stringSong);                  
                 SocketCliente.SendServidor(song);
 
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-      
         }
 
         private void Aplicacion_Load(object sender, EventArgs e)

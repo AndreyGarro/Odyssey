@@ -66,7 +66,6 @@ public class SocketCliente
         {
             Console.WriteLine(e.ToString());
         }
-        Console.ReadKey();
         return xml;
 
     }

@@ -35,42 +35,29 @@ namespace Odyssey
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            XmlDocument sesion = new XmlDocument();
-
-            XmlElement raiz = sesion.CreateElement("Inicio");
-            sesion.AppendChild(raiz);
-
-            XmlElement id = sesion.CreateElement("id");
-            id.AppendChild(sesion.CreateTextNode("01"));
-            raiz.AppendChild(id);
-
-            XmlElement usuario = sesion.CreateElement("Usuario");
-            raiz.AppendChild(usuario);
-
             String username = txtUser.Text;
             String pass = txtPassword.Text;
             String ipAddress = txtIP.Text;
-            XmlElement nombreUsuario = sesion.CreateElement("NombreUsuario");
-            XmlElement ip = sesion.CreateElement("ip");
-            XmlElement contrasena = sesion.CreateElement("Contrasena");
-            if (username.Length != 0 && pass.Length >= 8)
+
+            if (username.Length > 0 && pass.Length > 0)
             {
-                nombreUsuario.AppendChild(sesion.CreateTextNode(username));
-                usuario.AppendChild(nombreUsuario);
-                contrasena.AppendChild(sesion.CreateTextNode(pass));
-                usuario.AppendChild(contrasena);
-
-                sesion.Save("C:\\Users\\diego\\Desktop\\Odyssey3.0\\Odyssey\\Xml\\sesion.xml");
-
-                Form aplicacion = new Aplicacion();
-                this.Hide();
-                aplicacion.Show();
-
-
+                XmlDocument sesion = DocumentoXML.ingresaUsuario(username, pass);
+                SocketCliente.SendServidor(sesion);
+                //Realiza la validacion si el usuario esta registrado
+                Boolean registrado = false;
+                if (registrado == true)
+                {
+                    Form registrar = new RegistrarUsuario();
+                    this.Hide();
+                    registrar.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario No Registrado", "", MessageBoxButtons.OK, MessageBoxIcon.None);
+                }
             }
-            else
-            {
-                MessageBox.Show("Ingrese Usuario y Contraseña","", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else {       
+                MessageBox.Show("Ingrese Usuario y Contraseña", "", MessageBoxButtons.OK, MessageBoxIcon.Information);            
             }
 
         }
@@ -90,6 +77,11 @@ namespace Odyssey
             Form registrar = new RegistrarUsuario();
             this.Hide();
             registrar.Show();
+        }
+
+        private void vtnPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

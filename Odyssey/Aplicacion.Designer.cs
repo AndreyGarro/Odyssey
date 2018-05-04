@@ -29,53 +29,40 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aplicacion));
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtDir = new System.Windows.Forms.TextBox();
+            this.btnAgrega = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAgrega
             // 
-            this.button1.Location = new System.Drawing.Point(504, 177);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtDir
-            // 
-            this.txtDir.Location = new System.Drawing.Point(419, 238);
-            this.txtDir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtDir.Multiline = true;
-            this.txtDir.Name = "txtDir";
-            this.txtDir.Size = new System.Drawing.Size(585, 166);
-            this.txtDir.TabIndex = 1;
-            this.txtDir.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.btnAgrega.BackColor = System.Drawing.SystemColors.Menu;
+            this.btnAgrega.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgrega.BackgroundImage")));
+            this.btnAgrega.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgrega.Location = new System.Drawing.Point(29, 12);
+            this.btnAgrega.Name = "btnAgrega";
+            this.btnAgrega.Size = new System.Drawing.Size(65, 50);
+            this.btnAgrega.TabIndex = 0;
+            this.btnAgrega.Text = "Agregar Canción";
+            this.btnAgrega.UseVisualStyleBackColor = false;
+            this.btnAgrega.Click += new System.EventHandler(this.button1_Click);
             // 
             // Aplicacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1379, 715);
-            this.Controls.Add(this.txtDir);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1028, 581);
+            this.Controls.Add(this.btnAgrega);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Aplicacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Odyssey";
             this.Load += new System.EventHandler(this.Aplicacion_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtDir;
+        private System.Windows.Forms.Button btnAgrega;
     }
 }

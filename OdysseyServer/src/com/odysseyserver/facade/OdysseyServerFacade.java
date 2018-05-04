@@ -30,6 +30,7 @@ public abstract class OdysseyServerFacade {
 				System.out.println("Registrar");
 			} else if (id.equals("01")) {
 				System.out.println("Inicia sesión");
+				
 			} else {
 				throw new IOException();
 			}
@@ -38,6 +39,7 @@ public abstract class OdysseyServerFacade {
 			id = doc.getRootElement().getChild("id").getText();
 			switch (id) {
 			case "00":
+				System.out.println("Agregar Cancion");
 				GeneradorMusica.guardarCancion(doc);
 				break;
 			case "01":

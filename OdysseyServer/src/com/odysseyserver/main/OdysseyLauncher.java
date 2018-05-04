@@ -61,11 +61,6 @@ public class OdysseyLauncher {
 //		 System.out.println(doc.getRootElement().getChild("data").getAttributeValue("name"));
 //		 System.out.println(doc.getRootElement().getChild("data").getAttributeValue("lastname"));
 	}
-
-	private static org.jdom2.Document useSAXParser(String fileName) throws JDOMException, IOException {
-		SAXBuilder saxBuilder = new SAXBuilder();
-		return saxBuilder.build(new File(fileName));
-	}
 	
 	public static byte[] getByteSongArray(File f) throws IOException {
 		byte[] buff = Files.readAllBytes(f.toPath());

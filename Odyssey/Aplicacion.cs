@@ -49,13 +49,15 @@ namespace Odyssey
 
                 XmlElement nombre = song.CreateElement("name");
                 raiz.AppendChild(nombre);
-                nombre.AppendChild(song.CreateTextNode("nombreCancion"));
+                nombre.AppendChild(song.CreateTextNode("nombreCancion.mp3"));
 
                 XmlElement cancion = song.CreateElement("song");
                 raiz.AppendChild(cancion);
                 cancion.AppendChild(song.CreateTextNode(stringSong));
 
-                song.Save("C:\\Users\\diego\\Desktop\\Odyssey\\Odyssey\\Xml\\song.xml");
+                song.Save("C:\\Users\\diego\\Desktop\\Odyssey3.0\\Odyssey\\Xml\\song.xml");
+
+                SocketCliente.SendServidor(song);
 
             }
         }

@@ -50,7 +50,6 @@ namespace Odyssey
             String username = txtUser.Text;
             String pass = txtPassword.Text;
             String ipAddress = txtIP.Text;
-            XmlElement user = sesion.CreateElement("user");
             XmlElement nombreUsuario = sesion.CreateElement("NombreUsuario");
             XmlElement ip = sesion.CreateElement("ip");
             XmlElement contrasena = sesion.CreateElement("Contrasena");
@@ -62,18 +61,15 @@ namespace Odyssey
                 usuario.AppendChild(contrasena);
 
                 sesion.Save("C:\\Users\\diego\\Desktop\\Odyssey\\Odyssey\\Xml\\sesion.xml");
-                Form aplicacion = new Aplicacion();
-                this.Hide();
-                aplicacion.Show();
+
+
             }
             else
             {
-                MessageBox.Show("Ingrese Usuario y Contraseña", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese Usuario y Contraseña","", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-           // MessageBox.Show(sesion.Attributes.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            
-        } 
+        }
 
         private void txtIP_TextChanged(object sender, EventArgs e)
         {

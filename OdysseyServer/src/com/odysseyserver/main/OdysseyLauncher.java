@@ -43,9 +43,11 @@ public class OdysseyLauncher {
 
 		System.out.println(id.getText());
 		
+		Document song3 = xmlConversor("C:\\Users\\jorte\\Documents\\Algoritmos y estructuras de datos I"
+				+ "\\Proyecto 2\\OdysseyServer\\data\\xmldata\\song.xml");
 		createXML(doc);
 		
-		OdysseyServerFacade.administrarXML(doc);
+		OdysseyServerFacade.administrarXML(song3);
 
 		
 
@@ -62,7 +64,7 @@ public class OdysseyLauncher {
 //		 System.out.println(doc.getRootElement().getChild("data").getAttributeValue("lastname"));
 	}
 
-	private static org.jdom2.Document useSAXParser(String fileName) throws JDOMException, IOException {
+	private static Document xmlConversor(String fileName) throws JDOMException, IOException {
 		SAXBuilder saxBuilder = new SAXBuilder();
 		return saxBuilder.build(new File(fileName));
 	}

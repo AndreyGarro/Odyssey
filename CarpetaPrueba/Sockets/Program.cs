@@ -72,7 +72,7 @@ public class Cliente
     public static void Main(String[] args)
     {
         XmlDocument xml = new XmlDocument();
-        xml.Load("C:\\Users\\Christian\\Desktop\\prueba.xml");
+        xml.Load("C:\\Users\\jorte\\Documents\\Algoritmos y estructuras de datos I\\Proyecto II\\OdysseyServer\\data\\xmldata\\nuevaCancion.xml");
         MemoryStream memory = new MemoryStream();
         xml.Save(memory);
         XmlDocument nuevo = StartClient(memory);

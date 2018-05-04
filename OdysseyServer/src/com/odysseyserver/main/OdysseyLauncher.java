@@ -9,7 +9,6 @@ import java.nio.file.Files;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
-import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 
@@ -53,7 +52,7 @@ public class OdysseyLauncher {
 
 	public static void createXML(Document doc) throws FileNotFoundException, IOException {
 		XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
-		xmlOutputter.output(doc, new FileOutputStream("data/xmldata/prueba3.xml"));
+		xmlOutputter.output(doc, new FileOutputStream("data/xmldata/nuevaCancion.xml"));
 		System.out.println("Se guardó con éxito");
 //		 System.out.println(doc.getRootElement().getName());
 //		 System.out.println(doc.getRootElement().getChild("data").getAttributeValue("username"));

@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.jdom2.Document;
 
+import com.odysseyserver.musicmanagement.GeneradorMusica;
+
 public abstract class OdysseyServerFacade {
 
 	public OdysseyServerFacade() {
@@ -23,7 +25,7 @@ public abstract class OdysseyServerFacade {
 		String id;
 		switch (doc.getRootElement().getName()) {
 		case "Inicio":
-			id = doc.getRootElement().getChild("id").getAttribute("opCode").getValue();
+			id = doc.getRootElement().getChild("id").getText();
 			if (id.equals("00")) {
 				System.out.println("Registrar");
 			} else if (id.equals("01")) {
@@ -33,9 +35,10 @@ public abstract class OdysseyServerFacade {
 			}
 			break;
 		case "Cancion":
-			id = doc.getRootElement().getChild("id").getAttribute("opCode").getValue();
+			id = doc.getRootElement().getChild("id").getText();
 			switch (id) {
 			case "00":
+				GeneradorMusica.guardarCancion(doc);
 				break;
 			case "01":
 				break;

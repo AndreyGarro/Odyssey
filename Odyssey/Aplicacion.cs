@@ -64,5 +64,10 @@ namespace Odyssey
         {
       
         }
+
+        private void Aplicacion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

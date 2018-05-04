@@ -61,6 +61,9 @@ namespace Odyssey
                 usuario.AppendChild(contrasena);
 
                 sesion.Save("C:\\Users\\diego\\Desktop\\Odyssey\\Odyssey\\Xml\\sesion.xml");
+                Form aplicacion = new Aplicacion();
+                this.Hide();
+                aplicacion.Show();
             }
             else
             {

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
 using System.Xml;
+using System.Net.Sockets;
 
 namespace Odyssey
 {
@@ -62,7 +63,12 @@ namespace Odyssey
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-      
+
+        }
+
+        private void Aplicacion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

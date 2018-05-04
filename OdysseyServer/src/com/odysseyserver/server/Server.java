@@ -31,14 +31,11 @@ public class Server extends Thread{
 				
 				in = new DataInputStream(client.getInputStream());
 				
-				
-				
 				//String mensaje = in.readUTF();
-							
-				System.out.println(in.readInt());
-				
+									
 				byte[] buffer = new byte[146];
 	            in.read(buffer);
+	            
 	           
 	            FileOutputStream nuevoMensaje = new FileOutputStream("data/xmldata/nuevaCancion.xml");
 	            
@@ -56,8 +53,6 @@ public class Server extends Thread{
 
 		}
 		
-		
-    
     public static org.jdom2.Document conversorXML(String fileName) throws JDOMException, IOException {
 		SAXBuilder saxBuilder = new SAXBuilder();
 		return saxBuilder.build(new File(fileName));

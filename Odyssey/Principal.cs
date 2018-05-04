@@ -44,12 +44,12 @@ namespace Odyssey
                 XmlDocument sesion = DocumentoXML.ingresaUsuario(username, pass);
                 SocketCliente.SendServidor(sesion);
                 //Realiza la validacion si el usuario esta registrado
-                Boolean registrado = false;
+                Boolean registrado = true;
                 if (registrado == true)
                 {
-                    Form registrar = new RegistrarUsuario();
+                    Form aplicacion = new Aplicacion();
                     this.Hide();
-                    registrar.Show();
+                    aplicacion.Show();
                 }
                 else
                 {

@@ -31,7 +31,6 @@ public class SocketCliente
                     cliente.RemoteEndPoint.ToString());
 
                 //Envio un XML con bytes
-                
                 int bytesSent = cliente.Send(mensaje.ToArray());
                 /*
                 // Recibo los bytes 
@@ -69,19 +68,9 @@ public class SocketCliente
         }
         Console.ReadKey();
         return xml;
-    }
-    public static void Main(String[] args)
-    {
-        XmlDocument xml = new XmlDocument();
-        xml.Load("C:\\Users\\Christian\\Desktop\\prueba.xml");
-        MemoryStream memory = new MemoryStream();
-        xml.Save(memory);
-        XmlDocument nuevo = StartClient(memory);
-
 
     }
 
-    
     public static XmlDocument SendServidor(XmlDocument xml)
     {
         MemoryStream memory = new MemoryStream();
@@ -89,4 +78,4 @@ public class SocketCliente
         XmlDocument nuevo = StartClient(memory);
         return nuevo;
     }
-}
+}       

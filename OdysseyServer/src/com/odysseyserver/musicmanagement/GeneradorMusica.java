@@ -18,8 +18,7 @@ public class GeneradorMusica {
 	public static void guardarCancion(Document xmlCancion) {
 		String destino = xmlCancion.getRootElement().getChildText("name");
 		try {
-			FileOutputStream nuevo = new FileOutputStream("C:\\Users\\jorte\\Documents\\Algoritmos y estructuras de datos I\\"
-					+ "Proyecto 2\\OdysseyServer\\data\\music\\" + destino);
+			FileOutputStream nuevo = new FileOutputStream("OdysseyServer\\data\\music\\" + destino);
 			byte[] newSong = Base64.decode(xmlCancion.getRootElement().getChild("song").getText());
 			nuevo.write(newSong);
 		} catch (FileNotFoundException e) {

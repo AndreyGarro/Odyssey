@@ -36,11 +36,11 @@ public class Server extends Thread{
 				
 				byte[] buffer = xml.getBytes();
 				
-				FileOutputStream nuevoMensaje = new FileOutputStream("data/xmldata/nuevaCancion2.xml");
+				FileOutputStream nuevoMensaje = new FileOutputStream("OdysseyServer\\data\\xmldata\\nuevaCancion.xml");
 				
 				nuevoMensaje.write(buffer);
 				
-				Document info = conversorXML("C:\\Users\\jorte\\Documents\\Algoritmos y estructuras de datos I\\Proyecto II\\OdysseyServer\\data\\xmldata\\nuevaCancion2.xml");
+				Document info = conversorXML("OdysseyServer\\data\\xmldata\\nuevaCancion.xml");
 	            OdysseyServerFacade.administrarXML(info);
 				
 				client.close();

@@ -60,7 +60,11 @@ namespace Odyssey
                 contrasena.AppendChild(sesion.CreateTextNode(pass));
                 usuario.AppendChild(contrasena);
 
-                sesion.Save("C:\\Users\\diego\\Desktop\\Odyssey\\Odyssey\\Xml\\sesion.xml");
+                sesion.Save("C:\\Users\\diego\\Desktop\\Odyssey3.0\\Odyssey\\Xml\\sesion.xml");
+
+                Form aplicacion = new Aplicacion();
+                this.Hide();
+                aplicacion.Show();
 
 
             }

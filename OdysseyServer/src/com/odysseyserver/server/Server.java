@@ -18,27 +18,22 @@ import com.odysseyserver.facade.OdysseyServerFacade;
 
 public class Server implements Runnable {
 	
+	private Document SendMessage;
+	private ServerSocket serverSocket;
 
-  
-  public Server() {
+	public Server() {
 		SendMessage = null;
 
 		try {
-			serversocket = new ServerSocket(11000, 10);
+			serverSocket = new ServerSocket(11000, 10);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public void run() {
 		OdysseyServerFacade facade = OdysseyServerFacade.getInstance();
 		ServerSocket serversocket = null;
-
-	Document SendMessage;
-	ServerSocket serversocket = null;
-
-	
-	public void run() {
 
 		while (true) {
 
@@ -64,25 +59,22 @@ public class Server implements Runnable {
 				FileOutputStream nuevoMensaje = new FileOutputStream("data\\xmldata\\nuevoMensaje.xml");
 
 				nuevoMensaje.write(buffer);
-				
 
 				Document info = conversorXML("data\\xmldata\\nuevoMensaje.xml");
 
 				facade.administrarXML(info);
-				
-				
-				
 
-				OdysseyServerFacade.administrarXML(info);
-				
-				while(SendMessage == null) {}
-				
-				
+				while (SendMessage == null) {
+				}
+
 				PrintWriter pw = new PrintWriter(client.getOutputStream(), true);
 				pw.println(converseByte(SendMessage));
 				
+				SendMessage = null;
+				
 				client.close();
 				
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -98,17 +90,16 @@ public class Server implements Runnable {
 		SAXBuilder saxBuilder = new SAXBuilder();
 		return saxBuilder.build(new File(fileName));
 	}
-	
+
 	public void sendCliente(Document sendMessage) {
-		SendMessage = sendMessage;
+		this.SendMessage = sendMessage;
 	}
 
 	private byte[] converseByte(Document messageToArray) throws IOException {
-
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		ObjectOutputStream os = new ObjectOutputStream(out);
 		os.writeObject(messageToArray);
 		return out.toByteArray();
 	}
-	
+
 }

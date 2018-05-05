@@ -5,11 +5,25 @@ import java.io.IOException;
 import org.jdom2.Document;
 
 import com.odysseyserver.musicmanagement.GestorMusica;
+import com.odysseyserver.usermanagement.GestorUsuario;
 
-public abstract class OdysseyServerFacade {
+public class OdysseyServerFacade {
+	
+	private static OdysseyServerFacade instance;
+	
+	private GestorMusica gestorMusical = GestorMusica.getInstance();
+	
+	private GestorUsuario gestorUsuario = GestorUsuario.getInstance();
+	
+	private OdysseyServerFacade () {
+		
+	}
 
-	public OdysseyServerFacade() {
-
+	public static OdysseyServerFacade getInstance() {
+		if (instance == null) {
+			instance = new OdysseyServerFacade();
+		}
+		return instance;
 	}
 
 	/**
@@ -21,16 +35,17 @@ public abstract class OdysseyServerFacade {
 	 * @throws IOException
 	 *             Error en opCode
 	 */
-	public static void administrarXML(Document doc) throws IOException {
+	public void administrarXML(Document doc) throws IOException {
 		String id;
 		switch (doc.getRootElement().getName()) {
 		case "Inicio":
 			id = doc.getRootElement().getChild("id").getText();
 			if (id.equals("00")) {
 				System.out.println("Registrar");
+				gestorUsuario.registrar(doc);
 			} else if (id.equals("01")) {
 				System.out.println("Inicia sesión");
-				
+				gestorUsuario.verificarSesion(doc);			
 			} else {
 				throw new IOException();
 			}
@@ -40,7 +55,7 @@ public abstract class OdysseyServerFacade {
 			switch (id) {
 			case "00":
 				System.out.println("Agregar Cancion");
-				GestorMusica.guardarCancion(doc);
+				gestorMusical.guardarCancion(doc);
 				break;
 			case "01":
 				break;

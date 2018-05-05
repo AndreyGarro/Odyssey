@@ -18,8 +18,10 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 public class GestorMusica {
 	
 	private static JSONArray jsonMusicList;
+	private static GestorMusica instance;
 
-	public GestorMusica() throws IOException, ParseException {
+	private GestorMusica() throws IOException, ParseException {
+		
 		try {
 			JSONParser parser = new JSONParser();
 			File json = new File("data\\jsondata\\jsonMusicList.json");
@@ -43,6 +45,17 @@ public class GestorMusica {
 		}
 	}
 	
+	public static GestorMusica getInstance() {
+		if (instance == null) {
+			try {
+				instance = new GestorMusica();
+			} catch (IOException | ParseException e) {
+				e.printStackTrace();
+			}
+		}
+		return instance;
+	}
+	
 	/**
 	 * Guarda datos de la canción en un objeto JSON
 	 * @param xml
@@ -53,15 +66,14 @@ public class GestorMusica {
 		System.out.println(jsonMusicList.toJSONString());
 		JSONMusica.guardarInfo(jsonMusicList);
 	}
-	
-	
+		
 	/**
 	 * Se guardan las canciones provenientes de un XML
 	 * 
 	 * @param xmlCancion
 	 *            / Document xml que contienen información
 	 */
-	public static void guardarCancion(Document xmlCancion) {
+	public void guardarCancion(Document xmlCancion) {
 		String destino = xmlCancion.getRootElement().getChildText("name");
 		try {
 			FileOutputStream nuevo = new FileOutputStream("data\\music\\" + destino + ".mp3");

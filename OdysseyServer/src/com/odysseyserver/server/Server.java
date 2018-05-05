@@ -18,11 +18,11 @@ import com.odysseyserver.facade.OdysseyServerFacade;
 
 public class Server implements Runnable {
 	
-	Document SendMessage;
-	ServerSocket serversocket = null;
 
-	public Server() {
+  
+  public Server() {
 		SendMessage = null;
+
 		try {
 			serversocket = new ServerSocket(11000, 10);
 		} catch (IOException e) {
@@ -30,6 +30,14 @@ public class Server implements Runnable {
 		}
 	}
 
+	public void run() {
+		OdysseyServerFacade facade = OdysseyServerFacade.getInstance();
+		ServerSocket serversocket = null;
+
+	Document SendMessage;
+	ServerSocket serversocket = null;
+
+	
 	public void run() {
 
 		while (true) {
@@ -56,8 +64,15 @@ public class Server implements Runnable {
 				FileOutputStream nuevoMensaje = new FileOutputStream("data\\xmldata\\nuevoMensaje.xml");
 
 				nuevoMensaje.write(buffer);
+				
 
 				Document info = conversorXML("data\\xmldata\\nuevoMensaje.xml");
+
+				facade.administrarXML(info);
+				
+				
+				
+
 				OdysseyServerFacade.administrarXML(info);
 				
 				while(SendMessage == null) {}

@@ -22,15 +22,15 @@ public class GestorMusica {
 	public GestorMusica() throws IOException, ParseException {
 		try {
 			JSONParser parser = new JSONParser();
-			File json = new File("data/jsondata/jsonMusicList.json");
+			File json = new File("data\\jsondata\\jsonMusicList.json");
 			if (json.exists()) {
-				Object obj =  parser.parse(new FileReader("data\\jsondata\\jsonMusicList.json"));
+				Object obj =  parser.parse(new FileReader("OdysseyServer\\data\\jsondata\\jsonMusicList.json"));
 				jsonMusicList = (JSONArray) obj;
 			} else {
 				jsonMusicList = new JSONArray();
 				try {
 					JSONObject obj = new JSONObject();			
-					FileWriter jsonWriter = new FileWriter("data\\jsondata\\jsonMusicList.json");
+					FileWriter jsonWriter = new FileWriter("OdysseyServer\\data\\jsondata\\jsonMusicList.json");
 					jsonWriter.write(jsonMusicList.toJSONString());
 					jsonWriter.flush();
 				} catch (IOException e) {

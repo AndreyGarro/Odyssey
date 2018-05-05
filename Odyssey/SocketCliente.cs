@@ -32,7 +32,7 @@ public class SocketCliente
 
                 //Envio un XML con bytes
                 int bytesSent = cliente.Send(mensaje.ToArray());
-                /*
+               
                 // Recibo los bytes 
                 MemoryStream recibido = new MemoryStream();
                 int byteInPut = cliente.Receive(recibido.ToArray());
@@ -42,7 +42,7 @@ public class SocketCliente
                 xml.Load(ms);
                 Console.WriteLine(xml);
                 //doc.Save("C:/Users/Christian/Desktop/pruebaCopia.xml");
-                */
+                
 
                 cliente.Shutdown(SocketShutdown.Both);
                 cliente.Close();

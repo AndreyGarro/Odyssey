@@ -15,12 +15,11 @@ import org.json.simple.parser.ParseException;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
-public class GeneradorMusica {
-
-	private static GeneradorMusica instance;
+public class GestorMusica {
+	
 	private static JSONArray jsonMusicList;
 
-	private GeneradorMusica() throws IOException, ParseException {
+	public GestorMusica() throws IOException, ParseException {
 		try {
 			JSONParser parser = new JSONParser();
 			File json = new File("data/jsondata/jsonMusicList.json");
@@ -45,40 +44,14 @@ public class GeneradorMusica {
 	}
 	
 	/**
-	 * Crea instancia de GeneradorMusica
-	 * @return GeneradorMusica
+	 * Guarda datos de la canción en un objeto JSON
+	 * @param xml
 	 */
-	public static GeneradorMusica getInstance() {
-		if (instance == null) {
-			try {
-				instance = new GeneradorMusica();
-			} catch (IOException | ParseException e) {
-				e.printStackTrace();
-			}
-		}
-		return instance;
-	}
-	 /**
-	  * 
-	  */
-	private static void guardarInfo() {
-		try {
-			FileWriter jsonWriter = new FileWriter("data\\jsondata\\jsonMusicList.json");
-			jsonWriter.write(jsonMusicList.toJSONString());
-			jsonWriter.flush();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	@SuppressWarnings("unchecked")
 	private static  void guardarDataCancion(Document xml) {
-		JSONObject cancion = new JSONObject();
-		cancion.put("nombre", xml.getRootElement().getChildText("name"));
-		cancion.put("path", "data" + "\\" + "music" + "\\" + xml.getRootElement().getChildText("name") + ".mp3");
-		jsonMusicList.add(cancion);
+		jsonMusicList.add(JSONMusica.nuevaCanción(xml));
 		System.out.println(jsonMusicList.toJSONString());
-		guardarInfo();
+		JSONMusica.guardarInfo(jsonMusicList);
 	}
 	
 	
@@ -100,7 +73,5 @@ public class GeneradorMusica {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }

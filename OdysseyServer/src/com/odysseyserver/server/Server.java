@@ -15,7 +15,9 @@ import org.jdom2.input.SAXBuilder;
 import com.odysseyserver.facade.OdysseyServerFacade;
 
 public class Server implements Runnable {
+	
 	public void run() {
+		OdysseyServerFacade facade = OdysseyServerFacade.getInstance();
 		ServerSocket serversocket = null;
 		try {
 			serversocket = new ServerSocket(11000, 10);
@@ -46,10 +48,13 @@ public class Server implements Runnable {
 				FileOutputStream nuevoMensaje = new FileOutputStream("data\\xmldata\\nuevoMensaje.xml");
 
 				nuevoMensaje.write(buffer);
+				
 
 				Document info = conversorXML("data\\xmldata\\nuevoMensaje.xml");
-				OdysseyServerFacade.administrarXML(info);
-
+				facade.administrarXML(info);
+				
+				
+				
 				client.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

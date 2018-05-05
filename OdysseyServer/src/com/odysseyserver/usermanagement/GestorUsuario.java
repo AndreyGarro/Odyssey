@@ -14,11 +14,12 @@ import org.json.simple.parser.ParseException;
 
 public class GestorUsuario {
 	private static JSONArray listaUsuarios;
+	private static GestorUsuario instance;
 	
-	public GestorUsuario () {
+	private GestorUsuario () {
 		try {
 			JSONParser parser = new JSONParser();
-			File json = new File("data/jsondata/jsonUsuarios.json");
+			File json = new File("data\\jsondata\\jsonUsuarios.json");
 			if (json.exists()) {
 				Object obj =  parser.parse(new FileReader("data\\jsondata\\jsonUsuarios.json"));
 				listaUsuarios = (JSONArray) obj;
@@ -45,7 +46,35 @@ public class GestorUsuario {
 		}
 	}
 	
-	public static void registrar(Document xmlDoc) {
+	public static GestorUsuario getInstance() {
+		if (instance == null) {
+			instance = new GestorUsuario();
+		}
+		return instance;
+	}
+	
+	public void registrar(Document xmlDoc) {
+		listaUsuarios.add(JSONUsuario.generarUsuarioJSON(xmlDoc));
+		JSONUsuario.reescribirXML(listaUsuarios);
+		System.out.println(listaUsuarios.toJSONString());
+		System.out.println("Se ha registrado");
+	}
+	
+	public void verificarSesion(Document xmlDoc) {
+		String user = xmlDoc.getRootElement().getChild("Usuario").getChildText("NombreUsuario");
+		String contraseña = xmlDoc.getRootElement().getChild("Usuario").getChildText("Contrasena");
+		for (int i = 0; i < listaUsuarios.size(); i++) {
+			JSONObject obj = (JSONObject) listaUsuarios.get(i);
+			System.out.println(obj.toJSONString());
+			System.out.println(obj.get("username"));
+			System.out.println(user);
+			if (user.equals(obj.get("username"))) {
+				if (contraseña.equals(obj.get("contraseña"))) {
+					System.out.println("SE Puede ingresar");
+					break;
+				}
+			}
+		}
 	}
 
 }

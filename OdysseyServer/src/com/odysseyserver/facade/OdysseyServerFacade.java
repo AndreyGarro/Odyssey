@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.jdom2.Document;
 
-import com.odysseyserver.musicmanagement.GeneradorMusica;
+import com.odysseyserver.musicmanagement.GestorMusica;
 
 public abstract class OdysseyServerFacade {
 
@@ -40,7 +40,7 @@ public abstract class OdysseyServerFacade {
 			switch (id) {
 			case "00":
 				System.out.println("Agregar Cancion");
-				GeneradorMusica.guardarCancion(doc);
+				GestorMusica.guardarCancion(doc);
 				break;
 			case "01":
 				break;

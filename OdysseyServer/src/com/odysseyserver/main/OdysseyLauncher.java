@@ -1,71 +1,28 @@
 package com.odysseyserver.main;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
 
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.JDOMException;
-import org.jdom2.output.Format;
-import org.jdom2.output.XMLOutputter;
+import org.json.simple.parser.ParseException;
 
-import com.odysseyserver.facade.OdysseyServerFacade;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+import com.odysseyserver.musicmanagement.GestorMusica;
+import com.odysseyserver.server.Server;
 
 public class OdysseyLauncher {
-
-	public static void main(String[] args) throws FileNotFoundException, IOException, JDOMException {
-
-		// Crear documento
-		Document doc = new Document();
-
-		// Raíz
-		Element root = new Element("Cancion");
-
-		// ID
-		Element id = new Element("id").setText("00");
-
-		// Canción
-		
-		byte[] song = getByteSongArray(new File("C:\\Users\\jorte\\Desktop\\Live In the moment.mp3"));
-		String songString = Base64.encode(song);
-		Element nombre = new Element("name").setText( "Live in the moment.mp3");
-		Element data = new Element("song").setText(songString);
-				
-		doc.setRootElement(root);
-		root.addContent(id);
-		root.addContent(nombre);
-		root.addContent(data);
-
-		System.out.println(id.getText());
-		
-		createXML(doc);
-		
-		OdysseyServerFacade.administrarXML(doc);
-
-		
-
-	}
-
-	public static void createXML(Document doc) throws FileNotFoundException, IOException {
-		XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
-		xmlOutputter.output(doc, new FileOutputStream("data/xmldata/nuevaCancion.xml"));
-		System.out.println("Se guardó con éxito");
-//		 System.out.println(doc.getRootElement().getName());
-//		 System.out.println(doc.getRootElement().getChild("data").getAttributeValue("username"));
-//		 System.out.println(doc.getRootElement().getChild("data").getAttributeValue("password"));
-//		 System.out.println(doc.getRootElement().getChild("data").getAttributeValue("name"));
-//		 System.out.println(doc.getRootElement().getChild("data").getAttributeValue("lastname"));
-	}
 	
-	public static byte[] getByteSongArray(File f) throws IOException {
-		byte[] buff = Files.readAllBytes(f.toPath());
+	public static void main(String [] args) {
 		
-		System.out.println(buff.length);
-		return buff;
+		try {
+			GestorMusica generador = new GestorMusica();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Server odysseyServer = new Server();
+		new Thread(odysseyServer).start();
 	}
 
 }

@@ -17,7 +17,7 @@ import org.jdom2.input.SAXBuilder;
 import com.odysseyserver.facade.OdysseyServerFacade;
 
 public class Server implements Runnable {
-	
+
 	private byte[] SendMessage;
 	private ServerSocket serverSocket;
 
@@ -30,57 +30,55 @@ public class Server implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void run() {
-		
+
 		OdysseyServerFacade facade = OdysseyServerFacade.getInstance();
 
 		while (true) {
 
 			try {
 				Socket client = serverSocket.accept();
-				
+
 				BufferedReader scanner = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
-				
 				String xmlLine = "";
 				String xml = "";
-				while(xmlLine != null) {
+				while (xmlLine != null) {
 					xml += xmlLine;
-					xmlLine = scanner.readLine();				
+					xmlLine = scanner.readLine();
 				}
-				
+
 				byte[] buffer = xml.getBytes();
 
+				@SuppressWarnings("resource")
 				FileOutputStream nuevoMensaje = new FileOutputStream("data\\xmldata\\nuevoMensaje.xml");
 
 				nuevoMensaje.write(buffer);
 
 				Document info = conversorXML("data\\xmldata\\nuevoMensaje.xml");
-				
+
 				facade.administrarXML(info);
-				
-				client.close();	
+
+				client.close();
 				Socket clienteEnviar = serverSocket.accept();
-				
-				while(SendMessage == null) {
+
+				while (SendMessage == null) {
 					System.out.println("Entró a modificar");
 					sendCliente();
 				}
-				
+
 				DataOutputStream send = new DataOutputStream(clienteEnviar.getOutputStream());
 				send.write(SendMessage);
-				
+
 				System.out.println("Enviado");
 				SendMessage = null;
 				send.close();
-				clienteEnviar.close();			
+				clienteEnviar.close();
 
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (JDOMException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -94,7 +92,7 @@ public class Server implements Runnable {
 
 	public void sendCliente() {
 		try {
-			this.SendMessage = Files.readAllBytes(new File("data\\xmldata\\nuevoMensaje.xml").toPath());
+			this.SendMessage = Files.readAllBytes(new File("data\\xmldata\\respuesta.xml").toPath());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -6,75 +6,61 @@ using System.Text;
 using System.Threading;
 using System.Xml;
 
-public class SocketCliente
+public class SocketCliente    
 {
+    private static XmlDocument mensajeEntregado;
 
-    private static XmlDocument StartClient(MemoryStream mensaje)
+    private static void StartClient(MemoryStream mensaje)
     {
-        XmlDocument xml = new XmlDocument();
+        TcpClient cliente = new TcpClient();
+        mensajeEntregado = new XmlDocument();
+        cliente.Connect("127.0.0.1", 11000);
 
-        try
+
+        Stream stream = cliente.GetStream(); 
+
+        // Envía el mensaje en byte[]
+
+        byte[] enviar = mensaje.ToArray();
+
+        stream.Write(enviar, 0, enviar.Length);
+
+
+        stream.Flush();
+        stream.Close();
+        cliente.Close();
+
+        TcpClient cliente2 = new TcpClient();
+        cliente2.Connect("127.0.0.1", 11000);
+        Stream stream1 = cliente2.GetStream();
+        
+        StreamReader respuesta = new StreamReader(stream1);
+
+        string respuestaStr = "";
+        string respuestaXML = "";
+        while(respuestaStr != null)
         {
-
-            IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = ipHostInfo.AddressList[0];
-            IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
-
-            Socket cliente = new Socket(ipAddress.AddressFamily,
-                SocketType.Stream, ProtocolType.Tcp);
-
-            try
-            {
-                cliente.Connect(remoteEP);
-
-                Console.WriteLine("Socket connected to {0}",
-                    cliente.RemoteEndPoint.ToString());
-
-                //Envio un XML con bytes
-                int bytesSent = cliente.Send(mensaje.ToArray());
-               
-                // Recibo los bytes 
-                MemoryStream recibido = new MemoryStream();
-                int byteInPut = cliente.Receive(recibido.ToArray());
-
-                //Convertir los bytes a XML
-                MemoryStream ms = new MemoryStream(byteInPut);
-                xml.Load(ms);
-                Console.WriteLine(xml);
-                //doc.Save("C:/Users/Christian/Desktop/pruebaCopia.xml");
-                
-
-                cliente.Shutdown(SocketShutdown.Both);
-                cliente.Close();
-
-            }
-            catch (ArgumentNullException ane)
-            {
-                Console.WriteLine(ane.ToString());
-            }
-            catch (SocketException se)
-            {
-                Console.WriteLine(se.ToString());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-
+            respuestaStr = respuesta.ReadLine();
+            respuestaXML += respuestaStr;
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.ToString());
-        }
-        return xml;
+
+        XmlDocument mensajeFinal = new XmlDocument();
+        mensajeFinal.LoadXml(respuestaXML);
+        mensajeFinal.Save("C:\\Users\\jorte\\Desktop\\pruebaCopia.xml");
+        
+        cliente2.Close();
+
+        mensajeEntregado = mensajeFinal;
 
     }
 
     public static XmlDocument SendServidor(XmlDocument xml)
     {
-        MemoryStream memory = new MemoryStream();
-        xml.Save(memory);
-        XmlDocument nuevo = StartClient(memory);
-        return nuevo;
+        MemoryStream mensaje = new MemoryStream();
+        xml.Save(mensaje);
+        var th1 = new Thread(()=>StartClient(mensaje));
+        th1.Start();
+        th1.Join();
+        return mensajeEntregado;
     }
 }       

@@ -36,13 +36,14 @@ namespace Odyssey
             {
                 // Lee los datos de la cancion seleccionada y los convierte en bytes y String
                 musicArray = File.ReadAllBytes(abrirArchivo.FileName);
-                String stringSong;
-                stringSong = Convert.ToBase64String(musicArray);
-
-                XmlDocument song = DocumentoXML.agregaCancion(stringSong);                  
+                String stringSong = Convert.ToBase64String(musicArray);
+                String nombre = "nombreCancion";
+                //Preguntar por el nombre
+                XmlDocument song = DocumentoXML.agregaCancion(stringSong, nombre);
+                //song.Save("inicio.xml");
                 SocketCliente.SendServidor(song);
 
-                if (abrirArchivo.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (abrirArchivo.ShowDialog() ==  DialogResult.OK)
                 {
                     String[] archivosMp3 = abrirArchivo.SafeFileNames;
                     String[] rutaMp3 = abrirArchivo.FileNames;
@@ -60,12 +61,17 @@ namespace Odyssey
 
         private void Aplicacion_Load(object sender, EventArgs e)
         {
-
+          
         }
 
         private void txtCanciones_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void lstCanciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

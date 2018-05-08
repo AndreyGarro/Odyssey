@@ -4,13 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
+using System.IO;
+using System.Data;
 
 namespace Odyssey
 {
-    class DocumentoXML : XmlDocument
+    
+    class DocumentoXML
     {
 
-        public static XmlDocument agregaCancion(String stringSong)
+        public static XmlDocument agregaCancion(String stringSong, String nombre)
         {
             XmlDocument song = new XmlDocument();
 
@@ -21,15 +27,15 @@ namespace Odyssey
             raiz.AppendChild(id);
             id.AppendChild(song.CreateTextNode("00"));
 
-            XmlElement nombre = song.CreateElement("name");
-            raiz.AppendChild(nombre);
-            nombre.AppendChild(song.CreateTextNode("nombreCancion"));
+            XmlElement nombre1 = song.CreateElement("name");
+            raiz.AppendChild(nombre1);
+            nombre1.AppendChild(song.CreateTextNode("nombreCancion"));
 
             XmlElement cancion = song.CreateElement("song");
             raiz.AppendChild(cancion);
             cancion.AppendChild(song.CreateTextNode(stringSong));
 
-            //song.Save("Xml/song.xml");
+            song.Save("Xml/song.xml");
 
             return song;
         }
@@ -64,6 +70,7 @@ namespace Odyssey
             XmlDocument nuevoUsuario = new XmlDocument();
             XmlElement raiz = nuevoUsuario.CreateElement("Inicio");
             nuevoUsuario.AppendChild(raiz);
+            
 
             XmlElement id = nuevoUsuario.CreateElement("id");
             id.AppendChild(nuevoUsuario.CreateTextNode("00"));
@@ -86,11 +93,12 @@ namespace Odyssey
             raiz.AppendChild(password);
 
             XmlElement generos1 = nuevoUsuario.CreateElement("Generos");
-            generos1.AppendChild(nuevoUsuario.CreateTextNode(generos));
+           generos1.AppendChild(nuevoUsuario.CreateTextNode(generos));
             raiz.AppendChild(generos1);
 
             //nuevoUsuario.Save("Xml\\nuevoUsuario.xml");
             return nuevoUsuario;
         }
+
     }
 }

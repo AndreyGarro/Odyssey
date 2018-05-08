@@ -64,6 +64,7 @@
             this.lstCanciones.Name = "lstCanciones";
             this.lstCanciones.Size = new System.Drawing.Size(568, 394);
             this.lstCanciones.TabIndex = 3;
+            this.lstCanciones.SelectedIndexChanged += new System.EventHandler(this.lstCanciones_SelectedIndexChanged);
             // 
             // Aplicacion
             // 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,10 @@ namespace Odyssey
             if (username.Length > 0 && pass.Length > 0)
             {
                 XmlDocument sesion = DocumentoXML.ingresaUsuario(username, pass);
+                //XmlDocument inicio = DocumentoXML.ingresaUsuario(username, pass);
+                //inicio.Save("inicio.xml");
+                
+
                 SocketCliente.SendServidor(sesion);
                 //Realiza la validacion si el usuario esta registrado
                 Boolean registrado = true;

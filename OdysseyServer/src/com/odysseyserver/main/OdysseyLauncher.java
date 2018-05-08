@@ -15,6 +15,9 @@ public class OdysseyLauncher {
 		
 		Server odysseyServer = new Server();
 		new Thread(odysseyServer).start();
+		
+//		ServidorPrueba s = new ServidorPrueba();
+//		new Thread(s).start();;
 	}
 
 }

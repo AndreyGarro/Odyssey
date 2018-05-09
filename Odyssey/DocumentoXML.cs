@@ -29,7 +29,7 @@ namespace Odyssey
             raiz.AppendChild(cancion);
             cancion.AppendChild(song.CreateTextNode(stringSong));
 
-            //song.Save("Xml/song.xml");
+            song.Save("Xml/song.xml");
 
             return song;
         }

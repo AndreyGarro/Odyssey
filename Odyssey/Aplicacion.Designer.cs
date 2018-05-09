@@ -51,11 +51,12 @@
             // reproductor
             // 
             this.reproductor.Enabled = true;
-            this.reproductor.Location = new System.Drawing.Point(-4, 517);
+            this.reproductor.Location = new System.Drawing.Point(-4, 260);
             this.reproductor.Name = "reproductor";
             this.reproductor.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("reproductor.OcxState")));
-            this.reproductor.Size = new System.Drawing.Size(889, 44);
+            this.reproductor.Size = new System.Drawing.Size(889, 301);
             this.reproductor.TabIndex = 2;
+            this.reproductor.Enter += new System.EventHandler(this.reproductor_Enter);
             // 
             // lstCanciones
             // 
@@ -64,14 +65,15 @@
             this.lstCanciones.Name = "lstCanciones";
             this.lstCanciones.Size = new System.Drawing.Size(568, 394);
             this.lstCanciones.TabIndex = 3;
+            this.lstCanciones.SelectedIndexChanged += new System.EventHandler(this.lstCanciones_SelectedIndexChanged);
             // 
             // Aplicacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
-            this.Controls.Add(this.lstCanciones);
             this.Controls.Add(this.reproductor);
+            this.Controls.Add(this.lstCanciones);
             this.Controls.Add(this.btnAgrega);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

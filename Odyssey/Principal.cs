@@ -42,6 +42,7 @@ namespace Odyssey
             if (username.Length > 0 && pass.Length > 0)
             {
                 XmlDocument sesion = DocumentoXML.ingresaUsuario(username, pass);
+                sesion.Save("sesion.xml");
                 SocketCliente.SendServidor(sesion);
                 //Realiza la validacion si el usuario esta registrado
                 Boolean registrado = true;

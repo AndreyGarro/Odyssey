@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Xml;
 
+
 namespace Odyssey
 {
     public partial class Aplicacion : Form
@@ -66,6 +67,16 @@ namespace Odyssey
         private void txtCanciones_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void lstCanciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void reproductor_Enter(object sender, EventArgs e)
+        {
+            
         }
     }
 }

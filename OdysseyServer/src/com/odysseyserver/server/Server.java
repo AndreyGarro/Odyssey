@@ -33,12 +33,11 @@ public class Server implements Runnable {
 	
 	public void run() {
 		OdysseyServerFacade facade = OdysseyServerFacade.getInstance();
-		ServerSocket serversocket = null;
 
 		while (true) {
 
 			try {
-				Socket client = serversocket.accept();
+				Socket client = serverSocket.accept();
 				Scanner scanner = new Scanner(client.getInputStream());
 
 				String xmlLine;

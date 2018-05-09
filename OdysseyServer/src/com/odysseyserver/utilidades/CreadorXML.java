@@ -29,10 +29,13 @@ public class CreadorXML {
 		Document document = new Document();
 		Element root = new Element("Respuesta");
 		System.out.println("Entré a guardar el XML de respuesta");
+		Element child = new Element("valor");
 		if (valor) {
-			root.addContent("valor").setText("true");
+			child.setText("false");
+			root.addContent(child);
 		} else {
-			root.addContent("valor").setText("false");
+			child.setText("true");
+			root.addContent(child);
 		}
 		document.setRootElement(root);
 		guardarXmlEnvio(document);

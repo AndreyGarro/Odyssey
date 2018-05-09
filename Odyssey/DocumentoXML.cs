@@ -55,7 +55,7 @@ namespace Odyssey
             contrasena.AppendChild(sesion.CreateTextNode(pass));
             usuario.AppendChild(contrasena);
 
-            //sesion.Save("Xml\\sesion.xml");
+            sesion.Save("Xml\\sesion.xml");
             return sesion;
         }
 

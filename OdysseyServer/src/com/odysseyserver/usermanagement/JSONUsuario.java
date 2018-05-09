@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 
 public class JSONUsuario {
 	
+	@SuppressWarnings("unchecked")
 	public static JSONObject generarUsuarioJSON(Document doc) {
 		JSONObject usuario = new JSONObject();
 		usuario.put("username", doc.getRootElement().getChildText("NombreUsuario"));

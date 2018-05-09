@@ -7,17 +7,38 @@ import org.jdom2.Document;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * Gestiona lo relacionado a los JSON de la música
+ * 
+ * @author jorte
+ *
+ */
 public class JSONMusica {
-	
+
+	/**
+	 * Crea un nuevo JSONObject con la información de la canción
+	 * 
+	 * @param xml
+	 *            Documento XML donde se extrae la información
+	 * @return JSONObject
+	 */
+	@SuppressWarnings("unchecked")
 	public static JSONObject nuevaCanción(Document xml) {
 		JSONObject cancion = new JSONObject();
 		cancion.put("nombre", xml.getRootElement().getChildText("name"));
 		cancion.put("path", "data" + "\\" + "music" + "\\" + xml.getRootElement().getChildText("name") + ".mp3");
 		return cancion;
 	}
-	
+
+	/**
+	 * Se sobreescribe el JSONArray de la información musical
+	 * 
+	 * @param jsonList
+	 *            JSONArray a sobreescribir
+	 */
 	public static void guardarInfo(JSONArray jsonList) {
 		try {
+			@SuppressWarnings("resource")
 			FileWriter jsonWriter = new FileWriter("data\\jsondata\\jsonMusicList.json");
 			jsonWriter.write(jsonList.toJSONString());
 			jsonWriter.flush();

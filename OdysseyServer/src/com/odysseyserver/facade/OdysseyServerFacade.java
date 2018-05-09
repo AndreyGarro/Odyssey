@@ -5,18 +5,27 @@ import java.io.IOException;
 import org.jdom2.Document;
 
 import com.odysseyserver.musicmanagement.GestorMusica;
+import com.odysseyserver.server.Server;
 import com.odysseyserver.usermanagement.GestorUsuario;
 
+/**
+ * Facade del servidor, este administra todos los procesos y solicitudes del
+ * cliente, distribuye las tareas.
+ * 
+ * @author jorte
+ *
+ */
 public class OdysseyServerFacade {
-	
+
 	private static OdysseyServerFacade instance;
-	
-	private GestorMusica gestorMusical = GestorMusica.getInstance();
-	
-	private GestorUsuario gestorUsuario = GestorUsuario.getInstance();
-	
-	private OdysseyServerFacade () {
-		
+	private GestorUsuario gestorUsuario;
+	private GestorMusica gestorMusical;
+	private Server servidor;
+
+	private OdysseyServerFacade() {
+		servidor = Server.getInstance();
+		gestorMusical = GestorMusica.getInstance();
+		gestorUsuario = GestorUsuario.getInstance();
 	}
 
 	public static OdysseyServerFacade getInstance() {
@@ -45,7 +54,7 @@ public class OdysseyServerFacade {
 				gestorUsuario.registrar(doc);
 			} else if (id.equals("01")) {
 				System.out.println("Inicia sesión");
-				gestorUsuario.verificarSesion(doc);			
+				gestorUsuario.verificarSesion(doc);
 			} else {
 				throw new IOException();
 			}
@@ -55,7 +64,7 @@ public class OdysseyServerFacade {
 			switch (id) {
 			case "00":
 				System.out.println("Agregar Cancion");
-				gestorMusical.guardarCancion(doc);
+				gestorMusical.agregarCancion(doc);
 				break;
 			case "01":
 				break;
@@ -120,6 +129,13 @@ public class OdysseyServerFacade {
 		default:
 			throw new IOException("Raíz inválida");
 		}
+	}
+
+	/*
+	 * Modifica la información (XML) que se le enviará al cliente
+	 */
+	public void modificarMensajeCliente() {
+		servidor.sendCliente();
 	}
 
 }

@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Inicio>
-  <id>01</id>
-  <Usuario>
-    <NombreUsuario>qwer</NombreUsuario>
-    <Contrasena>12345678</Contrasena>
-  </Usuario>
-</Inicio>
+<Respuesta>false</Respuesta>

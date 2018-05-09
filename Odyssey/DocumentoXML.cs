@@ -29,7 +29,7 @@ namespace Odyssey
             raiz.AppendChild(cancion);
             cancion.AppendChild(song.CreateTextNode(stringSong));
 
-            song.Save("Xml/song.xml");
+            //song.Save("Xml/song.xml");
 
             return song;
         }
@@ -55,7 +55,7 @@ namespace Odyssey
             contrasena.AppendChild(sesion.CreateTextNode(pass));
             usuario.AppendChild(contrasena);
 
-            sesion.Save("Xml\\sesion.xml");
+            //sesion.Save("Xml\\sesion.xml");
             return sesion;
         }
 
@@ -89,7 +89,7 @@ namespace Odyssey
             generos1.AppendChild(nuevoUsuario.CreateTextNode(generos));
             raiz.AppendChild(generos1);
 
-            nuevoUsuario.Save("Xml\\nuevoUsuario.xml");
+            //nuevoUsuario.Save("Xml\\nuevoUsuario.xml");
             return nuevoUsuario;
         }
     }

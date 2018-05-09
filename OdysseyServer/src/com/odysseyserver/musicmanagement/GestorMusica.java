@@ -13,25 +13,32 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.odysseyserver.facade.OdysseyServerFacade;
+import com.odysseyserver.utilidades.CreadorXML;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
+/**
+ * Gestiona todas las tareas relacionadas con la música
+ * 
+ * @author jorte
+ *
+ */
 public class GestorMusica {
-	
-	private static JSONArray jsonMusicList;
+
+	private JSONArray jsonMusicList;
 	private static GestorMusica instance;
 
 	private GestorMusica() throws IOException, ParseException {
-		
 		try {
 			JSONParser parser = new JSONParser();
 			File json = new File("data\\jsondata\\jsonMusicList.json");
 			if (json.exists()) {
-				Object obj =  parser.parse(new FileReader("data\\jsondata\\jsonMusicList.json"));
+				Object obj = parser.parse(new FileReader("data\\jsondata\\jsonMusicList.json"));
 				jsonMusicList = (JSONArray) obj;
 			} else {
 				jsonMusicList = new JSONArray();
 				try {
-					JSONObject obj = new JSONObject();			
+					JSONObject obj = new JSONObject();
 					FileWriter jsonWriter = new FileWriter("data\\jsondata\\jsonMusicList.json");
 					jsonWriter.write(jsonMusicList.toJSONString());
 					jsonWriter.flush();
@@ -39,12 +46,12 @@ public class GestorMusica {
 					e.printStackTrace();
 				}
 			}
-			
+
 		} catch (FileNotFoundException fne) {
-			
+
 		}
 	}
-	
+
 	public static GestorMusica getInstance() {
 		if (instance == null) {
 			try {
@@ -55,35 +62,49 @@ public class GestorMusica {
 		}
 		return instance;
 	}
-	
-	/**
-	 * Guarda datos de la canción en un objeto JSON
-	 * @param xml
-	 */
-	@SuppressWarnings("unchecked")
-	private static  void guardarDataCancion(Document xml) {
-		jsonMusicList.add(JSONMusica.nuevaCanción(xml));
-		System.out.println(jsonMusicList.toJSONString());
-		JSONMusica.guardarInfo(jsonMusicList);
-	}
-		
+
 	/**
 	 * Se guardan las canciones provenientes de un XML
 	 * 
 	 * @param xmlCancion
 	 *            / Document xml que contienen información
 	 */
-	public void guardarCancion(Document xmlCancion) {
-		String destino = xmlCancion.getRootElement().getChildText("name");
-		try {
-			FileOutputStream nuevo = new FileOutputStream("data\\music\\" + destino + ".mp3");
-			byte[] newSong = Base64.decode(xmlCancion.getRootElement().getChild("song").getText());
-			nuevo.write(newSong);
-			guardarDataCancion(xmlCancion);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+	@SuppressWarnings("unchecked")
+	public void agregarCancion(Document xmlCancion) {
+		String nombre = xmlCancion.getRootElement().getChildText("name");
+		String artista = xmlCancion.getRootElement().getChildText("artista");
+		// Verifica que la canción no exista
+		
+		boolean existe = false;
+		for (int i = 0; i < jsonMusicList.size(); i++) {
+			JSONObject jsonTemp = (JSONObject) jsonMusicList.get(i);
+			if (nombre.equals(jsonTemp.get("nombre")) && artista.equals(jsonTemp.get("artista"))) {
+				existe = true;
+				break;
+			}
 		}
+		if (!existe) {
+			try {
+				FileOutputStream nuevo = new FileOutputStream("data\\music\\" + nombre + ".mp3");
+				byte[] newSong = Base64.decode(xmlCancion.getRootElement().getChild("song").getText());
+				nuevo.write(newSong);
+				
+				// Agrega la canción
+				jsonMusicList.add(JSONMusica.nuevaCanción(xmlCancion));
+				System.out.println(jsonMusicList.toJSONString());
+				JSONMusica.guardarInfo(jsonMusicList);
+				
+				// Envía XML al cliente
+				CreadorXML.responderTrueFalse(true);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			// Responde que no se puede agregar la canción
+			CreadorXML.responderTrueFalse(false);
+		}
+		
 	}
 }

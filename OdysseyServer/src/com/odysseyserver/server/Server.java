@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Files;
@@ -16,12 +17,21 @@ import org.jdom2.input.SAXBuilder;
 
 import com.odysseyserver.facade.OdysseyServerFacade;
 
+/**
+ * Servidor de OdysseyServer, procesa todo el funcionamiento de recibir y enviar
+ * mensajes
+ * 
+ * @author jorte
+ *
+ */
 public class Server implements Runnable {
 
 	private byte[] SendMessage;
+	private static Server instance;
 	private ServerSocket serverSocket;
+	private OdysseyServerFacade facade;
 
-	public Server() {
+	private Server() {
 		SendMessage = null;
 
 		try {
@@ -31,17 +41,27 @@ public class Server implements Runnable {
 		}
 	}
 
-	public void run() {
+	public static Server getInstance() {
+		if (instance == null) {
+			instance = new Server();
+		}
+		return instance;
+	}
 
-		OdysseyServerFacade facade = OdysseyServerFacade.getInstance();
+	/**
+	 * Se inicia el servidor para que procese la petición del cliente
+	 */
+	public void run() {
+		
+		facade = OdysseyServerFacade.getInstance();
 
 		while (true) {
 
 			try {
 				Socket client = serverSocket.accept();
 
+				// Recibe el mensaje
 				BufferedReader scanner = new BufferedReader(new InputStreamReader(client.getInputStream()));
-
 				String xmlLine = "";
 				String xml = "";
 				while (xmlLine != null) {
@@ -49,29 +69,26 @@ public class Server implements Runnable {
 					xmlLine = scanner.readLine();
 				}
 
-				byte[] buffer = xml.getBytes();
+				// Se crea el XML a partir del String que llegó
+				SAXBuilder sb = new SAXBuilder();
+				Document info = sb.build(new StringReader(xml));
 
-				@SuppressWarnings("resource")
-				FileOutputStream nuevoMensaje = new FileOutputStream("data\\xmldata\\nuevoMensaje.xml");
-
-				nuevoMensaje.write(buffer);
-
-				Document info = conversorXML("data\\xmldata\\nuevoMensaje.xml");
-
+				// Se envía el nuevo XML al Facade para que se procese el trabajo
 				facade.administrarXML(info);
 
 				client.close();
 				Socket clienteEnviar = serverSocket.accept();
 
+				// Se espera a que el programa modifique el mensaje a responder para el cliente
 				while (SendMessage == null) {
-					System.out.println("Entró a modificar");
-					sendCliente();
 				}
 
+				// Se envía el mensaje
 				DataOutputStream send = new DataOutputStream(clienteEnviar.getOutputStream());
 				send.write(SendMessage);
 
-				System.out.println("Enviado");
+				// Se restablece el mensaje a enviar a nulo para evitar distintos problemas de
+				// envío
 				SendMessage = null;
 				send.close();
 				clienteEnviar.close();
@@ -82,14 +99,11 @@ public class Server implements Runnable {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
-	public org.jdom2.Document conversorXML(String fileName) throws JDOMException, IOException {
-		SAXBuilder saxBuilder = new SAXBuilder();
-		return saxBuilder.build(new File(fileName));
-	}
-
+	/**
+	 * Se modifica el valor del XML a enviar para el cliente
+	 */
 	public void sendCliente() {
 		try {
 			this.SendMessage = Files.readAllBytes(new File("data\\xmldata\\respuesta.xml").toPath());

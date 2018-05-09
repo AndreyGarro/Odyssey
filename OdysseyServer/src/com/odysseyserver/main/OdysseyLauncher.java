@@ -5,19 +5,26 @@ import com.odysseyserver.musicmanagement.GestorMusica;
 import com.odysseyserver.server.Server;
 import com.odysseyserver.usermanagement.GestorUsuario;
 
+/**
+ * Main del proyecto, se inician todos los recursos del programa
+ * 
+ * @author jorte
+ *
+ */
 public class OdysseyLauncher {
 	
-	public static void main(String [] args) {
-		
+	
+	public static void main(String[] args) {
+
+		// Se inicializan todos los recursos necesarios para el programa
 		GestorMusica.getInstance();
 		OdysseyServerFacade.getInstance();
 		GestorUsuario.getInstance();
-		
-		Server odysseyServer = new Server();
+
+		// Se corre el server
+		Server odysseyServer = Server.getInstance();
 		new Thread(odysseyServer).start();
-		
-//		ServidorPrueba s = new ServidorPrueba();
-//		new Thread(s).start();;
+
 	}
 
 }

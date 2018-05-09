@@ -89,7 +89,7 @@ namespace Odyssey
             generos1.AppendChild(nuevoUsuario.CreateTextNode(generos));
             raiz.AppendChild(generos1);
 
-            //nuevoUsuario.Save("Xml\\nuevoUsuario.xml");
+            nuevoUsuario.Save("Xml\\nuevoUsuario.xml");
             return nuevoUsuario;
         }
     }

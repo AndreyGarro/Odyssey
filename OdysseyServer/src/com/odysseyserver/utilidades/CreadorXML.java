@@ -28,7 +28,6 @@ public class CreadorXML {
 	public static void responderTrueFalse(boolean valor) {
 		Document document = new Document();
 		Element root = new Element("Respuesta");
-		System.out.println("Entré a guardar el XML de respuesta");
 		Element child = new Element("valor");
 		if (valor) {
 			child.setText("true");

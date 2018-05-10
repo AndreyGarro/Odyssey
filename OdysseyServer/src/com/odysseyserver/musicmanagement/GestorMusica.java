@@ -78,13 +78,14 @@ public class GestorMusica {
 		boolean existe = false;
 		for (int i = 0; i < jsonMusicList.size(); i++) {
 			JSONObject jsonTemp = (JSONObject) jsonMusicList.get(i);
-			if (nombre.equals(jsonTemp.get("nombre")) && artista.equals(jsonTemp.get("artista"))) {
+			if (nombre.equals(jsonTemp.get(nombre)) && artista.equals(jsonTemp.get(artista))) {
 				existe = true;
 				break;
 			}
 		}
 		if (!existe) {
 			try {
+				System.out.println(nombre + " " + artista);
 				FileOutputStream nuevo = new FileOutputStream("data\\music\\" + nombre + ".mp3");
 				byte[] newSong = Base64.decode(xmlCancion.getRootElement().getChild("song").getText());
 				nuevo.write(newSong);

@@ -29,7 +29,7 @@ namespace Odyssey
 
             XmlElement nombre1 = song.CreateElement("name");
             raiz.AppendChild(nombre1);
-            nombre1.AppendChild(song.CreateTextNode("nombreCancion"));
+            nombre1.AppendChild(song.CreateTextNode(nombre));
 
             XmlElement artista1 = song.CreateElement("artista");
             raiz.AppendChild(artista1);

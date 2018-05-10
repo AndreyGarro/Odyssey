@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
 using System.Xml;
+using InputKey;
 
 namespace Odyssey
 {
@@ -37,11 +38,12 @@ namespace Odyssey
                 // Lee los datos de la cancion seleccionada y los convierte en bytes y String
                 musicArray = File.ReadAllBytes(abrirArchivo.FileName);
                 String stringSong = Convert.ToBase64String(musicArray);
-                String nombre = "nombreCancion";
-                String artista = "nombreArtista";
-                //Preguntar por el nombre
+
+                //Solicita el nombre y artista de la cancion y lo guarda en variables
+                String nombre = InputDialog.mostrar("Introduzca el nombre de la canción:");
+                String artista = InputDialog.mostrar("Introduzca el artista de la canción:");
+
                 XmlDocument song = DocumentoXML.agregaCancion(stringSong, nombre, artista);
-                //song.Save("inicio.xml");
                 SocketCliente.SendServidor(song);
                /* String[] archivosMp3 = abrirArchivo.SafeFileNames;
                 String[] rutaMp3 = abrirArchivo.FileNames;

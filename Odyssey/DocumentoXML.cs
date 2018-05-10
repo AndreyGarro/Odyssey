@@ -16,7 +16,7 @@ namespace Odyssey
     class DocumentoXML
     {
 
-        public static XmlDocument agregaCancion(String stringSong, String nombre)
+        public static XmlDocument agregaCancion(String stringSong, String nombre, String artista)
         {
             XmlDocument song = new XmlDocument();
 
@@ -31,11 +31,16 @@ namespace Odyssey
             raiz.AppendChild(nombre1);
             nombre1.AppendChild(song.CreateTextNode("nombreCancion"));
 
+            XmlElement artista1 = song.CreateElement("artista");
+            raiz.AppendChild(artista1);
+            artista1.AppendChild(song.CreateTextNode(artista));
+
             XmlElement cancion = song.CreateElement("song");
             raiz.AppendChild(cancion);
             cancion.AppendChild(song.CreateTextNode(stringSong));
 
-            song.Save("Xml/song.xml");
+
+            //song.Save("Xml/song.xml");
 
             return song;
         }

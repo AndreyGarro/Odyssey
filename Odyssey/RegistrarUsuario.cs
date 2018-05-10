@@ -41,7 +41,23 @@ namespace Odyssey
                             }
                         }
                         XmlDocument nuevoUsuario = DocumentoXML.registraUsuario(username, nombres, edad, pass1, generos);
-                        SocketCliente.SendServidor(nuevoUsuario);
+                        XmlDocument respuestaXml = SocketCliente.SendServidor(nuevoUsuario);
+                        XmlNodeList respuesta1 = respuestaXml.GetElementsByTagName("Respuesta");
+                        String res = respuesta1[0].InnerText;
+
+                        if (res.Equals("true"))
+                        {
+                            MessageBox.Show("Usuario Registrado Exitosamente!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            Form principal = new vtnPrincipal();
+                            this.Hide();
+                            principal.Show();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario Ya Registrado", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {

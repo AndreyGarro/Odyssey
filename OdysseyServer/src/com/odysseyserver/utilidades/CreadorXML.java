@@ -31,10 +31,10 @@ public class CreadorXML {
 		System.out.println("Entré a guardar el XML de respuesta");
 		Element child = new Element("valor");
 		if (valor) {
-			child.setText("false");
+			child.setText("true");
 			root.addContent(child);
 		} else {
-			child.setText("true");
+			child.setText("false");
 			root.addContent(child);
 		}
 		document.setRootElement(root);

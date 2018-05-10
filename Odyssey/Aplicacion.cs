@@ -38,24 +38,20 @@ namespace Odyssey
                 musicArray = File.ReadAllBytes(abrirArchivo.FileName);
                 String stringSong = Convert.ToBase64String(musicArray);
                 String nombre = "nombreCancion";
+                String artista = "nombreArtista";
                 //Preguntar por el nombre
-                XmlDocument song = DocumentoXML.agregaCancion(stringSong, nombre);
+                XmlDocument song = DocumentoXML.agregaCancion(stringSong, nombre, artista);
                 //song.Save("inicio.xml");
                 SocketCliente.SendServidor(song);
-
-                if (abrirArchivo.ShowDialog() ==  DialogResult.OK)
+               /* String[] archivosMp3 = abrirArchivo.SafeFileNames;
+                String[] rutaMp3 = abrirArchivo.FileNames;
+                foreach (var archivoMp3 in archivosMp3)
                 {
-                    String[] archivosMp3 = abrirArchivo.SafeFileNames;
-                    String[] rutaMp3 = abrirArchivo.FileNames;
-                    foreach (var archivoMp3 in archivosMp3)
-                    {
-                        lstCanciones.Items.Add(archivoMp3);
-                    }
-                    
-                    reproductor.URL = rutaMp3[0];
-                    lstCanciones.SelectedIndex = 0;
+                    lstCanciones.Items.Add(archivoMp3);
                 }
 
+                reproductor.URL = rutaMp3[0];
+                lstCanciones.SelectedIndex = 0;*/
             }
         }
 

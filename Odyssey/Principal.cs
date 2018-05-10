@@ -43,14 +43,13 @@ namespace Odyssey
             if (username.Length > 0 && pass.Length > 0)
             {
                 XmlDocument sesion = DocumentoXML.ingresaUsuario(username, pass);
-                //XmlDocument inicio = DocumentoXML.ingresaUsuario(username, pass);
-                //inicio.Save("inicio.xml");
                 
-
-                SocketCliente.SendServidor(sesion);
+                XmlDocument respuestaXml = SocketCliente.SendServidor(sesion);
+                XmlNodeList respuesta1 = respuestaXml.GetElementsByTagName("Respuesta");
+                String res = respuesta1[0].InnerText;
                 //Realiza la validacion si el usuario esta registrado
-                Boolean registrado = true;
-                if (registrado == true)
+                
+                if (res.Equals("true"))
                 {
                     Form aplicacion = new Aplicacion();
                     this.Hide();

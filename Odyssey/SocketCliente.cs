@@ -46,7 +46,7 @@ public class SocketCliente
 
         XmlDocument mensajeFinal = new XmlDocument();
         mensajeFinal.LoadXml(respuestaXML);
-        mensajeFinal.Save("C:\\Users\\jorte\\Desktop\\pruebaCopia.xml");
+  
         
         cliente2.Close();
 

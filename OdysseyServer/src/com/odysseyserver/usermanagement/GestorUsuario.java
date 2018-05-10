@@ -73,7 +73,7 @@ public class GestorUsuario {
 			System.out.println("Se ha registrado");
 			CreadorXML.responderTrueFalse(true);
 		} else {
-			CreadorXML.responderTrueFalse(true);
+			CreadorXML.responderTrueFalse(false);
 		}
 		
 	}
@@ -89,7 +89,7 @@ public class GestorUsuario {
 			System.out.println(user);
 			if (user.equals(obj.get("username"))) {
 				if (contraseña.equals(obj.get("contraseña"))) {
-					System.out.println("SE Puede ingresar");
+					System.out.println("Se Puede ingresar");
 					existe = true;
 					break;
 				}
@@ -97,9 +97,9 @@ public class GestorUsuario {
 		}
 		
 		if (existe) {
-			CreadorXML.responderTrueFalse(false);
-		} else {
 			CreadorXML.responderTrueFalse(true);
+		} else {
+			CreadorXML.responderTrueFalse(false);
 		}
 	}
 }

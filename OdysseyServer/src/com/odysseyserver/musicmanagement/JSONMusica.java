@@ -26,6 +26,12 @@ public class JSONMusica {
 	public static JSONObject nuevaCanción(Document xml) {
 		JSONObject cancion = new JSONObject();
 		cancion.put("nombre", xml.getRootElement().getChildText("name"));
+		cancion.put("artista", xml.getRootElement().getChildText("artista"));
+		cancion.put("album", "");
+		cancion.put("año", 0);
+		cancion.put("genero", "");
+		cancion.put("calificacion", 0);
+		cancion.put("letra", "");
 		cancion.put("path", "data" + "\\" + "music" + "\\" + xml.getRootElement().getChildText("name") + ".mp3");
 		return cancion;
 	}
@@ -46,5 +52,7 @@ public class JSONMusica {
 			e.printStackTrace();
 		}
 	}
-
+	
+	
+	
 }

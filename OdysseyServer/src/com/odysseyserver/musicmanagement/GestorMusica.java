@@ -13,7 +13,11 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.odysseyserver.facade.OdysseyServerFacade;
+import com.odysseyserver.listas.CircularDoubleList;
+import com.odysseyserver.listas.CircularList;
+import com.odysseyserver.listas.DoubleNode;
+import com.odysseyserver.listas.SimpleList;
+import com.odysseyserver.listas.SimpleNode;
 import com.odysseyserver.utilidades.CreadorXML;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
@@ -74,7 +78,7 @@ public class GestorMusica {
 		String nombre = xmlCancion.getRootElement().getChildText("name");
 		String artista = xmlCancion.getRootElement().getChildText("artista");
 		// Verifica que la canción no exista
-		
+
 		boolean existe = false;
 		for (int i = 0; i < jsonMusicList.size(); i++) {
 			JSONObject jsonTemp = (JSONObject) jsonMusicList.get(i);
@@ -89,12 +93,12 @@ public class GestorMusica {
 				FileOutputStream nuevo = new FileOutputStream("data\\music\\" + nombre + ".mp3");
 				byte[] newSong = Base64.decode(xmlCancion.getRootElement().getChild("song").getText());
 				nuevo.write(newSong);
-				
+
 				// Agrega la canción
 				jsonMusicList.add(JSONMusica.nuevaCanción(xmlCancion));
 				System.out.println(jsonMusicList.toJSONString());
 				JSONMusica.guardarInfo(jsonMusicList);
-				
+
 				// Envía XML al cliente
 				CreadorXML.responderTrueFalse(true);
 			} catch (FileNotFoundException e) {
@@ -106,6 +110,29 @@ public class GestorMusica {
 			// Responde que no se puede agregar la canción
 			CreadorXML.responderTrueFalse(false);
 		}
-		
+	}
+
+	/**
+	 * Ordena la lista de canciones por orden de album, se aplica BubbleSort
+	 */
+	public void ordenarAlbum() {
+		CircularList<Integer> listaOrden = new CircularList<>();
+		for (int i = 0; i < jsonMusicList.size(); i++) {
+			listaOrden.add(i, new SimpleNode<Integer>(i));
+		}
+		for (int i = 0; i < this.jsonMusicList.size(); i++) {
+			for (int j = 1; j < (this.jsonMusicList.size() - i); j++) {
+				JSONObject cancionPrevia = (JSONObject) jsonMusicList.get(j - 1);
+				JSONObject cancionActual = (JSONObject) jsonMusicList.get(j);
+				String albumPrev = (String) cancionPrevia.get("album");
+				String albumAct = (String) cancionActual.get("album");
+				if (albumPrev.compareTo(albumAct) > 0) {
+					int temp = listaOrden.find(j);
+					listaOrden.replace(j, new SimpleNode<Integer>(listaOrden.find(j - 1)));
+					listaOrden.replace(j - 1, new SimpleNode<Integer>(temp));
+				}
+			}
+		}
+		CreadorXML.responderOrdenado(listaOrden, jsonMusicList);
 	}
 }

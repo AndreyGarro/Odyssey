@@ -38,20 +38,20 @@ namespace Odyssey
         {
             String username = txtUser.Text;
             String pass = txtPassword.Text;
-            String ipAddress = txtIP.Text;
 
             if (username.Length > 0 && pass.Length > 0)
             {
                 XmlDocument sesion = DocumentoXML.ingresaUsuario(username, pass);
                 
                 XmlDocument respuestaXml = SocketCliente.SendServidor(sesion);
+                respuestaXml.Save("hola.xml");
                 XmlNodeList respuesta1 = respuestaXml.GetElementsByTagName("Respuesta");
                 String res = respuesta1[0].InnerText;
                 //Realiza la validacion si el usuario esta registrado
                 
                 if (res.Equals("true"))
                 {
-                    Form aplicacion = new Aplicacion();
+                    Form aplicacion = new lblCalificacion();
                     this.Hide();
                     aplicacion.Show();
                 }

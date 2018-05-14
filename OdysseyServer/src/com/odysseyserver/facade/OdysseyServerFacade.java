@@ -104,13 +104,14 @@ public class OdysseyServerFacade {
 		case "Navegar":
 			break;
 		case "Ordenar":
-			id = doc.getRootElement().getChild("id").getAttribute("opCode").getValue();
+			id = doc.getRootElement().getChild("id").getText();
 			switch (id) {
 			case "00":
 				break;
 			case "01":
 				break;
 			case "02":
+				gestorMusical.ordenarAlbum();
 				break;
 			default:
 				throw new IOException("Error en opCode");

@@ -68,23 +68,17 @@ public class CreadorXML {
 		for (int i = 0; i < listaOrden.getLength(); i++) {
 			Element cancion =  new Element("Cancion");
 			JSONObject cancionTemp = (JSONObject) jsonMusic.get(listaOrden.find(i));
-			cancion.setAttribute("nombre", (String) cancionTemp.get("nombre"));
-			cancion.setAttribute("artista", (String) cancionTemp.get("artista"));
-			cancion.setAttribute("album", (String) cancionTemp.get("album"));
-			cancion.setAttribute("genero", (String) cancionTemp.get("genero"));
-			cancion.setAttribute("ano", (String) cancionTemp.get("año"));
-			cancion.setAttribute("calificacion", (String) cancionTemp.get("calificacion"));
-			cancion.setAttribute("letra", (String) cancionTemp.get("letra"));
-			root.addContent(cancion);
+			cancion.addContent(new Element("nombre").setText((String) cancionTemp.get("nombre")));
+			cancion.addContent(new Element("artista").setText((String) cancionTemp.get("artista")));
+			cancion.addContent(new Element("album").setText((String) cancionTemp.get("album")));
+			cancion.addContent(new Element("genero").setText((String) cancionTemp.get("genero")));
+			cancion.addContent(new Element("ano").setText(cancionTemp.get("año").toString()));
+			cancion.addContent(new Element("calificacion").setText(cancionTemp.get("calificacion").toString()));
+			cancion.addContent(new Element("letra").setText((String) cancionTemp.get("letra")));
+			root.addContent(cancion);	
 		}
-		XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
-		try {
-			xmlOutputter.output(document, new FileOutputStream("data\\xmldata\\prueba.xml"));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		document.addContent(root);
+		guardarXmlEnvio(document);
 	}
 
 }

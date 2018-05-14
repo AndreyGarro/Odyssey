@@ -34,6 +34,7 @@ public class GestorMusica {
 
 	private GestorMusica() throws IOException, ParseException {
 		try {
+			
 			JSONParser parser = new JSONParser();
 			File json = new File("data\\jsondata\\jsonMusicList.json");
 			if (json.exists()) {
@@ -118,7 +119,7 @@ public class GestorMusica {
 	public void ordenarAlbum() {
 		CircularList<Integer> listaOrden = new CircularList<>();
 		for (int i = 0; i < jsonMusicList.size(); i++) {
-			listaOrden.add(i, new SimpleNode<Integer>(i));
+			listaOrden.add(new SimpleNode<Integer>(i));
 		}
 		for (int i = 0; i < this.jsonMusicList.size(); i++) {
 			for (int j = 1; j < (this.jsonMusicList.size() - i); j++) {

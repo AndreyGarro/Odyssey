@@ -45,6 +45,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAge = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +73,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Kristen ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 213);
+            this.label1.Location = new System.Drawing.Point(27, 222);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(177, 22);
             this.label1.TabIndex = 3;
@@ -102,7 +103,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Kristen ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(264, 213);
+            this.label4.Location = new System.Drawing.Point(264, 222);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(202, 22);
             this.label4.TabIndex = 6;
@@ -127,14 +128,14 @@
             // 
             // txtNames
             // 
-            this.txtNames.Location = new System.Drawing.Point(27, 238);
+            this.txtNames.Location = new System.Drawing.Point(27, 247);
             this.txtNames.Name = "txtNames";
             this.txtNames.Size = new System.Drawing.Size(192, 20);
             this.txtNames.TabIndex = 9;
             // 
             // txtPassword2
             // 
-            this.txtPassword2.Location = new System.Drawing.Point(268, 238);
+            this.txtPassword2.Location = new System.Drawing.Point(268, 247);
             this.txtPassword2.Name = "txtPassword2";
             this.txtPassword2.Size = new System.Drawing.Size(193, 20);
             this.txtPassword2.TabIndex = 10;
@@ -209,6 +210,15 @@
             this.txtAge.Size = new System.Drawing.Size(45, 20);
             this.txtAge.TabIndex = 18;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(276, 209);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(172, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "*Debe ser mayor o igual a 8 dígitos";
+            // 
             // RegistrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,6 +240,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.label7);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -262,5 +273,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.Label label7;
     }
 }

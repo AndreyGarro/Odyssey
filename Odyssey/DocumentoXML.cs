@@ -98,11 +98,25 @@ namespace Odyssey
             raiz.AppendChild(password);
 
             XmlElement generos1 = nuevoUsuario.CreateElement("Generos");
-           generos1.AppendChild(nuevoUsuario.CreateTextNode(generos));
+            generos1.AppendChild(nuevoUsuario.CreateTextNode(generos));
             raiz.AppendChild(generos1);
 
             //nuevoUsuario.Save("Xml\\nuevoUsuario.xml");
             return nuevoUsuario;
+        }
+
+        public static XmlDocument ordenamiento(String tipo)
+        {
+            XmlDocument orden = new XmlDocument();
+            XmlElement raiz = orden.CreateElement("Ordenar");
+            orden.AppendChild(raiz);
+
+            XmlElement id = orden.CreateElement("id");
+            id.AppendChild(orden.CreateTextNode(tipo));
+            raiz.AppendChild(id);
+
+            return orden;
+
         }
 
     }

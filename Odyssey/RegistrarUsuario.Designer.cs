@@ -180,6 +180,9 @@
             this.txtAge.Size = new System.Drawing.Size(52, 20);
             this.txtAge.TabIndex = 18;
             this.txtAge.Text = "Edad";
+            this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
+            this.txtAge.Enter += new System.EventHandler(this.txtAge_Enter);
+            this.txtAge.Leave += new System.EventHandler(this.txtAge_Leave);
             // 
             // label7
             // 

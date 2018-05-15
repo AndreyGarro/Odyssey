@@ -175,7 +175,6 @@ namespace Odyssey
             {
                 txtUsername.Text = "";
                 txtUsername.ForeColor = Color.LightGray;
-                txtUsername.UseSystemPasswordChar = true;
             }
         }
 
@@ -185,7 +184,6 @@ namespace Odyssey
             {
                 txtUsername.Text = "Nombre de Usuario";
                 txtUsername.ForeColor = Color.DimGray;
-                txtUsername.UseSystemPasswordChar = false;
             }
         }
 
@@ -195,7 +193,6 @@ namespace Odyssey
             {
                 txtNames.Text = "";
                 txtNames.ForeColor = Color.LightGray;
-                txtNames.UseSystemPasswordChar = true;
             }
         }
 
@@ -205,7 +202,29 @@ namespace Odyssey
             {
                 txtNames.Text = "Nombre y Apellidos";
                 txtNames.ForeColor = Color.DimGray;
-                txtNames.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void txtAge_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAge_Enter(object sender, EventArgs e)
+        {
+            if (txtAge.Text.Equals("Edad"))
+            {
+                txtAge.Text = "";
+                txtAge.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void txtAge_Leave(object sender, EventArgs e)
+        {
+            if (txtAge.Text.Equals(""))
+            {
+                txtAge.Text = "Edad";
+                txtAge.ForeColor = Color.DimGray;
             }
         }
     }

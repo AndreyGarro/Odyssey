@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Respuesta>
   <Cancion>
-    <nombre>catalina</nombre>
-    <artista>paloma</artista>
-    <album>nada</album>
-    <genero />
-    <ano>0</ano>
-    <calificacion>0</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
-    <nombre>enemyKilled</nombre>
-    <artista>si</artista>
-    <album />
-    <genero />
-    <ano>0</ano>
-    <calificacion>0</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
     <nombre>shipShoot</nombre>
     <artista>si</artista>
     <album>comida</album>
@@ -28,9 +10,45 @@
     <letra />
   </Cancion>
   <Cancion>
+    <nombre>catalina</nombre>
+    <artista>paloma</artista>
+    <album>nada</album>
+    <genero />
+    <ano>0</ano>
+    <calificacion>0</calificacion>
+    <letra />
+  </Cancion>
+  <Cancion>
     <nombre>asd</nombre>
     <artista>asd</artista>
+    <album>comelones</album>
+    <genero />
+    <ano>0</ano>
+    <calificacion>0</calificacion>
+    <letra />
+  </Cancion>
+  <Cancion>
+    <nombre>enemyKilled</nombre>
+    <artista>si</artista>
+    <album>papa</album>
+    <genero />
+    <ano>0</ano>
+    <calificacion>0</calificacion>
+    <letra />
+  </Cancion>
+  <Cancion>
+    <nombre>catalinaX2</nombre>
+    <artista>Paloma</artista>
     <album />
+    <genero />
+    <ano>0</ano>
+    <calificacion>0</calificacion>
+    <letra />
+  </Cancion>
+  <Cancion>
+    <nombre>Dura</nombre>
+    <artista>Daddy</artista>
+    <album>estupido</album>
     <genero />
     <ano>0</ano>
     <calificacion>0</calificacion>

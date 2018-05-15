@@ -39,12 +39,11 @@ namespace Odyssey
             String username = txtUser.Text;
             String pass = txtPassword.Text;
 
-            if (username.Length > 0 && pass.Length > 0)
+            if (username != "USUARIO" && pass != "CONTRASEÑA")
             {
                 XmlDocument sesion = DocumentoXML.ingresaUsuario(username, pass);
                 
                 XmlDocument respuestaXml = SocketCliente.SendServidor(sesion);
-                respuestaXml.Save("hola.xml");
                 XmlNodeList respuesta1 = respuestaXml.GetElementsByTagName("Respuesta");
                 String res = respuesta1[0].InnerText;
                 //Realiza la validacion si el usuario esta registrado
@@ -73,7 +72,7 @@ namespace Odyssey
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
 
         private void linkNew_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -86,6 +85,64 @@ namespace Odyssey
         private void vtnPrincipal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pctLogo_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtUser_Enter(object sender, EventArgs e)
+        {
+            if (txtUser.Text.Equals("USUARIO"))
+            {
+                txtUser.Text = "";
+                txtUser.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void txtUser_Leave(object sender, EventArgs e)
+        {
+            if (txtUser.Text.Equals(""))
+            {
+                txtUser.Text = "USUARIO";
+                txtUser.ForeColor = Color.DimGray;                   
+            }
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Equals("CONTRASEÑA"))
+            {
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.LightGray;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Equals(""))
+            {
+                txtPassword.Text = "CONTRASEÑA";
+                txtPassword.ForeColor = Color.DimGray;
+                txtPassword.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void imgSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¡Estás a punto de Salir! ¿Desea cerrar la aplicación?", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
         }
     }
 }

@@ -2,13 +2,26 @@ package com.odysseyserver.listas;
 
 /**
  * Lista enlazada simple
+ * 
  * @author jorte
  *
- * @param <T> Tipo de dato de la lista
+ * @param <T>
+ *            Tipo de dato de la lista
  */
 public class SimpleList<T> {
 	private SimpleNode<T> first;
 	private int length;
+
+	public void replace(int index, T dato) {
+		SimpleNode<T> temp = first;
+		for (int i = 0; i < this.length; i++) {
+			if (i == index) {
+				temp.setDato(dato);
+				break;
+			}
+			temp = temp.getNext();
+		}
+	}
 
 	public SimpleList() {
 
@@ -16,7 +29,9 @@ public class SimpleList<T> {
 
 	/**
 	 * Añade un nuevo nodo al final de la lista
-	 * @param nodo SimpleNode
+	 * 
+	 * @param nodo
+	 *            SimpleNode
 	 */
 	public void add(SimpleNode<T> nodo) {
 		if (isEmpty()) {
@@ -37,8 +52,11 @@ public class SimpleList<T> {
 
 	/**
 	 * Añade un nuevo nodo en la posición indicada de la lista
-	 * @param index Int
-	 * @param nodo SimpleNode
+	 * 
+	 * @param index
+	 *            Int
+	 * @param nodo
+	 *            SimpleNode
 	 */
 	public void add(int index, SimpleNode<T> nodo) {
 		if (index == 0) {
@@ -70,7 +88,9 @@ public class SimpleList<T> {
 
 	/**
 	 * Remueve un nodo según la posición de la lista
-	 * @param index Integer
+	 * 
+	 * @param index
+	 *            Integer
 	 */
 	public void remove(int index) {
 		if (index == 0) {
@@ -98,7 +118,9 @@ public class SimpleList<T> {
 
 	/**
 	 * Remueve un nodo según la igualdad con el nodo ingresado
-	 * @param nodo SimpleNode
+	 * 
+	 * @param nodo
+	 *            SimpleNode
 	 * @return True / False
 	 */
 	public boolean remove(SimpleNode<T> nodo) {
@@ -119,7 +141,9 @@ public class SimpleList<T> {
 
 	/**
 	 * Reueve un nodo según la igualdad de su dato
-	 * @param dato Dato
+	 * 
+	 * @param dato
+	 *            Dato
 	 */
 	public void remove(T dato) {
 		if (first.getDato() == dato) {
@@ -144,6 +168,7 @@ public class SimpleList<T> {
 
 	/**
 	 * Verifica si la lista está vacía
+	 * 
 	 * @return True / False
 	 */
 	public boolean isEmpty() {
@@ -153,6 +178,7 @@ public class SimpleList<T> {
 
 	/**
 	 * Retorna largo de la lista
+	 * 
 	 * @return Integer
 	 */
 	public int getLength() {
@@ -169,12 +195,14 @@ public class SimpleList<T> {
 
 	/**
 	 * Retorna dato según el índice ingresado
-	 * @param index Integer
+	 * 
+	 * @param index
+	 *            Integer
 	 * @return Dato
 	 */
 	public T find(int index) {
 		SimpleNode<T> temp = first;
-		for (int i = 0; i <= index; i++) {
+		for (int i = 0; i <= length; i++) {
 			if (i == index) {
 				return temp.getDato();
 			}
@@ -185,6 +213,7 @@ public class SimpleList<T> {
 
 	/**
 	 * Retorna primer nodo de la lista
+	 * 
 	 * @return SimpleNode
 	 */
 	public SimpleNode<T> getFirst() {

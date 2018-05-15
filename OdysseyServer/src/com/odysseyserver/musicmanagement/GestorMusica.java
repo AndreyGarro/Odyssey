@@ -5,7 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;import javax.xml.bind.helpers.AbstractUnmarshallerImpl;
+import java.io.IOException;
+import javax.xml.bind.helpers.AbstractUnmarshallerImpl;
 
 import org.jdom2.Document;
 import org.json.simple.JSONArray;
@@ -34,7 +35,7 @@ public class GestorMusica {
 
 	private GestorMusica() throws IOException, ParseException {
 		try {
-			
+
 			JSONParser parser = new JSONParser();
 			File json = new File("data\\jsondata\\jsonMusicList.json");
 			if (json.exists()) {
@@ -117,23 +118,29 @@ public class GestorMusica {
 	 * Ordena la lista de canciones por orden de album, se aplica BubbleSort
 	 */
 	public void ordenarAlbum() {
-		CircularList<Integer> listaOrden = new CircularList<>();
+		SimpleList<Integer> listaOrden = new SimpleList<Integer>();
 		for (int i = 0; i < jsonMusicList.size(); i++) {
 			listaOrden.add(new SimpleNode<Integer>(i));
 		}
-		
-		for (int i = 0; i < this.jsonMusicList.size(); i++) { 
+		SimpleList<String> albumes = new SimpleList<String>();
+		for (int i = 0; i < jsonMusicList.size(); i++) {
+			albumes.add(new SimpleNode<String>((String) ((JSONObject) jsonMusicList.get(i)).get("album")));
+		}
+
+		for (int i = 0; i < this.jsonMusicList.size(); i++) {
 			for (int j = 1; j < (this.jsonMusicList.size() - i); j++) {
-				JSONObject cancionPrevia = (JSONObject) jsonMusicList.get(j - 1);
-				JSONObject cancionActual = (JSONObject) jsonMusicList.get(j);
-				String albumPrev = (String) cancionPrevia.get("album");
-				String albumAct = (String) cancionActual.get("album");
-				if (albumPrev.compareTo(albumAct) > 0) {
+				if (albumes.find(j-1).compareTo(albumes.find(j)) > 0) {
 					int temp = listaOrden.find(j);
-					listaOrden.replace(j, new SimpleNode<Integer>(listaOrden.find(j - 1)));
-					listaOrden.replace(j - 1, new SimpleNode<Integer>(temp));
+					String tempStr = albumes.find(j);
+					listaOrden.replace(j, listaOrden.find(j - 1));
+					listaOrden.replace(j - 1, temp);
+					albumes.replace(j, albumes.find(j - 1));
+					albumes.replace(j - 1, tempStr);
 				}
 			}
+		}
+		for (int i = 0; i < listaOrden.getLength(); i++) {
+			System.out.print(listaOrden.find(i) + ", ");
 		}
 		CreadorXML.responderOrdenado(listaOrden, jsonMusicList);
 	}

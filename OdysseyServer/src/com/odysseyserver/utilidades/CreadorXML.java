@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 
 import com.odysseyserver.facade.OdysseyServerFacade;
 import com.odysseyserver.listas.CircularList;
+import com.odysseyserver.listas.SimpleList;
 
 /**
  * Contiene todo el funcinamiento relacionado a los XML
@@ -62,7 +63,7 @@ public class CreadorXML {
 		}
 	}
 	
-	public static void responderOrdenado(CircularList<Integer> listaOrden,  JSONArray jsonMusic){
+	public static void responderOrdenado(SimpleList<Integer> listaOrden,  JSONArray jsonMusic){
 		Document document =  new Document();
 		Element root =  new Element("Respuesta");
 		for (int i = 0; i < listaOrden.getLength(); i++) {
@@ -75,7 +76,7 @@ public class CreadorXML {
 			cancion.addContent(new Element("ano").setText(cancionTemp.get("año").toString()));
 			cancion.addContent(new Element("calificacion").setText(cancionTemp.get("calificacion").toString()));
 			cancion.addContent(new Element("letra").setText((String) cancionTemp.get("letra")));
-			root.addContent(cancion);	
+			root.addContent(cancion);
 		}
 		document.addContent(root);
 		guardarXmlEnvio(document);

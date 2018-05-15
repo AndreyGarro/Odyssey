@@ -103,5 +103,110 @@ namespace Odyssey
         {
 
         }
+
+        private void txtNames_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Equals("Contraseña"))
+            {
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.LightGray;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void label9_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword2_Enter(object sender, EventArgs e)
+        {
+            if (txtPassword2.Text.Equals("Confirmar Contraseña"))
+            {
+                txtPassword2.Text = "";
+                txtPassword2.ForeColor = Color.LightGray;
+                txtPassword2.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtPassword2_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword2.Text.Equals(""))
+            {
+                txtPassword2.Text = "Confirmar Contraseña";
+                txtPassword2.ForeColor = Color.DimGray;
+                txtPassword2.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (txtPassword.Text.Equals(""))
+            {
+                txtPassword.Text = "Contraseña";
+                txtPassword.ForeColor = Color.DimGray;
+                txtPassword.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            if (txtUsername.Text.Equals("Nombre de Usuario"))
+            {
+                txtUsername.Text = "";
+                txtUsername.ForeColor = Color.LightGray;
+                txtUsername.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (txtUsername.Text.Equals(""))
+            {
+                txtUsername.Text = "Nombre de Usuario";
+                txtUsername.ForeColor = Color.DimGray;
+                txtUsername.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void txtNames_Enter(object sender, EventArgs e)
+        {
+            if (txtNames.Text.Equals("Nombre y Apellidos"))
+            {
+                txtNames.Text = "";
+                txtNames.ForeColor = Color.LightGray;
+                txtNames.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void txtNames_Leave(object sender, EventArgs e)
+        {
+            if (txtNames.Text.Equals(""))
+            {
+                txtNames.Text = "Nombre y Apellidos";
+                txtNames.ForeColor = Color.DimGray;
+                txtNames.UseSystemPasswordChar = false;
+            }
+        }
     }
 }

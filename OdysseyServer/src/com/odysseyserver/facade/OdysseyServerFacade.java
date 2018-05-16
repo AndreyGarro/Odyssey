@@ -107,6 +107,7 @@ public class OdysseyServerFacade {
 			id = doc.getRootElement().getChild("id").getText();
 			switch (id) {
 			case "00":
+				gestorMusical.ordenarCancion();
 				break;
 			case "01":
 				break;

@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import javax.xml.bind.helpers.AbstractUnmarshallerImpl;
 
 import org.jdom2.Document;
 import org.json.simple.JSONArray;
@@ -14,11 +13,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.odysseyserver.listas.CircularDoubleList;
-import com.odysseyserver.listas.CircularList;
-import com.odysseyserver.listas.DoubleNode;
-import com.odysseyserver.listas.SimpleList;
-import com.odysseyserver.listas.SimpleNode;
 import com.odysseyserver.utilidades.CreadorXML;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
@@ -118,30 +112,13 @@ public class GestorMusica {
 	 * Ordena la lista de canciones por orden de album, se aplica BubbleSort
 	 */
 	public void ordenarAlbum() {
-		SimpleList<Integer> listaOrden = new SimpleList<Integer>();
-		for (int i = 0; i < jsonMusicList.size(); i++) {
-			listaOrden.add(new SimpleNode<Integer>(i));
-		}
-		SimpleList<String> albumes = new SimpleList<String>();
-		for (int i = 0; i < jsonMusicList.size(); i++) {
-			albumes.add(new SimpleNode<String>((String) ((JSONObject) jsonMusicList.get(i)).get("album")));
-		}
+		Ordenamiento.ordenarAlbum(jsonMusicList);
+	}
 
-		for (int i = 0; i < this.jsonMusicList.size(); i++) {
-			for (int j = 1; j < (this.jsonMusicList.size() - i); j++) {
-				if (albumes.find(j-1).compareTo(albumes.find(j)) > 0) {
-					int temp = listaOrden.find(j);
-					String tempStr = albumes.find(j);
-					listaOrden.replace(j, listaOrden.find(j - 1));
-					listaOrden.replace(j - 1, temp);
-					albumes.replace(j, albumes.find(j - 1));
-					albumes.replace(j - 1, tempStr);
-				}
-			}
-		}
-		for (int i = 0; i < listaOrden.getLength(); i++) {
-			System.out.print(listaOrden.find(i) + ", ");
-		}
-		CreadorXML.responderOrdenado(listaOrden, jsonMusicList);
+	/**
+	 * Ordena las canciones en orden del nombre de la canción
+	 */
+	public void ordenarCancion() {
+		Ordenamiento.ordenarCancion(jsonMusicList);
 	}
 }

@@ -23,6 +23,7 @@ namespace Odyssey
         public lblCalificacion()
         {
             InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,6 +47,8 @@ namespace Odyssey
 
                 XmlDocument song = DocumentoXML.agregaCancion(stringSong, nombre, artista);
                 SocketCliente.SendServidor(song);
+                
+                
                /* String[] archivosMp3 = abrirArchivo.SafeFileNames;
                 String[] rutaMp3 = abrirArchivo.FileNames;
                 foreach (var archivoMp3 in archivosMp3)
@@ -66,6 +69,7 @@ namespace Odyssey
             lblCalif.Hide();
             lblAlbum.Hide();
             lblGenero.Hide();
+
         }
 
         private void txtCanciones_TextChanged(object sender, EventArgs e)
@@ -109,6 +113,7 @@ namespace Odyssey
             lblCalif.Show();
             lblAlbum.Show();
             lblGenero.Show();
+            
         }
 
         private void toolTipAgrega_Popup(object sender, PopupEventArgs e)
@@ -158,7 +163,27 @@ namespace Odyssey
 
         private void label1_Click(object sender, EventArgs e)
         {
-            
+            lstCanciones.Items.Clear();
+            XmlDocument ordenado = SocketCliente.SendServidor(DocumentoXML.ordenamiento("00"));
+
+            XmlNodeList nombre = ordenado.GetElementsByTagName("nombre");
+            XmlNodeList artista = ordenado.GetElementsByTagName("artista");
+            XmlNodeList album = ordenado.GetElementsByTagName("album");
+            XmlNodeList genero = ordenado.GetElementsByTagName("genero");
+            XmlNodeList calificacion = ordenado.GetElementsByTagName("calificacion");
+
+            int cont = 0;
+            foreach (XmlElement i in nombre)
+            {
+                String nombre1 = nombre.Item(cont).InnerText;
+                String artista1 = artista.Item(cont).InnerText;
+                String album1 = album.Item(cont).InnerText;
+                String genero1 = genero.Item(cont).InnerText;
+                String calificacion1 = calificacion.Item(cont).InnerText;
+                lstCanciones.Items.Add(String.Format(stdDetails, nombre1, artista1, album1, genero1, calificacion1));
+
+                cont++;
+            }
         }
 
         private void lblAlbum_Click(object sender, EventArgs e)
@@ -184,6 +209,21 @@ namespace Odyssey
 
                 cont++;
             }
+        }
+
+        private void reproductor_Enter(object sender, EventArgs e)
+        {
+            reproductor.URL = "";
+        }
+
+        private void lblArtista_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

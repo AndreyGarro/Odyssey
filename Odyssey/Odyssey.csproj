@@ -57,8 +57,17 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\Downloads\Bunifu UI WinForms 1.5.5.1\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="DarrenLee.LiveStream">
+      <HintPath>..\..\..\Downloads\DarrenLee.LiveStream.dll</HintPath>
+    </Reference>
     <Reference Include="InputKey">
       <HintPath>.\InputKey.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\..\..\Downloads\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NSpeex">
+      <HintPath>..\..\..\Downloads\NSpeex.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -66,9 +66,9 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtPassword.Location = new System.Drawing.Point(32, 116);
+            this.txtPassword.Location = new System.Drawing.Point(26, 108);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(256, 20);
+            this.txtPassword.Size = new System.Drawing.Size(274, 20);
             this.txtPassword.TabIndex = 14;
             this.txtPassword.Tag = "txtPassword";
             this.txtPassword.Text = "CONTRASEÑA";
@@ -86,9 +86,9 @@
             this.btnEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnter.ForeColor = System.Drawing.Color.White;
-            this.btnEnter.Location = new System.Drawing.Point(33, 177);
+            this.btnEnter.Location = new System.Drawing.Point(26, 160);
             this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(302, 24);
+            this.btnEnter.Size = new System.Drawing.Size(274, 24);
             this.btnEnter.TabIndex = 7;
             this.btnEnter.Tag = "btnEnter";
             this.btnEnter.Text = "ACCEDER";
@@ -101,9 +101,9 @@
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUser.Location = new System.Drawing.Point(33, 48);
+            this.txtUser.Location = new System.Drawing.Point(26, 48);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(255, 20);
+            this.txtUser.Size = new System.Drawing.Size(274, 20);
             this.txtUser.TabIndex = 13;
             this.txtUser.Tag = "txtUser";
             this.txtUser.Text = "USUARIO";
@@ -115,7 +115,7 @@
             // 
             this.linkNew.AutoSize = true;
             this.linkNew.LinkColor = System.Drawing.Color.Gray;
-            this.linkNew.Location = new System.Drawing.Point(126, 204);
+            this.linkNew.Location = new System.Drawing.Point(102, 204);
             this.linkNew.Name = "linkNew";
             this.linkNew.Size = new System.Drawing.Size(116, 13);
             this.linkNew.TabIndex = 8;
@@ -156,6 +156,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(342, 317);
             this.panel2.TabIndex = 20;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // imgSalir
             // 
@@ -173,7 +174,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(125, 8);
+            this.label3.Location = new System.Drawing.Point(146, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 22);
             this.label3.TabIndex = 17;
@@ -184,22 +185,22 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(29, 62);
+            this.label1.Location = new System.Drawing.Point(23, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 13);
+            this.label1.Size = new System.Drawing.Size(277, 13);
             this.label1.TabIndex = 15;
-            this.label1.Text = "__________________________________________";
+            this.label1.Text = "_____________________________________________";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(29, 128);
+            this.label2.Location = new System.Drawing.Point(23, 121);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(259, 13);
+            this.label2.Size = new System.Drawing.Size(277, 13);
             this.label2.TabIndex = 16;
-            this.label2.Text = "__________________________________________";
+            this.label2.Text = "_____________________________________________";
             // 
             // vtnPrincipal
             // 

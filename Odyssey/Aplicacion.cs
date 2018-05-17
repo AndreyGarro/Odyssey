@@ -26,87 +26,15 @@ namespace Odyssey
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void Aplicacion_Load(object sender, EventArgs e)
         {
-            lstCanciones.Show();
+            panelBiblioteca.Hide();
         }
 
-        private void txtCanciones_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void lstCanciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-        }
-
-        private void btnBiblioteca_Click(object sender, EventArgs e)
-        {
-           
-            
-        }
-
-        private void toolTipAgrega_Popup(object sender, PopupEventArgs e)
-        {
-            toolTipAgrega.UseFading = true;
-            toolTipAgrega.UseAnimation = true;
-            toolTipAgrega.ShowAlways = true;
-            toolTipAgrega.AutoPopDelay = 6000;
-            toolTipAgrega.InitialDelay = 500;
-            toolTipAgrega.ReshowDelay = 500;
-            
-        }
-
-        private void toolTip1Biblioteca_Popup(object sender, PopupEventArgs e)
-        {
-            toolTip1Biblioteca.UseFading = true;
-            toolTip1Biblioteca.UseAnimation = true;
-            toolTip1Biblioteca.ShowAlways = true;
-            toolTip1Biblioteca.AutoPopDelay = 6000;
-            toolTip1Biblioteca.InitialDelay = 500;
-            toolTip1Biblioteca.ReshowDelay = 500;
-        }
-
-        private void listGenero_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbBoxOrdena_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void lblAlbum_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-
-        private void lblArtista_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -152,6 +80,8 @@ namespace Odyssey
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
+            escondeAmigos();
+            muestraBiblioteca();
             lstCanciones.Items.Clear();
             lstCanciones.Show();
 
@@ -213,11 +143,6 @@ namespace Odyssey
             }
         }
 
-        private void btnAmigos_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             lstCanciones.Items.Clear();
@@ -241,11 +166,6 @@ namespace Odyssey
 
                 cont++;
             }
-        }
-
-        private void bunifuFlatButton6_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void bunifuFlatButton6_Click_1(object sender, EventArgs e)
@@ -273,14 +193,79 @@ namespace Odyssey
             }
         }
 
-        private void lblGenero_Click(object sender, EventArgs e)
+        private void lstCanciones_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
 
-        private void lstCanciones_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void bunifuFlatButton5_Click_1(object sender, EventArgs e)
         {
+            lstCanciones.Items.Clear();
+            XmlDocument ordenado = SocketCliente.SendServidor(DocumentoXML.ordenamiento("01"));
 
+            XmlNodeList nombre = ordenado.GetElementsByTagName("nombre");
+            XmlNodeList artista = ordenado.GetElementsByTagName("artista");
+            XmlNodeList album = ordenado.GetElementsByTagName("album");
+            XmlNodeList genero = ordenado.GetElementsByTagName("genero");
+            XmlNodeList calificacion = ordenado.GetElementsByTagName("calificacion");
+
+            int cont = 0;
+            foreach (XmlElement i in nombre)
+            {  
+                String nombre1 = nombre.Item(cont).InnerText;
+                String artista1 = artista.Item(cont).InnerText;
+                String album1 = album.Item(cont).InnerText;
+                String genero1 = genero.Item(cont).InnerText;
+                String calificacion1 = calificacion.Item(cont).InnerText;
+                lstCanciones.Items.Add(String.Format(stdDetails, nombre1, artista1, album1, genero1, calificacion1));
+
+                cont++;
+            }
+        }
+
+        private void bunifuFlatButton2_Click(object sender, EventArgs e)
+        {
+            escondeBiblioteca();
+            muestraAmigos();
+        }
+
+        private void panelAmigos_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void muestraBiblioteca()
+        {
+            panelBiblioteca.Show();
+            btnNombre.Show();
+            btnArtista.Show();
+            btnAlbum.Show();
+            btnGenero.Show();
+            btnCalificacion.Show();
+            lstCanciones.Show();
+            btnAgregaCancion.Show();
+
+        }
+        private void escondeBiblioteca()
+        {
+            btnNombre.Hide();
+            btnArtista.Hide();
+            btnAlbum.Hide();
+            btnGenero.Hide();
+            btnCalificacion.Hide();
+            lstCanciones.Hide();
+            btnAgregaCancion.Hide();
+        }
+        private void muestraAmigos()
+        {
+            panelBiblioteca.Show();
+            lstFriends.Show();
+            btnAgregarAmigo.Show();
+        }
+        private void escondeAmigos()
+        {
+            lstFriends.Hide();
+            btnAgregarAmigo.Hide();
         }
     }
 }

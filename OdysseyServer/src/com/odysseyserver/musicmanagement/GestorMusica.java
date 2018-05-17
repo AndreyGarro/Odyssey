@@ -14,6 +14,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.odysseyserver.utilidades.CreadorXML;
+import com.odysseyserver.utilidades.Ordenamiento;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 /**
@@ -120,5 +121,12 @@ public class GestorMusica {
 	 */
 	public void ordenarCancion() {
 		Ordenamiento.ordenarCancion(jsonMusicList);
+	}
+	
+	/**
+	 * Ordena las canciones en orden del nombre de artista
+	 */
+	public void ordenarArtista() {
+		Ordenamiento.ordenarArtista(jsonMusicList);
 	}
 }

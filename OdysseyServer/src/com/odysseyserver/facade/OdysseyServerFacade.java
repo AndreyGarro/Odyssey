@@ -110,6 +110,7 @@ public class OdysseyServerFacade {
 				gestorMusical.ordenarCancion();
 				break;
 			case "01":
+				gestorMusical.ordenarArtista();
 				break;
 			case "02":
 				gestorMusical.ordenarAlbum();

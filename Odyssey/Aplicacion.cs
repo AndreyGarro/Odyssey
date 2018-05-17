@@ -28,48 +28,12 @@ namespace Odyssey
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Abre la ventana de Windows para seleccionar la cancion
-            OpenFileDialog abrirArchivo = new OpenFileDialog();
-            abrirArchivo.Multiselect = true;
-            abrirArchivo.InitialDirectory = "C:\\";
-            abrirArchivo.Filter = "Music (.mp3)|*.mp3|ALL Files (*.*)|*.*";
-            abrirArchivo.RestoreDirectory = true;
-
-            if (abrirArchivo.ShowDialog() == DialogResult.OK)
-            {
-                // Lee los datos de la cancion seleccionada y los convierte en bytes y String
-                musicArray = File.ReadAllBytes(abrirArchivo.FileName);
-                String stringSong = Convert.ToBase64String(musicArray);
-
-                //Solicita el nombre y artista de la cancion y lo guarda en variables
-                String nombre = InputDialog.mostrar("Introduzca el nombre de la canción:");
-                String artista = InputDialog.mostrar("Introduzca el artista de la canción:");
-
-                XmlDocument song = DocumentoXML.agregaCancion(stringSong, nombre, artista);
-                SocketCliente.SendServidor(song);
-                
-                
-               /* String[] archivosMp3 = abrirArchivo.SafeFileNames;
-                String[] rutaMp3 = abrirArchivo.FileNames;
-                foreach (var archivoMp3 in archivosMp3)
-                {
-                    lstCanciones.Items.Add(archivoMp3);
-                }
-
-                reproductor.URL = rutaMp3[0];
-                lstCanciones.SelectedIndex = 0;*/
-            }
+           
         }
 
         private void Aplicacion_Load(object sender, EventArgs e)
         {
-            lstCanciones.Hide();
-            lblNombre.Hide();
-            lblArtista.Hide();
-            lblCalif.Hide();
-            lblAlbum.Hide();
-            lblGenero.Hide();
-
+            lstCanciones.Show();
         }
 
         private void txtCanciones_TextChanged(object sender, EventArgs e)
@@ -83,6 +47,110 @@ namespace Odyssey
         }
 
         private void btnBiblioteca_Click(object sender, EventArgs e)
+        {
+           
+            
+        }
+
+        private void toolTipAgrega_Popup(object sender, PopupEventArgs e)
+        {
+            toolTipAgrega.UseFading = true;
+            toolTipAgrega.UseAnimation = true;
+            toolTipAgrega.ShowAlways = true;
+            toolTipAgrega.AutoPopDelay = 6000;
+            toolTipAgrega.InitialDelay = 500;
+            toolTipAgrega.ReshowDelay = 500;
+            
+        }
+
+        private void toolTip1Biblioteca_Popup(object sender, PopupEventArgs e)
+        {
+            toolTip1Biblioteca.UseFading = true;
+            toolTip1Biblioteca.UseAnimation = true;
+            toolTip1Biblioteca.ShowAlways = true;
+            toolTip1Biblioteca.AutoPopDelay = 6000;
+            toolTip1Biblioteca.InitialDelay = 500;
+            toolTip1Biblioteca.ReshowDelay = 500;
+        }
+
+        private void listGenero_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbBoxOrdena_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void lblAlbum_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+
+        private void lblArtista_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¡Estás a punto de Salir! ¿Desea cerrar la aplicación?", "Cerrar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            if (sideMenu.Width == 50)
+            {
+                sideMenu.Visible = false;
+                sideMenu.Width = 200;
+                miniLogo.Hide();
+                panelEntra.ShowSync(sideMenu);
+                logoAnimator.ShowSync(logo);
+
+            }
+            else
+            {
+                logoAnimator.HideSync(logo);
+                sideMenu.Visible = false;
+                sideMenu.Width = 50;
+                panelFuera.ShowSync(sideMenu);
+                miniLogo.Show();
+            }
+        }
+
+        private void header_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
             lstCanciones.Items.Clear();
             lstCanciones.Show();
@@ -108,60 +176,49 @@ namespace Odyssey
 
                 cont++;
             }
-            lblNombre.Show();
-            lblArtista.Show();
-            lblCalif.Show();
-            lblAlbum.Show();
-            lblGenero.Show();
-            
         }
 
-        private void toolTipAgrega_Popup(object sender, PopupEventArgs e)
+        private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
-            toolTipAgrega.UseFading = true;
-            toolTipAgrega.UseAnimation = true;
-            toolTipAgrega.ShowAlways = true;
-            toolTipAgrega.AutoPopDelay = 6000;
-            toolTipAgrega.InitialDelay = 500;
-            toolTipAgrega.ReshowDelay = 500;
-            
-        }
+            //Abre la ventana de Windows para seleccionar la cancion
+            OpenFileDialog abrirArchivo = new OpenFileDialog();
+            abrirArchivo.Multiselect = true;
+            abrirArchivo.InitialDirectory = "C:\\";
+            abrirArchivo.Filter = "Music (.mp3)|*.mp3|ALL Files (*.*)|*.*";
+            abrirArchivo.RestoreDirectory = true;
 
-        private void toolTip1Biblioteca_Popup(object sender, PopupEventArgs e)
-        {
-            toolTip1Biblioteca.UseFading = true;
-            toolTip1Biblioteca.UseAnimation = true;
-            toolTip1Biblioteca.ShowAlways = true;
-            toolTip1Biblioteca.AutoPopDelay = 6000;
-            toolTip1Biblioteca.InitialDelay = 500;
-            toolTip1Biblioteca.ReshowDelay = 500;
-        }
-
-        private void btnOrdenar_Click(object sender, EventArgs e)
-        {
-            String opcion = (String)cmbBoxOrdena.SelectedItem;
-            if (opcion.Equals("Álbum"))
+            if (abrirArchivo.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("ordenado por album");
+                // Lee los datos de la cancion seleccionada y los convierte en bytes y String
+                musicArray = File.ReadAllBytes(abrirArchivo.FileName);
+                String stringSong = Convert.ToBase64String(musicArray);
+
+                //Solicita el nombre y artista de la cancion y lo guarda en variables
+                String nombre = InputDialog.mostrar("Introduzca el nombre de la canción:");
+                String artista = InputDialog.mostrar("Introduzca el artista de la canción:");
+
+                XmlDocument song = DocumentoXML.agregaCancion(stringSong, nombre, artista);
+                SocketCliente.SendServidor(song);
+
+
+                /* String[] archivosMp3 = abrirArchivo.SafeFileNames;
+                 String[] rutaMp3 = abrirArchivo.FileNames;
+                 foreach (var archivoMp3 in archivosMp3)
+                 {
+                     lstCanciones.Items.Add(archivoMp3);
+                 }
+
+                 reproductor.URL = rutaMp3[0];
+                 lstCanciones.SelectedIndex = 0;*/
             }
         }
 
-        private void listGenero_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAmigos_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void cmbBoxOrdena_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             lstCanciones.Items.Clear();
             XmlDocument ordenado = SocketCliente.SendServidor(DocumentoXML.ordenamiento("00"));
@@ -186,7 +243,12 @@ namespace Odyssey
             }
         }
 
-        private void lblAlbum_Click(object sender, EventArgs e)
+        private void bunifuFlatButton6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton6_Click_1(object sender, EventArgs e)
         {
             lstCanciones.Items.Clear();
             XmlDocument ordenado = SocketCliente.SendServidor(DocumentoXML.ordenamiento("02"));
@@ -211,17 +273,12 @@ namespace Odyssey
             }
         }
 
-        private void reproductor_Enter(object sender, EventArgs e)
-        {
-            reproductor.URL = "";
-        }
-
-        private void lblArtista_Click(object sender, EventArgs e)
+        private void lblGenero_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void lstCanciones_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

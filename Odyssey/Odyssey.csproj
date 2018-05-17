@@ -54,6 +54,10 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>..\..\..\Downloads\Bunifu UI WinForms 1.5.5.1\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\Downloads\Bunifu UI WinForms 1.5.5.1\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
@@ -140,6 +144,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="AxAXVLC">
+      <Guid>{DF2BBE39-40A8-433B-A279-073F48DA94B6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="AXVLC">
+      <Guid>{DF2BBE39-40A8-433B-A279-073F48DA94B6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="AxWMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>

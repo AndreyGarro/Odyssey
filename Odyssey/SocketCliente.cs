@@ -14,7 +14,7 @@ public class SocketCliente
     {
         TcpClient cliente = new TcpClient();
         mensajeEntregado = new XmlDocument();
-        cliente.Connect("172.18.161.248", 11000);
+        cliente.Connect("127.0.0.1", 11000);
 
 
         Stream stream = cliente.GetStream(); 
@@ -31,7 +31,7 @@ public class SocketCliente
         cliente.Close();
 
         TcpClient cliente2 = new TcpClient();
-        cliente2.Connect("172.18.161.248", 11000);
+        cliente2.Connect("127.0.0.1", 11000);
         Stream stream1 = cliente2.GetStream();
         
         StreamReader respuesta = new StreamReader(stream1);

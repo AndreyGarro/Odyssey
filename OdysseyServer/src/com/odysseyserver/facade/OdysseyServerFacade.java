@@ -44,7 +44,7 @@ public class OdysseyServerFacade {
 	 * @throws IOException
 	 *             Error en opCode
 	 */
-	public void administrarXML(Document doc) throws IOException {
+	public void administrarPeticion(Document doc) throws IOException {
 		String id;
 		switch (doc.getRootElement().getName()) {
 		case "Inicio":
@@ -77,7 +77,7 @@ public class OdysseyServerFacade {
 			}
 			break;
 		case "Reproducir":
-			id = doc.getRootElement().getChild("id").getName();
+			id = doc.getRootElement().getChild("id").getText();
 			if (id.equals("00")) {
 
 			} else if (id.equals("01")) {
@@ -87,7 +87,7 @@ public class OdysseyServerFacade {
 			}
 			break;
 		case "Busqueda":
-			id = doc.getRootElement().getChild("id").getAttribute("opCode").getValue();
+			id = doc.getRootElement().getChild("id").getText();
 			switch (id) {
 			case "00":
 				break;
@@ -120,11 +120,15 @@ public class OdysseyServerFacade {
 			}
 			break;
 		case "Amigo":
-			id = doc.getRootElement().getChild("id").getAttribute("opCode").getValue();
+			id = doc.getRootElement().getChild("id").getText();
 			if (id.equals("00")) {
-
+				gestorUsuario.agregarAmigo(doc);
 			} else if (id.equals("01")) {
-
+				gestorUsuario.retornarListaAmigos(doc);
+			} else if (id.equals("02")) {
+				gestorUsuario.notificar(doc);
+			} else if (id.equals("03")) {
+				gestorUsuario.recomendar(doc);
 			} else {
 				throw new IOException("Error en opCode");
 			}

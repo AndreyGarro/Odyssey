@@ -13,8 +13,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.odysseyserver.utilidades.CreadorXML;
-import com.odysseyserver.utilidades.Ordenamiento;
+import com.odysseyserver.tools.CreadorXML;
+import com.odysseyserver.tools.Ordenamiento;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 /**
@@ -107,6 +107,12 @@ public class GestorMusica {
 			// Responde que no se puede agregar la canción
 			CreadorXML.responderTrueFalse(false);
 		}
+	}
+	
+	public void modificarMetaData(Document xmlDoc) {
+		
+		
+		
 	}
 
 	/**

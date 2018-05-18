@@ -1,4 +1,4 @@
-package com.odysseyserver.utilidades;
+package com.odysseyserver.tools;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -12,7 +12,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.odysseyserver.facade.OdysseyServerFacade;
-import com.odysseyserver.listas.CircularList;
+import com.odysseyserver.listas.CircularDoubleList;
 import com.odysseyserver.listas.SimpleList;
 
 /**
@@ -21,7 +21,7 @@ import com.odysseyserver.listas.SimpleList;
  * @author jorte
  *
  */
-public class CreadorXML {	
+public class CreadorXML {
 
 	/**
 	 * Crea un XML con respuesta True o False para el cliente
@@ -62,12 +62,12 @@ public class CreadorXML {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void responderOrdenado(SimpleList<Integer> listaOrden,  JSONArray jsonMusic){
-		Document document =  new Document();
-		Element root =  new Element("Respuesta");
+
+	public static void responderOrdenado(SimpleList<Integer> listaOrden, JSONArray jsonMusic) {
+		Document document = new Document();
+		Element root = new Element("Respuesta");
 		for (int i = 0; i < listaOrden.getLength(); i++) {
-			Element cancion =  new Element("Cancion");
+			Element cancion = new Element("Cancion");
 			JSONObject cancionTemp = (JSONObject) jsonMusic.get(listaOrden.find(i));
 			cancion.addContent(new Element("nombre").setText((String) cancionTemp.get("nombre")));
 			cancion.addContent(new Element("artista").setText((String) cancionTemp.get("artista")));
@@ -80,6 +80,38 @@ public class CreadorXML {
 		}
 		document.addContent(root);
 		guardarXmlEnvio(document);
+	}
+
+	public static void responderAmigos(JSONArray amigos, JSONArray listaUsuario) {
+		Document document = new Document();
+		Element root = new Element("Respuesta");
+		root.addContent(new Element("valor").setText("true"));
+		for (int j = 0; j < amigos.size(); j++) {
+			for (int i = 0; i < listaUsuario.size(); i++) {
+				JSONObject usuarioTemp = (JSONObject) (listaUsuario.get(i));
+				if (((String) amigos.get(j)).equals((String) usuarioTemp.get("username"))) {
+					Element amigo = new Element("amigo");
+					amigo.addContent(new Element("nombre").setText((String) usuarioTemp.get("nombre")));
+					amigo.addContent(new Element("usuario").setText((String) usuarioTemp.get("username")));
+					root.addContent(amigo);
+					break;
+				}
+			}
+		}
+		document.addContent(root);
+		guardarXmlEnvio(document);
+	}
+
+	public static void responderNotificacion(JSONArray notificaciones) {
+		Document document = new Document();
+		Element root = new Element("Respuesta");
+		root.addContent(new Element("valor").setText("true"));
+		
+		for (int i = 0; i < notificaciones.size(); i++) {
+			root.addContent(new Element("notificacion").setText((String)notificaciones.get(i)));
+		}
+		
+		document.addContent(root);
 	}
 
 }

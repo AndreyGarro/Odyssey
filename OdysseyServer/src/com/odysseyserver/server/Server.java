@@ -3,7 +3,6 @@ package com.odysseyserver.server;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
@@ -74,7 +73,7 @@ public class Server implements Runnable {
 				Document info = sb.build(new StringReader(xml));
 
 				// Se envía el nuevo XML al Facade para que se procese el trabajo
-				facade.administrarXML(info);
+				facade.administrarPeticion(info);
 
 				client.close();
 				Socket clienteEnviar = serverSocket.accept();

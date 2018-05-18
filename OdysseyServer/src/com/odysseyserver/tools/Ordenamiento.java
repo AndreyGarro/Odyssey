@@ -1,8 +1,4 @@
-package com.odysseyserver.utilidades;
-
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+package com.odysseyserver.tools;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -42,9 +38,6 @@ public class Ordenamiento {
 					albumes.replace(j - 1, tempStr);
 				}
 			}
-		}
-		for (int i = 0; i < listaOrden.getLength(); i++) {
-			System.out.print(listaOrden.find(i) + ", ");
 		}
 		CreadorXML.responderOrdenado(listaOrden, jsonMusicList);
 	}
@@ -122,7 +115,8 @@ public class Ordenamiento {
 	 * Se encarga de ordenar las canciones con respecto al nombre de artista que
 	 * tiene cada uno, estas son de menor a mayor posicion
 	 * 
-	 * @param jsonMusicList JSONArray que contiene la información de las canciones
+	 * @param jsonMusicList
+	 *            JSONArray que contiene la información de las canciones
 	 */
 	public static void ordenarArtista(JSONArray jsonMusicList) {
 		SimpleList<String> aux = new SimpleList<>();
@@ -135,13 +129,13 @@ public class Ordenamiento {
 			canciones.add(new SimpleNode<String>(artista.toLowerCase()));
 			aux.add(new SimpleNode<String>(""));
 		}
-		
+
 		// Ordena
 		ordenarArtistaAux(canciones, aux, 0, canciones.getLength() - 1, 0);
-		
-		// Envía la orden para responder XML guardado		
+
+		// Envía la orden para responder XML guardado
 		for (int i = 0; i < canciones.getLength(); i++) {
-			for (int j =0; j< jsonMusicList.size(); j++) {
+			for (int j = 0; j < jsonMusicList.size(); j++) {
 				String artista = (String) ((JSONObject) (jsonMusicList.get(j))).get("artista");
 				if (canciones.find(i).equalsIgnoreCase(artista)) {
 					ordenArtistas.add(new SimpleNode<Integer>(j));
@@ -150,20 +144,7 @@ public class Ordenamiento {
 			}
 		}
 		CreadorXML.responderOrdenado(ordenArtistas, jsonMusicList);
-		
-	}
 
-	public static void ordenarPrueba(SimpleList<String> canciones) {
-		SimpleList<String> aux = new SimpleList<>();
-		for (int i = 0; i < canciones.getLength(); i++) {
-			System.out.print(canciones.find(i));
-			aux.add(new SimpleNode<String>(""));
-		}
-		ordenarArtistaAux(canciones, aux, 0, canciones.getLength() - 1, 0);
-		System.out.println("\nOrdenado");
-		for (int i = 0; i < canciones.getLength(); i++) {
-			System.out.print(canciones.find(i));
-		}
 	}
 
 	private static void ordenarArtistaAux(SimpleList<String> canciones, SimpleList<String> aux, int min, int max,

@@ -233,7 +233,6 @@
         #endregion
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnEnter;
-        private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.LinkLabel linkNew;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel1;
@@ -242,6 +241,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox imgSalir;
+        public System.Windows.Forms.TextBox txtUser;
     }
 }
 

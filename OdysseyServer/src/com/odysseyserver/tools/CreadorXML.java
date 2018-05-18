@@ -112,6 +112,7 @@ public class CreadorXML {
 		}
 		
 		document.addContent(root);
+		guardarXmlEnvio(document);
 	}
 
 }

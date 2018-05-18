@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Respuesta>
   <valor>true</valor>
+  <amigo>
+    <nombre>12345678q</nombre>
+    <usuario>qwerty</usuario>
+  </amigo>
+  <amigo>
+    <nombre>hola Adios</nombre>
+    <usuario>Hola</usuario>
+  </amigo>
 </Respuesta>

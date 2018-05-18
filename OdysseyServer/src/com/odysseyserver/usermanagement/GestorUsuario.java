@@ -12,10 +12,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.odysseyserver.utilidades.CreadorXML;
+import com.odysseyserver.tools.CreadorXML;
 
 public class GestorUsuario {
-	private static JSONArray listaUsuarios;
+	private JSONArray listaUsuarios;
 	private static GestorUsuario instance;
 
 	
@@ -24,12 +24,11 @@ public class GestorUsuario {
 			JSONParser parser = new JSONParser();
 			File json = new File("data\\jsondata\\jsonUsuarios.json");
 			if (json.exists()) {
-				Object obj =  parser.parse(new FileReader("data\\jsondata\\jsonUsuarios.json"));
+				Object obj = parser.parse(new FileReader("data\\jsondata\\jsonUsuarios.json"));
 				listaUsuarios = (JSONArray) obj;
 			} else {
 				listaUsuarios = new JSONArray();
 				try {
-					JSONObject obj = new JSONObject();			
 					FileWriter jsonWriter = new FileWriter("data\\jsondata\\jsonUsuarios.json");
 					jsonWriter.write(listaUsuarios.toJSONString());
 					jsonWriter.flush();
@@ -68,8 +67,8 @@ public class GestorUsuario {
 			}
 		}
 		if (!existe) {
-			listaUsuarios.add(JSONUsuario.generarUsuarioJSON(xmlDoc));
-			JSONUsuario.reescribirXML(listaUsuarios);
+			listaUsuarios.add(GestorJSONUsuario.generarUsuarioJSON(xmlDoc));
+			GestorJSONUsuario.reescribirXML(listaUsuarios);
 			System.out.println("Se ha registrado");
 			CreadorXML.responderTrueFalse(true);
 		} else {
@@ -101,5 +100,21 @@ public class GestorUsuario {
 		} else {
 			CreadorXML.responderTrueFalse(false);
 		}
+	}
+	
+	public void agregarAmigo(Document xmlDoc) {
+		GestorAmigos.agregarAmigo(xmlDoc, listaUsuarios);
+	}
+	
+	public void retornarListaAmigos(Document xmlDoc) {
+		GestorAmigos.retornarListaAmigos(xmlDoc, listaUsuarios);
+	}
+	
+	public void notificar(Document xml) {
+		GestorAmigos.notificar(xml, listaUsuarios);
+	}
+	
+	public void recomendar (Document xml) {
+		GestorAmigos.recomendar(xml, listaUsuarios);
 	}
 }

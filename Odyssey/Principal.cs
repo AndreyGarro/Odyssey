@@ -51,7 +51,9 @@ namespace Odyssey
                 if (res.Equals("true"))
                 {
                     Form aplicacion = new lblCalificacion();
-                    this.Hide();
+                    UsuarioActual usuario = UsuarioActual.getInstance();
+                    usuario.nombre = username;
+                    Hide();
                     aplicacion.Show();
                 }
                 else

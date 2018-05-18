@@ -119,5 +119,92 @@ namespace Odyssey
 
         }
 
+        public static XmlDocument listaAmigos(String usuarioActual)
+        {
+            XmlDocument lista = new XmlDocument();
+            XmlElement raiz = lista.CreateElement("Amigo");
+            lista.AppendChild(raiz);
+
+            XmlElement id = lista.CreateElement("id");
+            id.AppendChild(lista.CreateTextNode("01"));
+            raiz.AppendChild(id);
+
+            XmlElement solicitar = lista.CreateElement("usuario");
+            solicitar.AppendChild(lista.CreateTextNode(usuarioActual));
+            raiz.AppendChild(solicitar);
+
+            return lista;
+        }
+
+        public static XmlDocument nuevoAmigo(String usuarioActual, String amigo)
+        {
+            XmlDocument nuevoXml = new XmlDocument();
+
+            XmlElement raiz = nuevoXml.CreateElement("Amigo");
+            nuevoXml.AppendChild(raiz);
+
+            XmlElement id = nuevoXml.CreateElement("id");
+            id.AppendChild(nuevoXml.CreateTextNode("00"));
+            raiz.AppendChild(id);
+
+            XmlElement usuarioActual1 = nuevoXml.CreateElement("usuario");
+            usuarioActual1.AppendChild(nuevoXml.CreateTextNode(usuarioActual));
+            raiz.AppendChild(usuarioActual1);
+
+            XmlElement amigo1 = nuevoXml.CreateElement("amigo");
+            amigo1.AppendChild(nuevoXml.CreateTextNode(amigo));
+            raiz.AppendChild(amigo1);
+
+            return nuevoXml;
+        }
+
+        public static XmlDocument recomendar(String usuarioActual, String amigo, String cancion, String artista)
+        {
+            XmlDocument recomendar = new XmlDocument();
+
+            XmlElement raiz = recomendar.CreateElement("Amigo");
+            recomendar.AppendChild(raiz);
+
+            XmlElement id = recomendar.CreateElement("id");
+            id.AppendChild(recomendar.CreateTextNode("03"));
+            raiz.AppendChild(id);
+
+            XmlElement usuarioActual1 = recomendar.CreateElement("usuario");
+            usuarioActual1.AppendChild(recomendar.CreateTextNode(usuarioActual));
+            raiz.AppendChild(usuarioActual1);
+
+            XmlElement amigo1 = recomendar.CreateElement("amigo");
+            amigo1.AppendChild(recomendar.CreateTextNode(amigo));
+            raiz.AppendChild(amigo1);
+
+            XmlElement cancion1 = recomendar.CreateElement("cancion");
+            cancion1.AppendChild(recomendar.CreateTextNode(cancion));
+            raiz.AppendChild(cancion1);
+
+            XmlElement artista1 = recomendar.CreateElement("artista");
+            artista1.AppendChild(recomendar.CreateTextNode(artista));
+            raiz.AppendChild(artista1);
+
+            return recomendar;
+        }
+
+        public static XmlDocument notificaciones(String usuarioActual)
+        {
+            XmlDocument notificacion = new XmlDocument();
+
+            XmlElement raiz = notificacion.CreateElement("Amigo");
+            notificacion.AppendChild(raiz);
+
+            XmlElement id = notificacion.CreateElement("id");
+            id.AppendChild(notificacion.CreateTextNode("02"));
+            raiz.AppendChild(id);
+
+            XmlElement usuarioActual1 = notificacion.CreateElement("usuario");
+            usuarioActual1.AppendChild(notificacion.CreateTextNode(usuarioActual));
+            raiz.AppendChild(usuarioActual1);
+
+            return notificacion;
+        }
+
     }
 }

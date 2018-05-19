@@ -115,6 +115,7 @@ namespace Odyssey
             id.AppendChild(orden.CreateTextNode(tipo));
             raiz.AppendChild(id);
 
+            orden.Save("orden.xml");
             return orden;
 
         }
@@ -204,6 +205,29 @@ namespace Odyssey
             raiz.AppendChild(usuarioActual1);
 
             return notificacion;
+        }
+
+        public static XmlDocument solicitarCancion(String cancion, String artista)
+        {
+            XmlDocument solicitar = new XmlDocument();
+
+            XmlElement raiz = solicitar.CreateElement("Reproducir");
+            solicitar.AppendChild(raiz);
+
+            XmlElement id = solicitar.CreateElement("id");
+            id.AppendChild(solicitar.CreateTextNode("00"));
+            raiz.AppendChild(id);
+
+            XmlElement cancion1 = solicitar.CreateElement("cancion");
+            cancion1.AppendChild(solicitar.CreateTextNode(cancion));
+            raiz.AppendChild(cancion1);
+
+            XmlElement artista1 = solicitar.CreateElement("artista");
+            artista1.AppendChild(solicitar.CreateTextNode(artista));
+            raiz.AppendChild(artista1);
+
+            solicitar.Save("cancion.xml");
+            return solicitar;
         }
 
     }

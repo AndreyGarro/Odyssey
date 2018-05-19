@@ -11,12 +11,16 @@ using System.Diagnostics;
 using System.IO;
 using System.Xml;
 using InputKey;
+using System.Threading;
+using AxWMPLib;
 
 namespace Odyssey
 {
  
     public partial class lblCalificacion : Form
     {
+        private double duracion = 0;
+        private double posicion = 0;
         private String nombreActual1;
         private String artistaActual1;
         private String ordenamientoActual;
@@ -33,7 +37,8 @@ namespace Odyssey
         private void Aplicacion_Load(object sender, EventArgs e)
         {
             panelBiblioteca.Hide();
-            
+          
+
         }
 
 
@@ -136,16 +141,6 @@ namespace Odyssey
                 XmlDocument song = DocumentoXML.agregaCancion(stringSong, nombre, artista);
                 SocketCliente.SendServidor(song);
 
-
-                /* String[] archivosMp3 = abrirArchivo.SafeFileNames;
-                 String[] rutaMp3 = abrirArchivo.FileNames;
-                 foreach (var archivoMp3 in archivosMp3)
-                 {
-                     lstCanciones.Items.Add(archivoMp3);
-                 }
-
-                 reproductor.URL = rutaMp3[0];
-                 lstCanciones.SelectedIndex = 0;*/
             }
         }
 
@@ -419,14 +414,16 @@ namespace Odyssey
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            String seleccion = (String)lstAmigosSelección.SelectedItem;
-            lstAmigosSelección.Hide();
-            btnCheck.Hide();
-            btnCancel.Hide();
-            SocketCliente.SendServidor(DocumentoXML.recomendar(UsuarioActual.getInstance().nombre, seleccion, nombreActual1, artistaActual1));
+            if (lstAmigosSelección.SelectedItem != null)
+            {
+                String seleccion = (String)lstAmigosSelección.SelectedItem;
+                lstAmigosSelección.Hide();
+                btnCheck.Hide();
+                btnCancel.Hide();
+                SocketCliente.SendServidor(DocumentoXML.recomendar(UsuarioActual.getInstance().nombre, seleccion, nombreActual1, artistaActual1));
 
-            MessageBox.Show("Has recomendado esta canción", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                MessageBox.Show("Has recomendado esta canción", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
@@ -467,6 +464,93 @@ namespace Odyssey
             else
             {
                 txtNotificaciones.Items.Add("No Tienes Notificaciones");
+            }
+        }
+
+
+        private void btnReproducir_Click(object sender, EventArgs e)
+        {
+            reproductor.close();
+            if (ordenamientoActual != null) {
+                if (lstCanciones.SelectedItem != null)
+                {        
+                    XmlDocument listaCanciones = SocketCliente.SendServidor(DocumentoXML.ordenamiento(ordenamientoActual));
+                    int index = lstCanciones.SelectedIndex;
+
+                    XmlNodeList nodosN = listaCanciones.GetElementsByTagName("nombre");
+                    XmlNodeList nodosA = listaCanciones.GetElementsByTagName("artista");
+
+                    String nombreActual = "";
+                    String artistaActual = "";
+                    int cont = 0;
+                    while (cont <= index)
+                    {
+                        nombreActual = nodosN.Item(cont).InnerText;
+                        artistaActual = nodosA.Item(cont).InnerText;
+                        cont++;
+                    }
+
+                    nombreActual1 = nombreActual;
+                    artistaActual1 = artistaActual;
+
+                    XmlDocument byteArray = SocketCliente.SendServidor(DocumentoXML.solicitarCancion(nombreActual, artistaActual));
+                    XmlNodeList valor = byteArray.GetElementsByTagName("valor");
+
+                    if (valor[0].InnerText.Equals("true"))
+                    {
+                        XmlNodeList cancion = byteArray.GetElementsByTagName("cancion");
+                        String cancionString = cancion[0].InnerText;
+                        byte[] cancionArray = Convert.FromBase64String(cancionString);
+                        File.WriteAllBytes("cancion.mp3", cancionArray);
+
+                        reproductor.URL = "cancion.mp3";
+                    }
+                }
+            }
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            reproductor.Ctlcontrols.play();
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            reproductor.Ctlcontrols.pause();
+        }
+
+        private void trackBar_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            reproductor.settings.volume = trackBar1.Value;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void axWindowsMediaPlayer1_PlayStateChange(object sender, _WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if (e.newState == 3)
+            {
+                trackBar.Maximum = (int)reproductor.currentMedia.duration;
+                trackBar.Value = (int)reproductor.Ctlcontrols.currentPosition;
             }
         }
     }

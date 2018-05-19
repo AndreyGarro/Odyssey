@@ -26,91 +26,134 @@ public class Ordenamiento {
 		for (int i = 0; i < jsonMusicList.size(); i++) {
 			albumes.add(new SimpleNode<String>((String) ((JSONObject) jsonMusicList.get(i)).get("album")));
 		}
-
-		for (int i = 0; i < jsonMusicList.size(); i++) {
-			for (int j = 1; j < (jsonMusicList.size() - i); j++) {
-				if (albumes.find(j - 1).compareToIgnoreCase(albumes.find(j)) > 0) {
-					int temp = listaOrden.find(j);
-					String tempStr = albumes.find(j);
-					listaOrden.replace(j, listaOrden.find(j - 1));
-					listaOrden.replace(j - 1, temp);
-					albumes.replace(j, albumes.find(j - 1));
-					albumes.replace(j - 1, tempStr);
+		
+		if (albumes.getLength() != 0) {
+			for (int i = 0; i < jsonMusicList.size(); i++) {
+				for (int j = 1; j < (jsonMusicList.size() - i); j++) {
+					if (albumes.find(j - 1).compareToIgnoreCase(albumes.find(j)) > 0) {
+						int temp = listaOrden.find(j);
+						String tempStr = albumes.find(j);
+						listaOrden.replace(j, listaOrden.find(j - 1));
+						listaOrden.replace(j - 1, temp);
+						albumes.replace(j, albumes.find(j - 1));
+						albumes.replace(j - 1, tempStr);
+					}
 				}
 			}
+			CreadorXML.responderOrdenado(listaOrden, jsonMusicList);
+		} else {
+			CreadorXML.responderTrueFalse(false);
 		}
-		CreadorXML.responderOrdenado(listaOrden, jsonMusicList);
 	}
 
 	/**
 	 * Ordena las canciones en orden del nombre de la canción
 	 */
 	public static void ordenarCancion(JSONArray jsonMusicList) {
-		String[] canciones = new String[jsonMusicList.size()];
+		SimpleList<String> canciones = new SimpleList<>();
 
-		for (int i = 0; i < canciones.length; i++) {
-			canciones[i] = (String) ((JSONObject) (jsonMusicList.get(i))).get("nombre");
+		for (int i = 0; i < jsonMusicList.size(); i++) {
+			canciones.add(new SimpleNode<String>((String) ((JSONObject) (jsonMusicList.get(i))).get("nombre")));
 		}
-		canciones = ordenarCancionAux(canciones, 0, canciones.length - 1);
-		int fin = 0;
-		SimpleList<Integer> ordenado = new SimpleList<>();
-		while (fin < canciones.length) {
-			for (int i = 0; i < jsonMusicList.size(); i++) {
-				if (canciones[fin].equals((String) ((JSONObject) (jsonMusicList.get(i))).get("nombre"))) {
-					ordenado.add(new SimpleNode<Integer>(i));
-					fin++;
-					break;
-				}
-			}
-		}
-		CreadorXML.responderOrdenado(ordenado, jsonMusicList);
-	}
-
-	/**
-	 * Ejecuta el quicksort para el ordenamiento
-	 * 
-	 * @param musica
-	 *            String[]
-	 * @param izq
-	 *            int inicio del array
-	 * @param der
-	 *            int final del array
-	 * @return String [] ordenado
-	 */
-	private static String[] ordenarCancionAux(String[] musica, int izq, int der) {
-		if (izq >= der) {
-			return musica;
-		}
-		int i = izq;
-		int d = der;
-		if (izq != der) {
-			int pivote;
-			String aux;
-			pivote = izq;
-			while (izq != der) {
-				while (musica[der].compareToIgnoreCase(musica[pivote]) >= 0 && izq < der) {
-					der--;
-					while (musica[izq].compareToIgnoreCase(musica[pivote]) < 0 && izq < der) {
-						izq++;
+		if (canciones.getFirst() != null) {
+			ordenarCancionAux(canciones, 0, canciones.getLength() - 1);
+			int fin = 0;
+			SimpleList<Integer> ordenado = new SimpleList<>();
+			while (fin < canciones.getLength()) {
+				for (int i = 0; i < jsonMusicList.size(); i++) {
+					if (canciones.find(fin).equals((String) ((JSONObject) (jsonMusicList.get(i))).get("nombre"))) {
+						ordenado.add(new SimpleNode<Integer>(i));
+						fin++;
+						break;
 					}
 				}
-
-				if (der != izq) {
-					aux = musica[der];
-					musica[der] = musica[izq];
-					musica[izq] = aux;
-				}
-				if (izq == der) {
-					ordenarCancionAux(musica, i, izq - 1);
-					ordenarCancionAux(musica, izq + 1, d);
-				}
 			}
+			CreadorXML.responderOrdenado(ordenado, jsonMusicList);
 		} else {
-			return musica;
+			CreadorXML.responderTrueFalse(false);
 		}
-		return musica;
+		
 	}
 
+	private static void ordenarCancionAux(SimpleList<String> canciones, int primero, int ultimo) {
+		int i = primero;
+		int j = ultimo;
+		String pivote = canciones.find(primero);
+		String auxiliar;
+		do {
+			while (canciones.find(i).compareToIgnoreCase(pivote) < 0) {
+				i++;
+			}
+
+			while (canciones.find(j).compareToIgnoreCase(pivote) > 0) {
+				j--;
+			}
+
+			if (i <= j) {
+				auxiliar = canciones.find(i);
+				canciones.replace(i, canciones.find(j));
+				canciones.replace(j, auxiliar);
+				i++;
+				j--;
+			}
+		} while (i <= j);
+
+		if (primero < j) {
+			ordenarCancionAux(canciones, primero, j);
+		}
+
+		if (i < ultimo) {
+			ordenarCancionAux(canciones, i, ultimo);
+		}
+	}
+
+	//
+	// /**
+	// * Ejecuta el quicksort para el ordenamiento
+	// *
+	// * @param musica
+	// * String[]
+	// * @param izq
+	// * int inicio del array
+	// * @param der
+	// * int final del array
+	// * @return String [] ordenado
+	// */
+	// private static String[] ordenarCancionAux(String[] musica, int izq, int der)
+	// {
+	// if (izq >= der) {
+	// return musica;
+	// }
+	// int i = izq;
+	// int d = der;
+	// if (izq != der) {
+	// int pivote;
+	// String aux;
+	// pivote = izq;
+	// while (izq != der) {
+	// while (musica[der].compareToIgnoreCase(musica[pivote]) >= 0 && izq < der) {
+	// der--;
+	// while (musica[izq].compareToIgnoreCase(musica[pivote]) < 0 && izq < der) {
+	// izq++;
+	// }
+	// }
+	//
+	// if (der != izq) {
+	// aux = musica[der];
+	// musica[der] = musica[izq];
+	// musica[izq] = aux;
+	// }
+	// if (izq == der) {
+	// ordenarCancionAux(musica, i, izq - 1);
+	// ordenarCancionAux(musica, izq + 1, d);
+	// }
+	// }
+	// } else {
+	// return musica;
+	// }
+	// return musica;
+	// }
+	//
 	/**
 	 * Se encarga de ordenar las canciones con respecto al nombre de artista que
 	 * tiene cada uno, estas son de menor a mayor posicion
@@ -130,20 +173,24 @@ public class Ordenamiento {
 			aux.add(new SimpleNode<String>(""));
 		}
 
-		// Ordena
-		ordenarArtistaAux(canciones, aux, 0, canciones.getLength() - 1, 0);
+		if (canciones.getLength() != 0) {
+			// Ordena
+			ordenarArtistaAux(canciones, aux, 0, canciones.getLength() - 1, 0);
 
-		// Envía la orden para responder XML guardado
-		for (int i = 0; i < canciones.getLength(); i++) {
-			for (int j = 0; j < jsonMusicList.size(); j++) {
-				String artista = (String) ((JSONObject) (jsonMusicList.get(j))).get("artista");
-				if (canciones.find(i).equalsIgnoreCase(artista)) {
-					ordenArtistas.add(new SimpleNode<Integer>(j));
-					break;
+			// Envía la orden para responder XML guardado
+			for (int i = 0; i < canciones.getLength(); i++) {
+				for (int j = 0; j < jsonMusicList.size(); j++) {
+					String artista = (String) ((JSONObject) (jsonMusicList.get(j))).get("artista");
+					if (canciones.find(i).equalsIgnoreCase(artista)) {
+						ordenArtistas.add(new SimpleNode<Integer>(j));
+						break;
+					}
 				}
 			}
+			CreadorXML.responderOrdenado(ordenArtistas, jsonMusicList);
+		} else {
+			CreadorXML.responderTrueFalse(false);
 		}
-		CreadorXML.responderOrdenado(ordenArtistas, jsonMusicList);
 
 	}
 

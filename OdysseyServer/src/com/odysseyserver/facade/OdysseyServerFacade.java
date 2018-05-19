@@ -77,9 +77,10 @@ public class OdysseyServerFacade {
 			}
 			break;
 		case "Reproducir":
-			id = doc.getRootElement().getChild("id").getText();
+			id = (String) doc.getRootElement().getChild("id").getText();
+			System.out.println(id);
 			if (id.equals("00")) {
-
+				gestorMusical.reproducir(doc);
 			} else if (id.equals("01")) {
 
 			} else {

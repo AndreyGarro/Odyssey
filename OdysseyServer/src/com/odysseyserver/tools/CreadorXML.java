@@ -12,7 +12,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.odysseyserver.facade.OdysseyServerFacade;
-import com.odysseyserver.listas.CircularDoubleList;
 import com.odysseyserver.listas.SimpleList;
 
 /**
@@ -106,13 +105,22 @@ public class CreadorXML {
 		Document document = new Document();
 		Element root = new Element("Respuesta");
 		root.addContent(new Element("valor").setText("true"));
-		
+
 		for (int i = 0; i < notificaciones.size(); i++) {
-			root.addContent(new Element("notificacion").setText((String)notificaciones.get(i)));
+			root.addContent(new Element("notificacion").setText((String) notificaciones.get(i)));
 		}
-		
+
 		document.addContent(root);
 		guardarXmlEnvio(document);
+	}
+
+	public static void responderCancion(String cancion) {
+		Document doc = new Document();
+		Element root = new Element("Respuesta");
+		root.addContent(new Element("valor").setText("true"));
+		root.addContent(new Element("cancion").setText(cancion));
+		doc.addContent(root);
+		guardarXmlEnvio(doc);
 	}
 
 }

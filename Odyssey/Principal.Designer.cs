@@ -41,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.doubleBitmapControl1 = new BunifuAnimatorNS.DoubleBitmapControl();
             pctLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -144,6 +145,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.doubleBitmapControl1);
             this.panel2.Controls.Add(this.imgSalir);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.linkNew);
@@ -202,6 +204,15 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "_____________________________________________";
             // 
+            // doubleBitmapControl1
+            // 
+            this.doubleBitmapControl1.Location = new System.Drawing.Point(232, 54);
+            this.doubleBitmapControl1.Name = "doubleBitmapControl1";
+            this.doubleBitmapControl1.Size = new System.Drawing.Size(75, 23);
+            this.doubleBitmapControl1.TabIndex = 19;
+            this.doubleBitmapControl1.Text = "doubleBitmapControl1";
+            this.doubleBitmapControl1.Visible = false;
+            // 
             // vtnPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +253,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox imgSalir;
         public System.Windows.Forms.TextBox txtUser;
+        private BunifuAnimatorNS.DoubleBitmapControl doubleBitmapControl1;
     }
 }
 

@@ -67,6 +67,8 @@ public class Server implements Runnable {
 					xml += xmlLine;
 					xmlLine = scanner.readLine();
 				}
+				
+				System.out.println(xml);
 
 				// Se crea el XML a partir del String que llegó
 				SAXBuilder sb = new SAXBuilder();

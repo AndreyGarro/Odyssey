@@ -2,8 +2,6 @@ package com.odysseyserver.arboles;
 
 import com.odysseyserver.listas.SimpleNode;
 
-import jdk.nashorn.internal.runtime.arrays.ArrayIndex;
-
 /**
  * Arbol de busqueda AVL
  *
@@ -76,7 +74,7 @@ public class AVLTree {
 			current = new AVLNode(clave, indx);
 		} else if (clave.compareToIgnoreCase(current.clave) < 0) {
 			current.left = insert(clave, indx, current.left);
-			if ( height(current.left) - height(current.right) == 2) {
+			if (height(current.left) - height(current.right) == 2) {
 				if (clave.compareToIgnoreCase(current.left.clave) < 0) {
 					current = left(current);
 				} else {
@@ -85,7 +83,7 @@ public class AVLTree {
 			}
 		} else if (clave.compareToIgnoreCase(current.clave) > 0) {
 			current.right = insert(clave, indx, current.right);
-			if (height(current.right) - height(current.left) == 2) {			 
+			if (height(current.right) - height(current.left) == 2) {
 				if (clave.compareToIgnoreCase(current.right.clave) > 0) {
 					current = right(current);
 				} else {
@@ -94,8 +92,9 @@ public class AVLTree {
 			}
 		} else if (clave.compareToIgnoreCase(current.clave) == 0) {
 			current.arrayIndx.add(new SimpleNode<Integer>(indx));
-		} else
-			;
+		} else {
+			current.height = max(height(current.left), height(current.right)) + 1;
+		}
 		current.height = max(height(current.left), height(current.right)) + 1;
 		return current;
 	}
@@ -261,7 +260,7 @@ public class AVLTree {
 		preorder(root);
 	}
 
-	private void preorder(AVLNode r) {
+	public void preorder(AVLNode r) {
 		if (r != null) {
 			System.out.print(r.clave);
 			for (int i = 0; i < r.arrayIndx.getLength(); i++) {
@@ -343,79 +342,26 @@ public class AVLTree {
 				node.right = delete(node.right, temp.clave);
 			}
 		}
-//
-//		if (node == null) {
-//			return null;
-//		}
-//		node.height = max(height(node.left), height(node.right)) + 1;
-//
-//		int balance = getBalance(node);
-//
-//		if (height(current.left) - height(current.right) == 2) {
-//			if (getBalance(node.left) >= 0) {
-//				node = left(node);
-//			}else {
-//				//node = leftRight(node);
-//				 node.left = rotateLeft(node.left);
-//				 node = rotateRight(node);
-//			}
-//		}
-//		else if (height(current.left) - height(current.right) == 2) {
-//			if (getBalance(node.right) <= 0) {
-//				node = rotateRight(node);
-//			} else {
-//				 node.right = rotateRight(node.right);
-//				 node = rotateLeft(node);
-//			}
-//		}
-		return node;
-	}
 
-	private int getBalance(AVLNode node) {
 		if (node == null) {
-			return 0;
+			return null;
 		}
-		int balance;
-		balance = height(node.left) - height(node.right);
-		return balance;
-	}
-
-	private AVLNode rotateRight(AVLNode node) {
-		if (node == null)
-			return node;
-		System.out.println(node.clave);
-		AVLNode beta = node.left;
-		System.out.println(beta.right);
-		AVLNode t2 = beta.right;
-
-		beta.right = node;
-		node.left = t2;
-
-		//updateHeight(node);
 		node.height = max(height(node.left), height(node.right)) + 1;
 
-		//updateHeight(beta);
-		beta.height = max(height(beta.left), height(beta.right)) + 1;
-
-		return beta;
-	}
-
-	private AVLNode rotateLeft(AVLNode node) {
-		if (node == null)
-			return node;
-
-		AVLNode beta = node.right;
-		AVLNode t2 = beta.left;
-
-		beta.left = node;
-		node.right = t2;
-
-		//updateHeight(node);
-		node.height = max(height(node.left), height(node.right)) + 1;
+		if (height(node.left) - height(node.right) == 2) {
+			if (key.compareToIgnoreCase(node.left.clave) < 0) {
+				node = left(node);
+			} else {
+				node = leftRight(node);
+			}
 		
-		//updateHeight(beta);
-		beta.height = max(height(beta.left), height(beta.right)) + 1;
-		
-		return beta;
+		} else if (height(node.right) - height(node.left) == 2) {
+			if (key.compareToIgnoreCase(node.right.clave) > 0) {
+				node = right(node);
+			} else {
+				node = rightLeft(node);
+			}
+		}
+		return node;
 	}
 }

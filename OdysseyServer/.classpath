@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="libraries/jdom-2.0.6.jar"/>
 	<classpathentry kind="lib" path="libraries/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="libraries/lastfm-bindings-1.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

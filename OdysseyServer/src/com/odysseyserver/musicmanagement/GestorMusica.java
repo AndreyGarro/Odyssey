@@ -111,10 +111,12 @@ public class GestorMusica {
 	
 	public void modificarMetaData(Document xmlDoc) {
 		
-		
-		
 	}
-
+	
+	
+	public void reproducir(Document xml) {
+		Reproductor.reproducir(xml, jsonMusicList);		
+	}
 	/**
 	 * Ordena la lista de canciones por orden de album, se aplica BubbleSort
 	 */

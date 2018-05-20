@@ -1,14 +1,9 @@
 package com.odysseyserver.arboles;
 
-
 public class SplayNode {
-	/** The left subtree. Null if the subtree is empty. */
+	
 	private SplayNode left;
-
-	/** The right subtree. Null if the subtree is empty. */
 	private SplayNode right;
-
-	/** The node contents. Only null for the sentinel node. */
 	public String contents;
 
 	/**
@@ -17,7 +12,6 @@ public class SplayNode {
 	public SplayNode(String contents) {
 		this.contents = contents;
 	}
-	
 	/**
 	 * Sets the left child.
 	 *
@@ -26,9 +20,7 @@ public class SplayNode {
 	 */
 	public void setLeft(SplayNode child) {
 		left = child;
-		
 	}
-
 	/**
 	 * Sets the right child.
 	 *
@@ -37,20 +29,16 @@ public class SplayNode {
 	 */
 	public void setRight(SplayNode child) {
 		right = child;
-		
 	}
-	
 	public static void setValor(String musica) {
-		
-	}
 
+	}
 	/**
 	 * Returns the left child.
 	 */
 	public SplayNode getleft() {
 		return left;
 	}
-
 	/**
 	 * Returns the right child.
 	 */

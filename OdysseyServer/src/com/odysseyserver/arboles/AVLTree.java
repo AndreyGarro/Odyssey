@@ -1,5 +1,7 @@
 package com.odysseyserver.arboles;
 
+import java.io.IOException;
+
 import com.odysseyserver.listas.SimpleNode;
 
 /**
@@ -91,7 +93,7 @@ public class AVLTree {
 				}
 			}
 		} else if (clave.compareToIgnoreCase(current.clave) == 0) {
-			current.arrayIndx.add(new SimpleNode<Integer>(indx));
+			current.addArrayIndx(indx);
 		} else {
 			current.height = max(height(current.left), height(current.right)) + 1;
 		}
@@ -102,16 +104,16 @@ public class AVLTree {
 	/**
 	 * Rotacion simple a la izquierda
 	 * 
-	 * @param n2
+	 * @param n
 	 *            Nodo sobre el que se quiere aplicar la rotacion
 	 * @return La nueva estructura del subArbol rotado
 	 */
-	private AVLNode left(AVLNode n2) {
-		AVLNode n1 = n2.left;
-		n2.left = n1.right;
-		n1.right = n2;
-		n2.height = max(height(n2.left), height(n2.right)) + 1;
-		n1.height = max(height(n1.left), n2.height) + 1;
+	private AVLNode left(AVLNode n) {
+		AVLNode n1 = n.left;
+		n.left = n1.right;
+		n1.right = n;
+		n.height = max(height(n.left), height(n.right)) + 1;
+		n1.height = max(height(n1.left), n.height) + 1;
 		return n1;
 	}
 
@@ -315,31 +317,46 @@ public class AVLTree {
 
 	/**
 	 * 
-	 * @param key
+	 * @param clave
 	 */
-	public void delete(String key) {
-		root = delete(this.root, key);
+	public void delete(String clave, Integer indx) {
+		root = delete(this.root, clave, indx);
 		return;
 	}
 
-	private AVLNode delete(AVLNode node, String key) {
+	private AVLNode delete(AVLNode node, String clave, Integer indx) {
 		if (node == null) {
 			return null;
 		}
-		if (key.compareToIgnoreCase(node.clave) < 0) {
-			node.left = delete(node.left, key);
-		} else if (key.compareToIgnoreCase(node.clave) > 0) {
-			node.right = delete(node.right, key);
+		if (clave.compareToIgnoreCase(node.clave) < 0) {
+			node.left = delete(node.left, clave, indx);
+		} else if (clave.compareToIgnoreCase(node.clave) > 0) {
+			node.right = delete(node.right, clave, indx);
 		} else {
 			if (node.left == null) {
-				node = node.right;
+				
+				if ((node.arrayIndx.getLength() == 1 && node.arrayIndx.getFirst().getDato().equals(indx)) || indx == -1) {
+					node = node.right;
+				}else {
+					node.remArrayIndx(indx);
+				}
 			} else if (node.right == null) {
-				node = node.left;
+		
+				if ((node.arrayIndx.getLength() == 1 &&  node.arrayIndx.getFirst().getDato().equals(indx))|| indx == -1) {
+					node = node.left;
+				}else {
+					node.remArrayIndx(indx);
+				}
+				
 			} else {
-				AVLNode temp = findMin(node.right);
-				node.clave = temp.clave;
-				node.arrayIndx = temp.arrayIndx;
-				node.right = delete(node.right, temp.clave);
+				if ((node.arrayIndx.getLength() == 1 &&  node.arrayIndx.getFirst().getDato().equals(indx)) || indx == -1) {
+					AVLNode temp = findMin(node.right);
+					node.clave = temp.clave;
+					node.arrayIndx = temp.arrayIndx;
+					node.right = delete(node.right, temp.clave, -1);
+				}else {
+					node.remArrayIndx(indx);
+				}
 			}
 		}
 
@@ -349,14 +366,14 @@ public class AVLTree {
 		node.height = max(height(node.left), height(node.right)) + 1;
 
 		if (height(node.left) - height(node.right) == 2) {
-			if (key.compareToIgnoreCase(node.left.clave) < 0) {
+			if (clave.compareToIgnoreCase(node.left.clave) < 0) {
 				node = left(node);
 			} else {
 				node = leftRight(node);
 			}
 		
-		} else if (height(node.right) - height(node.left) == 2) {
-			if (key.compareToIgnoreCase(node.right.clave) > 0) {
+		}if (height(node.right) - height(node.left) == 2) {
+			if (clave.compareToIgnoreCase(node.right.clave) > 0) {
 				node = right(node);
 			} else {
 				node = rightLeft(node);

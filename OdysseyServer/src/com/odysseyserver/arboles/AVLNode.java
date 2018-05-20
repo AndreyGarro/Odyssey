@@ -36,7 +36,13 @@ public class AVLNode {
 		this.right = null;
 		this.clave = clave;
 		this.arrayIndx = new SimpleList<Integer>();
-		this.arrayIndx.add(new SimpleNode<Integer>(indx));
+		addArrayIndx(indx);
 		this.height = 0;
+	}
+	public void remArrayIndx(Integer indx) {
+		arrayIndx.remove(indx);
+	}
+	public void addArrayIndx(Integer indx) {
+		this.arrayIndx.add(new SimpleNode<Integer>(indx));
 	}
 }

@@ -1,48 +1,47 @@
+
 package com.odysseyserver.arboles;
 
+import com.odysseyserver.listas.SimpleList;
+import com.odysseyserver.listas.SimpleNode;
+
+/**
+ * Nodo del arbol Splay, con funcionalidad para guardar
+ *  posiciones de archivos como listas o json. 
+ *
+ */
 public class SplayNode {
 	
-	private SplayNode left;
-	private SplayNode right;
-	public String contents;
-
+	public String clave;
+	public SimpleList<Integer> arrayIndx = new SimpleList<>();
+	public  SplayNode left, right;
 	/**
-	 * Creates a node. Sets all parent/child pointers to null.
+	 * Constructor del nodo por defecto se necesitan minimo la clave
+	 * y la posicion del archivo.
+	 * @param clave
+	 * 				Nombre que nodo
+	 * @param indx
+	 * 			Posicion del archivo 
 	 */
-	public SplayNode(String contents) {
-		this.contents = contents;
+	public SplayNode(String clave, Integer indx) {
+		this.clave = clave;
+		this.left = null;
+		this.right = null;
+		addArrayIndx(indx);
 	}
 	/**
-	 * Sets the left child.
-	 *
-	 * @param child
-	 *            The new left child. Can be null.
+	 * Elimina posiciones de los archivos
+	 * @param indx
+	 * 			Posicion del archivo 
 	 */
-	public void setLeft(SplayNode child) {
-		left = child;
+	public void remArrayIndx(Integer indx) {
+		this.arrayIndx.remove(indx);
 	}
+	
 	/**
-	 * Sets the right child.
-	 *
-	 * @param child
-	 *            The new right child. Can be null.
+	 *  Permite insertar posicones de otros archivos que tienen el mismo nombre
+	 * @param indx
 	 */
-	public void setRight(SplayNode child) {
-		right = child;
-	}
-	public static void setValor(String musica) {
-
-	}
-	/**
-	 * Returns the left child.
-	 */
-	public SplayNode getleft() {
-		return left;
-	}
-	/**
-	 * Returns the right child.
-	 */
-	public SplayNode getright() {
-		return right;
+	public void addArrayIndx(Integer indx) {
+		this.arrayIndx.add(new SimpleNode<Integer>(indx));
 	}
 }

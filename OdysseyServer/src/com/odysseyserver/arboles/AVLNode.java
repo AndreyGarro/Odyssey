@@ -39,9 +39,19 @@ public class AVLNode {
 		addArrayIndx(indx);
 		this.height = 0;
 	}
+	/**
+	 * Elimina ubicaciones de la lista de indes 
+	 * @param indx
+	 * 				Ubicacion a eliminar
+	 */
 	public void remArrayIndx(Integer indx) {
 		arrayIndx.remove(indx);
 	}
+	/**
+	 * Anade ubicaciones a lista de indices
+	 * @param indx
+	 * 			Ubicacion a anadir
+	 */
 	public void addArrayIndx(Integer indx) {
 		this.arrayIndx.add(new SimpleNode<Integer>(indx));
 	}

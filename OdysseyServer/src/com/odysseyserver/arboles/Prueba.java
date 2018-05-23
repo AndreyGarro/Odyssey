@@ -36,9 +36,9 @@ public class Prueba {
 //		arbol1.insert("Y", 25641);
 //		
 //		arbol1.delete("L", 36);
-//		arbol1.delete("W", 96);
-//		arbol1.delete("X", 1);
-//		arbol1.delete("Y", 25641);
+//		arbol1.delete("K", 96);
+//		arbol1.delete("L", 1);
+//		arbol1.delete("T", 25641);
 //		arbol1.preOrder();
 //		System.out.println(" ");
 //		arbol1.delete("T", 8);
@@ -53,23 +53,38 @@ public class Prueba {
 
 		
 		
-		SplayTree arbol2 = new SplayTree<>();
-		arbol2.insert("h",78);
-		arbol2.insert("f",56);
-		arbol2.insert("t",12);
-		arbol2.insert("g",85);
-		arbol2.insert("y",45);
-		arbol2.insert("u", 96);
-		arbol2.insert("r", 25);
-		arbol2.insert("a", 36);
-		arbol2.insert("d", 325);
-		arbol2.insert("a", 9636);
-		arbol2.preorder(arbol2.getRoot());
-		System.out.println("");
-		arbol2.remove("t", 12);
-		arbol2.remove("u", 54);
-		arbol2.remove("a", 36 );
-		arbol2.preorder(arbol2.getRoot());
+//		SplayTree<String> arbol2 = new SplayTree<>();
+//		arbol2.insert("h",78);
+//		arbol2.insert("f",56);
+//		arbol2.insert("t",12);
+//		arbol2.insert("g",85);
+//		arbol2.insert("y",45);
+//		arbol2.insert("u", 96);
+//		arbol2.insert("r", 25);
+//		arbol2.insert("a", 36);
+//		arbol2.insert("d", 325);
+//		arbol2.insert("a", 9636);
+//		arbol2.insert("h",65);
+//		arbol2.insert("f",25);
+//		arbol2.insert("t",15);
+//		arbol2.insert("g",65);
+//		arbol2.insert("y",54);
+//		arbol2.insert("u", 54);
+//		arbol2.insert("r", 12);
+//		arbol2.insert("a", 36);
+//		arbol2.insert("d", 5);
+//		arbol2.preorder(arbol2.getRoot());
+//		System.out.println("");
+//		arbol2.remove("u", 96);
+//		arbol2.remove("u", 54);
+//		arbol2.remove("a", 36 );
+//		arbol2.remove("h",78);
+//		arbol2.remove("f",56);
+//		arbol2.remove("t",12);
+//		arbol2.remove("g",85);
+//		arbol2.remove("y",45);
+//		arbol2.remove("u", 96);
+//		arbol2.preorder(arbol2.getRoot());
 		
 		
 	}

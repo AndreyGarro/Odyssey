@@ -230,5 +230,56 @@ namespace Odyssey
             return solicitar;
         }
 
+        public static XmlDocument modificarData(String nombreActual, String artistaActual, String nombre, 
+            String artista, String album, String genero, String calificacion)
+        {
+            XmlDocument modificar = new XmlDocument();
+
+            XmlElement raiz = modificar.CreateElement("Cancion");
+            modificar.AppendChild(raiz);
+
+            XmlElement id = modificar.CreateElement("id");
+            id.AppendChild(modificar.CreateTextNode("01"));
+            raiz.AppendChild(id);
+
+            XmlElement actual = modificar.CreateElement("actual");
+            raiz.AppendChild(actual);
+
+            XmlElement nombreActual1 = modificar.CreateElement("nombre");
+            nombreActual1.AppendChild(modificar.CreateTextNode(nombreActual));
+            actual.AppendChild(nombreActual1);
+
+            XmlElement artistaActual1 = modificar.CreateElement("artista");
+            artistaActual1.AppendChild(modificar.CreateTextNode(artistaActual));
+            actual.AppendChild(artistaActual1);
+
+            XmlElement nuevo = modificar.CreateElement("nuevo");
+            raiz.AppendChild(nuevo);
+
+            XmlElement nuevoNombre = modificar.CreateElement("nombre");
+            nuevoNombre.AppendChild(modificar.CreateTextNode(nombre));
+            nuevo.AppendChild(nuevoNombre);
+
+            XmlElement nuevoArtista = modificar.CreateElement("artista");
+            nuevoArtista.AppendChild(modificar.CreateTextNode(artista));
+            nuevo.AppendChild(nuevoArtista);
+
+            XmlElement nuevoAlbum = modificar.CreateElement("album");
+            nuevoAlbum.AppendChild(modificar.CreateTextNode(album));
+            nuevo.AppendChild(nuevoAlbum);
+
+            XmlElement nuevoGenero = modificar.CreateElement("genero");
+            nuevoGenero.AppendChild(modificar.CreateTextNode(genero));
+            nuevo.AppendChild(nuevoGenero);
+
+            XmlElement nuevaCalificacion = modificar.CreateElement("calificacion");
+            nuevaCalificacion.AppendChild(modificar.CreateTextNode(calificacion));
+            nuevo.AppendChild(nuevaCalificacion);
+
+            modificar.Save("modificar.xml");
+
+            return modificar;
+
+        }
     }
 }

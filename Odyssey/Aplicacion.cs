@@ -16,19 +16,20 @@ using AxWMPLib;
 
 namespace Odyssey
 {
- 
-    public partial class lblCalificacion : Form
+
+    public partial class formPrincipal : Form
     {
+        private int ecualizador = 0;
         private double duracion = 0;
         private double posicion = 0;
         private String nombreActual1;
         private String artistaActual1;
-        private String ordenamientoActual;
+        private String ordenamientoActual = "00";
         private byte[] musicArray = null;
         private String stdDetails = "{0, -20}{1, -15}{2, -15}{3, -15}{4, -15}";
-        private String formatoAmigos = "{0, -20}{1, -40}";
+        private String formatoAmigos = "{0, -20}{1, -0}";
 
-        public lblCalificacion()
+        public formPrincipal()
         {
             InitializeComponent();
 
@@ -37,14 +38,14 @@ namespace Odyssey
         private void Aplicacion_Load(object sender, EventArgs e)
         {
             panelBiblioteca.Hide();
-          
+
 
         }
 
 
         private void lstCanciones_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
@@ -215,7 +216,7 @@ namespace Odyssey
 
             int cont = 0;
             foreach (XmlElement i in nombre)
-            {  
+            {
                 String nombre1 = nombre.Item(cont).InnerText;
                 String artista1 = artista.Item(cont).InnerText;
                 String album1 = album.Item(cont).InnerText;
@@ -250,7 +251,7 @@ namespace Odyssey
                     lstFriends.Items.Add(String.Format(formatoAmigos, nombre1, nombreUsuario1));
                     cont++;
                 }
-                
+
             }
             else
             {
@@ -261,11 +262,15 @@ namespace Odyssey
 
         private void panelAmigos_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void muestraBiblioteca()
         {
+            if (ecualizador == 1)
+            {
+                reproductor.Show();
+            }
             btnRecomendar.Show();
             btnReproducir.Show();
             btnModificar.Show();
@@ -283,6 +288,7 @@ namespace Odyssey
 
         private void escondeBiblioteca()
         {
+            reproductor.Hide();
             btnRecomendar.Hide();
             btnReproducir.Hide();
             btnModificar.Hide();
@@ -292,6 +298,8 @@ namespace Odyssey
             btnAlbum.Hide();
             btnGenero.Hide();
             btnCalificacion.Hide();
+            btnModificar.Hide();
+            btnEcualizador.Hide();
             lstCanciones.Hide();
             btnAgregaCancion.Hide();
         }
@@ -397,13 +405,13 @@ namespace Odyssey
                             lstAmigosSelección.Items.Add(nombreUsuario1);
                             cont++;
                         }
-                       
+
                     }
                     else
                     {
                         lstFriends.Items.Add("Aún no tienes ningún amigo :c");
                     }
-             
+
                 }
                 else
                 {
@@ -442,15 +450,17 @@ namespace Odyssey
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
+            muestraNotificaciones();
             escondeAmigos();
             escondeBiblioteca();
             txtNotificaciones.Items.Clear();
-            muestraNotificaciones();
+            
 
             XmlDocument notificaciones = SocketCliente.SendServidor(DocumentoXML.notificaciones(UsuarioActual.getInstance().nombre));
 
             XmlNodeList valor = notificaciones.GetElementsByTagName("valor");
-            if (valor[0].InnerText.Equals("true")){
+            if (valor[0].InnerText.Equals("true"))
+            {
 
                 XmlNodeList notificacionesNodo = notificaciones.GetElementsByTagName("notificacion");
 
@@ -471,9 +481,10 @@ namespace Odyssey
         private void btnReproducir_Click(object sender, EventArgs e)
         {
             reproductor.close();
-            if (ordenamientoActual != null) {
+            if (ordenamientoActual != null)
+            {
                 if (lstCanciones.SelectedItem != null)
-                {        
+                {
                     XmlDocument listaCanciones = SocketCliente.SendServidor(DocumentoXML.ordenamiento(ordenamientoActual));
                     int index = lstCanciones.SelectedIndex;
 
@@ -508,8 +519,7 @@ namespace Odyssey
                 }
             }
         }
-
-        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        private void hola(String h)
         {
 
         }
@@ -542,7 +552,7 @@ namespace Odyssey
 
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
-            
+
         }
 
         private void axWindowsMediaPlayer1_PlayStateChange(object sender, _WMPOCXEvents_PlayStateChangeEvent e)
@@ -550,8 +560,92 @@ namespace Odyssey
             if (e.newState == 3)
             {
                 trackBar.Maximum = (int)reproductor.currentMedia.duration;
-                trackBar.Value = (int)reproductor.Ctlcontrols.currentPosition;
+
             }
+        }
+
+        private async void trackBar_ValueChanged(object sender, EventArgs e)
+        {
+                trackBar.Value = (int)reproductor.Ctlcontrols.currentPosition;
+        }
+
+        private void btnEcualizador_Click(object sender, EventArgs e)
+        {
+            if (ecualizador == 0)
+            {
+                reproductor.Visible = true;
+                ecualizador = 1;
+            }
+            else
+            {
+                reproductor.Visible = false;
+                ecualizador = 0;
+            }
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (ordenamientoActual != null)
+            {
+                if (lstCanciones.SelectedItem != null)
+                {
+                    pnlModificar.Show();
+                    XmlDocument listaCanciones = SocketCliente.SendServidor(DocumentoXML.ordenamiento(ordenamientoActual));
+                    int index = lstCanciones.SelectedIndex;
+
+                    XmlNodeList nodosN = listaCanciones.GetElementsByTagName("nombre");
+                    XmlNodeList nodosA = listaCanciones.GetElementsByTagName("artista");
+                    XmlNodeList nodosAl = listaCanciones.GetElementsByTagName("album");
+                    XmlNodeList nodosG = listaCanciones.GetElementsByTagName("genero");
+
+                    String nombreActual = "";
+                    String artistaActual = "";
+                    String albumActual = "";
+                    String generoActual = "";
+                    int cont = 0;
+                    while (cont <= index)
+                    {
+                        nombreActual = nodosN.Item(cont).InnerText;
+                        artistaActual = nodosA.Item(cont).InnerText;
+                        albumActual = nodosAl.Item(cont).InnerText;
+                        generoActual = nodosG.Item(cont).InnerText;
+                        cont++;
+                    }
+
+                    nombreActual1 = nombreActual;
+                    artistaActual1 = artistaActual;
+                    txtModificarNombre.Text = nombreActual;
+                    txtModificarArtista.Text = artistaActual;
+                    txtModificarAlbum.Text = albumActual;
+                    txtModificarGenero.Text = generoActual;
+                }
+            }
+        }
+
+        private void btnAceptarModificacion_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnAceptarModificacion_Click_1(object sender, EventArgs e)
+        {
+            SocketCliente.SendServidor(DocumentoXML.modificarData(nombreActual1, artistaActual1, txtModificarNombre.Text, txtModificarArtista.Text,
+               txtModificarAlbum.Text, txtModificarGenero.Text, lstBoxCalificacion.SelectedItem.ToString()));
+        }
+
+        private void btnCancelarModificacion_Click(object sender, EventArgs e)
+        {
+            pnlModificar.Hide();
+        }
+
+        private void lstAmigosSelección_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

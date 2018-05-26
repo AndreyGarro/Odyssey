@@ -41,7 +41,11 @@ namespace Odyssey
 
             if (username != "USUARIO" && pass != "CONTRASEÑA")
             {
-                XmlDocument sesion = DocumentoXML.ingresaUsuario(username, pass);
+
+                byte[] encripted = Encoding.Unicode.GetBytes(pass);
+                String passEncripted = Convert.ToBase64String(encripted);
+
+                XmlDocument sesion = DocumentoXML.ingresaUsuario(username, passEncripted);
                 
                 XmlDocument respuestaXml = SocketCliente.SendServidor(sesion);
                 XmlNodeList respuesta1 = respuestaXml.GetElementsByTagName("Respuesta");
@@ -50,7 +54,7 @@ namespace Odyssey
                 
                 if (res.Equals("true"))
                 {
-                    Form aplicacion = new lblCalificacion();
+                    Form aplicacion = new formPrincipal();
                     UsuarioActual usuario = UsuarioActual.getInstance();
                     usuario.nombre = username;
                     Hide();

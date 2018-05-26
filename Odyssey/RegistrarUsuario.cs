@@ -40,7 +40,11 @@ namespace Odyssey
                                 generos += clbGeneros.CheckedItems[x].ToString() + " ";
                             }
                         }
-                        XmlDocument nuevoUsuario = DocumentoXML.registraUsuario(username, nombres, edad, pass1, generos);
+
+                        byte[] encripted = Encoding.Unicode.GetBytes(pass1);
+                        String passEncripted = Convert.ToBase64String(encripted);
+  
+                        XmlDocument nuevoUsuario = DocumentoXML.registraUsuario(username, nombres, edad, passEncripted, generos);
                         XmlDocument respuestaXml = SocketCliente.SendServidor(nuevoUsuario);
                         XmlNodeList respuesta1 = respuestaXml.GetElementsByTagName("Respuesta");
                         String res = respuesta1[0].InnerText;
@@ -226,6 +230,11 @@ namespace Odyssey
                 txtAge.Text = "Edad";
                 txtAge.ForeColor = Color.DimGray;
             }
+        }
+
+        private void clbGeneros_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

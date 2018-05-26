@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Odyssey.formPrincipal">
+    <Position X="7" Y="0.5" Width="3" />
+    <Members>
+      <Method Name="Aplicacion_Load" Hidden="true" />
+      <Method Name="axWindowsMediaPlayer1_PlayStateChange" Hidden="true" />
+      <Method Name="bunifuFlatButton1_Click" Hidden="true" />
+      <Method Name="bunifuFlatButton2_Click" Hidden="true" />
+      <Method Name="bunifuFlatButton3_Click" Hidden="true" />
+      <Method Name="bunifuFlatButton3_Click_1" Hidden="true" />
+      <Method Name="bunifuFlatButton4_Click" Hidden="true" />
+      <Method Name="bunifuFlatButton5_Click" Hidden="true" />
+      <Method Name="bunifuFlatButton5_Click_1" Hidden="true" />
+      <Method Name="bunifuFlatButton6_Click_1" Hidden="true" />
+      <Method Name="bunifuImageButton2_Click" Hidden="true" />
+      <Method Name="button1_Click" Hidden="true" />
+      <Method Name="checkedListBox1_SelectedIndexChanged" Hidden="true" />
+      <Method Name="hola" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="trackBar1_Scroll" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>hORygMQWEbE9irOtDCCAGGGDFoFTKKxR80oAMgalaoA=</HashCode>
+      <FileName>Aplicacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Odyssey.DocumentoXML">
+    <Position X="0.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAQgAgAAAAAAAAAAAAAABAAgABAAAAABAAAACAA=</HashCode>
+      <FileName>DocumentoXML.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Odyssey.vtnPrincipal">
+    <Position X="0.75" Y="1.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gBkAABAgECQIABCgAACAgBYCAAEAAAEAAAAAgSAAAAA=</HashCode>
+      <FileName>Principal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Odyssey.Program">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Odyssey.RegistrarUsuario">
+    <Position X="3.5" Y="1" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AFgAA8QgFCAgADAABACAgAwCEAQQAAAAAHAAgSAEBAA=</HashCode>
+      <FileName>RegistrarUsuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Odyssey.UsuarioActual">
+    <Position X="3.75" Y="8.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>UsuarioActual.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Odyssey.Properties.Resources">
+    <Position X="11" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Odyssey.Properties.Settings">
+    <Position X="11" Y="4.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAIAAAAAABAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SocketCliente">
+    <Position X="6.75" Y="8.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>SocketCliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

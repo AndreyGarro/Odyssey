@@ -131,6 +131,7 @@
             this.clbGeneros.Name = "clbGeneros";
             this.clbGeneros.Size = new System.Drawing.Size(171, 180);
             this.clbGeneros.TabIndex = 13;
+            this.clbGeneros.SelectedIndexChanged += new System.EventHandler(this.clbGeneros_SelectedIndexChanged);
             // 
             // label5
             // 

@@ -37,11 +37,11 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.doubleBitmapControl1 = new BunifuAnimatorNS.DoubleBitmapControl();
             this.imgSalir = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.doubleBitmapControl1 = new BunifuAnimatorNS.DoubleBitmapControl();
             pctLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(pctLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -160,6 +160,15 @@
             this.panel2.TabIndex = 20;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // doubleBitmapControl1
+            // 
+            this.doubleBitmapControl1.Location = new System.Drawing.Point(232, 54);
+            this.doubleBitmapControl1.Name = "doubleBitmapControl1";
+            this.doubleBitmapControl1.Size = new System.Drawing.Size(75, 23);
+            this.doubleBitmapControl1.TabIndex = 19;
+            this.doubleBitmapControl1.Text = "doubleBitmapControl1";
+            this.doubleBitmapControl1.Visible = false;
+            // 
             // imgSalir
             // 
             this.imgSalir.Image = ((System.Drawing.Image)(resources.GetObject("imgSalir.Image")));
@@ -203,15 +212,6 @@
             this.label2.Size = new System.Drawing.Size(277, 13);
             this.label2.TabIndex = 16;
             this.label2.Text = "_____________________________________________";
-            // 
-            // doubleBitmapControl1
-            // 
-            this.doubleBitmapControl1.Location = new System.Drawing.Point(232, 54);
-            this.doubleBitmapControl1.Name = "doubleBitmapControl1";
-            this.doubleBitmapControl1.Size = new System.Drawing.Size(75, 23);
-            this.doubleBitmapControl1.TabIndex = 19;
-            this.doubleBitmapControl1.Text = "doubleBitmapControl1";
-            this.doubleBitmapControl1.Visible = false;
             // 
             // vtnPrincipal
             // 

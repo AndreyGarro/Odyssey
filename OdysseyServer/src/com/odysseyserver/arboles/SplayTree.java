@@ -1,10 +1,5 @@
 package com.odysseyserver.arboles;
 
-import com.odysseyserver.listas.SimpleList;
-import com.odysseyserver.listas.SimpleNode;
-
-import jdk.nashorn.internal.runtime.arrays.ArrayIndex;
-
 /**
  * Arbol binario de busqueda Splay
  * Funciones insertar, remove, find, contains

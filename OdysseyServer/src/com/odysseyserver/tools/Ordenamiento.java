@@ -26,7 +26,7 @@ public class Ordenamiento {
 		for (int i = 0; i < jsonMusicList.size(); i++) {
 			albumes.add(new SimpleNode<String>((String) ((JSONObject) jsonMusicList.get(i)).get("album")));
 		}
-		
+
 		if (albumes.getLength() != 0) {
 			for (int i = 0; i < jsonMusicList.size(); i++) {
 				for (int j = 1; j < (jsonMusicList.size() - i); j++) {
@@ -72,7 +72,7 @@ public class Ordenamiento {
 		} else {
 			CreadorXML.responderTrueFalse(false);
 		}
-		
+
 	}
 
 	private static void ordenarCancionAux(SimpleList<String> canciones, int primero, int ultimo) {
@@ -107,53 +107,6 @@ public class Ordenamiento {
 		}
 	}
 
-	//
-	// /**
-	// * Ejecuta el quicksort para el ordenamiento
-	// *
-	// * @param musica
-	// * String[]
-	// * @param izq
-	// * int inicio del array
-	// * @param der
-	// * int final del array
-	// * @return String [] ordenado
-	// */
-	// private static String[] ordenarCancionAux(String[] musica, int izq, int der)
-	// {
-	// if (izq >= der) {
-	// return musica;
-	// }
-	// int i = izq;
-	// int d = der;
-	// if (izq != der) {
-	// int pivote;
-	// String aux;
-	// pivote = izq;
-	// while (izq != der) {
-	// while (musica[der].compareToIgnoreCase(musica[pivote]) >= 0 && izq < der) {
-	// der--;
-	// while (musica[izq].compareToIgnoreCase(musica[pivote]) < 0 && izq < der) {
-	// izq++;
-	// }
-	// }
-	//
-	// if (der != izq) {
-	// aux = musica[der];
-	// musica[der] = musica[izq];
-	// musica[izq] = aux;
-	// }
-	// if (izq == der) {
-	// ordenarCancionAux(musica, i, izq - 1);
-	// ordenarCancionAux(musica, izq + 1, d);
-	// }
-	// }
-	// } else {
-	// return musica;
-	// }
-	// return musica;
-	// }
-	//
 	/**
 	 * Se encarga de ordenar las canciones con respecto al nombre de artista que
 	 * tiene cada uno, estas son de menor a mayor posicion
@@ -196,12 +149,12 @@ public class Ordenamiento {
 
 	private static void ordenarArtistaAux(SimpleList<String> canciones, SimpleList<String> aux, int min, int max,
 			int d) {
-		int R = 256; // extended ASCII Alphabets
+		int R = 256;
 		if (max <= min)
 			return;
-		int[] count = new int[R + 2]; // R+1 values, including the special small value for padding
+		int[] count = new int[R + 2];
 		for (int i = min; i <= max; i++) {
-			count[charAt(canciones.find(i), d) + 2]++; // alphabet j is counted at count[j + 2]
+			count[charAt(canciones.find(i), d) + 2]++;
 		}
 		for (int r = 0; r < R + 1; r++) {
 			count[r + 1] += count[r];
@@ -213,9 +166,7 @@ public class Ordenamiento {
 			canciones.replace(i, aux.find(i - min));
 		}
 		for (int r = 0; r < R; r++) {
-			ordenarArtistaAux(canciones, aux, min + count[r], min + count[r + 1] - 1, d + 1); // after moving data from
-																								// a[] to aux[],
-																								// count[r]
+			ordenarArtistaAux(canciones, aux, min + count[r], min + count[r + 1] - 1, d + 1);
 		}
 	}
 

@@ -28,6 +28,11 @@ public class OdysseyServerFacade {
 		gestorUsuario = GestorUsuario.getInstance();
 	}
 
+	/**
+	 * Obtiene una nueva instancia del Facade
+	 * 
+	 * @return Instancia de OdysseyServerFacade
+	 */
 	public static OdysseyServerFacade getInstance() {
 		if (instance == null) {
 			instance = new OdysseyServerFacade();
@@ -67,10 +72,12 @@ public class OdysseyServerFacade {
 				gestorMusical.agregarCancion(doc);
 				break;
 			case "01":
+				gestorMusical.modificarMetaData(doc);
 				break;
 			case "02":
 				break;
 			case "03":
+				gestorMusical.eliminar(doc);
 				break;
 			default:
 				throw new IOException("Error en opCode");
@@ -91,10 +98,13 @@ public class OdysseyServerFacade {
 			id = doc.getRootElement().getChild("id").getText();
 			switch (id) {
 			case "00":
+				gestorMusical.buscarCancion(doc);
 				break;
 			case "01":
+				gestorMusical.buscarArtista(doc);
 				break;
 			case "02":
+				gestorMusical.buscarAlbum(doc);
 				break;
 			case "03":
 				break;

@@ -62,6 +62,14 @@ public class CreadorXML {
 		}
 	}
 
+	/**
+	 * Envía la acción al facade para que gestione la respuesta de ordenamiento
+	 * 
+	 * @param listaOrden
+	 *            SimpleList con los indices ordenados
+	 * @param jsonMusic
+	 *            JSONArray con las canciones de la biblioteca musical
+	 */
 	public static void responderOrdenado(SimpleList<Integer> listaOrden, JSONArray jsonMusic) {
 		Document document = new Document();
 		Element root = new Element("Respuesta");
@@ -81,6 +89,14 @@ public class CreadorXML {
 		guardarXmlEnvio(document);
 	}
 
+	/**
+	 * Responde los amigos que tiene el usuario actual
+	 * 
+	 * @param amigos
+	 *            JSONArray con los amigos del usuario actual
+	 * @param listaUsuario
+	 *            JSONArray con los usuarios registrados
+	 */
 	public static void responderAmigos(JSONArray amigos, JSONArray listaUsuario) {
 		Document document = new Document();
 		Element root = new Element("Respuesta");
@@ -101,6 +117,12 @@ public class CreadorXML {
 		guardarXmlEnvio(document);
 	}
 
+	/**
+	 * Responde las notificaciones que tiene el usuario actual
+	 * 
+	 * @param notificaciones
+	 *            JSONArray con las notificaciones
+	 */
 	public static void responderNotificacion(JSONArray notificaciones) {
 		Document document = new Document();
 		Element root = new Element("Respuesta");
@@ -114,6 +136,12 @@ public class CreadorXML {
 		guardarXmlEnvio(document);
 	}
 
+	/**
+	 * Responde la canción correspondiente a la solicitud del cliente
+	 * 
+	 * @param cancion
+	 *            Byte Code codificado a String que contiene los bytes de la cancion
+	 */
 	public static void responderCancion(String cancion) {
 		Document doc = new Document();
 		Element root = new Element("Respuesta");

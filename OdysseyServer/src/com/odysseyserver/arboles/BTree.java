@@ -15,7 +15,6 @@ public class BTree<T extends Comparable<T>>  {
     private static final class Node {
         private int m;                             // number of children
         private Entry[] children = new Entry[M];   // the array of children
-
         // create a node with k children
         private Node(int k) {
             m = k;
@@ -87,7 +86,7 @@ public class BTree<T extends Comparable<T>>  {
         // external node
         if (ht == 0) {
             for (int j = 0; j < x.m; j++) {
-                if (eq(key, children[j].key)) return (Value) children[j].val;
+                if (eq(key, children[j].key)) return (T) children[j].val;
             }
         }
 
@@ -111,9 +110,9 @@ public class BTree<T extends Comparable<T>>  {
      * @param  val the value
      * @throws IllegalArgumentException if {@code key} is {@code null}
      */
-    public void put(T key, T val) {
+    public void put(T key) {
         if (key == null) throw new IllegalArgumentException("argument key to put() is null");
-        Node u = insert(root, key, val, height); 
+        Node u = insert(root, key, height); 
         n++;
         if (u == null) return;
 
@@ -125,9 +124,9 @@ public class BTree<T extends Comparable<T>>  {
         height++;
     }
 
-    private Node insert(Node nuevo, Key key, Value val, int ht) {
+    private Node insert(Node nuevo,T key, int ht) {
         int j;
-        Entry t = new Entry(key, val, null);
+        Entry t = new Entry(key, key, null);
 
         // external node
         if (ht == 0) {
@@ -139,7 +138,7 @@ public class BTree<T extends Comparable<T>>  {
         else {
             for (j = 0; j < nuevo.m; j++) {
                 if ((j+1 == nuevo.m) || less(key, nuevo.children[j+1].key)) {
-                    Node u = insert(nuevo.children[j++].next, key, val, ht-1);
+                    Node u = insert(nuevo.children[j++].next, key, ht-1);
                     if (u == null) return null;
                     t.key = u.children[0].key;
                     t.next = u;
@@ -209,25 +208,25 @@ public class BTree<T extends Comparable<T>>  {
      */
     public static void main(String[] args) {
     	
-        BTree<String, String> st = new BTree<String, String>();
+        BTree<String> st = new BTree<String>();
 
-        st.put("www.cs.princeton.edu", "128.112.136.12");
-        st.put("www.cs.princeton.edu", "128.112.136.11");
-        st.put("www.princeton.edu",    "128.112.128.15");
-        st.put("www.yale.edu",         "130.132.143.21");
-        st.put("www.simpsons.com",     "209.052.165.60");
-        st.put("www.apple.com",        "17.112.152.32");
-        st.put("www.amazon.com",       "207.171.182.16");
-        st.put("www.ebay.com",         "66.135.192.87");
-        st.put("www.cnn.com",          "64.236.16.20");
-        st.put("www.google.com",       "216.239.41.99");
-        st.put("www.nytimes.com",      "199.239.136.200");
-        st.put("www.microsoft.com",    "207.126.99.140");
-        st.put("www.dell.com",         "143.166.224.230");
-        st.put("www.slashdot.org",     "66.35.250.151");
-        st.put("www.espn.com",         "199.181.135.201");
-        st.put("www.weather.com",      "63.111.66.11");
-        st.put("www.yahoo.com",        "216.109.118.65");
+        st.put("www.cs.princeton.edu");
+        st.put("www.cs.princeton.edu");
+        st.put("www.princeton.edu");
+        st.put("www.yale.edu");
+        st.put("www.simpsons.com");
+        st.put("www.apple.com");
+        st.put("www.amazon.com");
+        st.put("www.ebay.com");
+        st.put("www.cnn.com");
+        st.put("www.google.com");
+        st.put("www.nytimes.com");
+        st.put("www.microsoft.com");
+        st.put("www.dell.com");
+        st.put("www.slashdot.org");
+        st.put("www.espn.com");
+        st.put("www.weather.com");
+        st.put("www.yahoo.com");
         System.out.println(st.toString());
 
     }

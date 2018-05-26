@@ -10,8 +10,22 @@ import org.json.simple.JSONObject;
 
 import com.odysseyserver.tools.CreadorXML;
 
+/**
+ * Gestiona las tareas relacionas a la reproduccion de canciones
+ * 
+ * @author jorte
+ *
+ */
 public class Reproductor {
 
+	/**
+	 * Se encarga de retornarle al cliente que la cancion solicitada para todo
+	 * 
+	 * @param doc
+	 *            Document XML que contiene la informacion de la cancion solicitada
+	 * @param canciones
+	 *            JSONArray que contiene las canciones de la biblioteca musical
+	 */
 	public static void reproducir(Document doc, JSONArray canciones) {
 
 		String cancion = (String) doc.getRootElement().getChildText("cancion");
@@ -35,7 +49,6 @@ public class Reproductor {
 				String cancionString = Base64.getEncoder().encodeToString(cancionArray);
 				CreadorXML.responderCancion(cancionString);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

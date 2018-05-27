@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import org.jdom2.Document;
+import org.jdom2.Element;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -81,7 +82,7 @@ public class GestorMusica {
 		boolean existe = false;
 		for (int i = 0; i < jsonMusicList.size(); i++) {
 			JSONObject jsonTemp = (JSONObject) jsonMusicList.get(i);
-			if (nombre.equals(jsonTemp.get(nombre)) && artista.equals(jsonTemp.get(artista))) {
+			if (nombre.equals(jsonTemp.get("nombre")) && artista.equals(jsonTemp.get("artista"))) {
 				existe = true;
 				break;
 			}
@@ -110,6 +111,7 @@ public class GestorMusica {
 			}
 		} else {
 			// Responde que no se puede agregar la canción
+			System.out.println("La canción ya exista");
 			CreadorXML.responderTrueFalse(false);
 		}
 	}
@@ -120,8 +122,54 @@ public class GestorMusica {
 	 * @param xmlDoc
 	 *            Document XML
 	 */
+	@SuppressWarnings("unchecked")
 	public void modificarMetaData(Document xmlDoc) {
-
+		System.out.println("Entré a modificar");
+		String cancionActual = xmlDoc.getRootElement().getChild("actual").getChildText("nombre");
+		String artistaActual = xmlDoc.getRootElement().getChild("actual").getChildText("artista");
+		System.out.println(cancionActual + " " + artistaActual);
+		SimpleList<Integer> indicesCancion = gestorBusquedas.buscarCancion(cancionActual);
+		SimpleList<Integer> indicesArtista = gestorBusquedas.buscarArtista(artistaActual);
+		JSONObject temp = null;
+		System.out.println("Entré a modificar");
+		System.out.println(indicesArtista);
+		System.out.println(indicesCancion);
+		for (int i = 0; i < indicesCancion.getLength(); i++) {
+			int indiceCancion = indicesCancion.find(i);
+			System.out.println(indiceCancion);
+			for (int j = 0; j < indicesArtista.getLength(); j++) {
+				int indiceArtista = indicesArtista.find(j);
+				System.out.println(indiceArtista + " " + indiceCancion);
+				if (indiceCancion == indiceArtista) {
+					temp = (JSONObject) jsonMusicList.get(indiceCancion);
+					Element nuevo = xmlDoc.getRootElement().getChild("nuevo");
+					temp.replace("nombre", nuevo.getChildText("nombre"));
+					temp.replace("artista", nuevo.getChildText("artista"));
+					temp.replace("album", nuevo.getChildText("album"));
+					temp.replace("genero", nuevo.getChildText("genero"));
+					temp.replace("calificacion", nuevo.getChildText("calificacion"));
+					if (!cancionActual.equals(nuevo.getChildText("nombre"))
+							|| !artistaActual.equals(nuevo.getChildText("artista"))) {
+						String nuevoPath = "data\\music\\" + nuevo.getChildText("nombre") + "-"
+								+ nuevo.getChildText("artista") + ".mp3";
+						File cancionNueva = new File(nuevoPath);
+						File cancionAnterior = new File((String) temp.get("path"));
+						cancionAnterior.renameTo(cancionNueva);
+						temp.replace("path", nuevoPath);
+					}
+					jsonMusicList.set(indiceArtista, temp);
+					JSONMusica.guardarInfo(jsonMusicList);
+					CreadorXML.responderTrueFalse(true);
+					break;
+				}
+			}
+			if (temp != null) {
+				break;
+			}
+		}
+		if (temp == null) {
+			CreadorXML.responderTrueFalse(false);
+		}
 	}
 
 	/**
@@ -162,7 +210,12 @@ public class GestorMusica {
 	 *            Document XML
 	 */
 	public void buscarCancion(Document xmlDoc) {
-
+		SimpleList<Integer> buscar = gestorBusquedas.buscarCancion(xmlDoc.getRootElement().getChildText("buscar"));
+		if (buscar != null) {
+			CreadorXML.responderOrdenado(buscar, jsonMusicList);
+		} else {
+			CreadorXML.responderTrueFalse(false);
+		}
 	}
 
 	/**
@@ -172,7 +225,12 @@ public class GestorMusica {
 	 *            Document XML
 	 */
 	public void buscarAlbum(Document xmlDoc) {
-
+		SimpleList<Integer> buscar = gestorBusquedas.buscarAlbum(xmlDoc.getRootElement().getChildText("buscar"));
+		if (buscar != null) {
+			CreadorXML.responderOrdenado(buscar, jsonMusicList);
+		} else {
+			CreadorXML.responderTrueFalse(false);
+		}
 	}
 
 	/**
@@ -182,7 +240,12 @@ public class GestorMusica {
 	 *            Document XML
 	 */
 	public void buscarArtista(Document xmlDoc) {
-
+		SimpleList<Integer> buscar = gestorBusquedas.buscarArtista(xmlDoc.getRootElement().getChildText("buscar"));
+		if (buscar != null) {
+			CreadorXML.responderOrdenado(buscar, jsonMusicList);
+		} else {
+			CreadorXML.responderTrueFalse(false);
+		}
 	}
 
 	/**

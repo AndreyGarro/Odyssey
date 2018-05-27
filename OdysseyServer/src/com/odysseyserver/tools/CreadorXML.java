@@ -73,6 +73,7 @@ public class CreadorXML {
 	public static void responderOrdenado(SimpleList<Integer> listaOrden, JSONArray jsonMusic) {
 		Document document = new Document();
 		Element root = new Element("Respuesta");
+		root.addContent(new Element("valor").setText("true"));
 		for (int i = 0; i < listaOrden.getLength(); i++) {
 			Element cancion = new Element("Cancion");
 			JSONObject cancionTemp = (JSONObject) jsonMusic.get(listaOrden.find(i));

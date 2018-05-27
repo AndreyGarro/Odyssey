@@ -10,8 +10,8 @@ import com.odysseyserver.listas.SimpleNode;
  */
 public class AVLNode {
 	AVLNode left, right;
-	String clave;
-	SimpleList<Integer> arrayIndx;
+	public String clave;
+	public SimpleList<Integer> arrayIndx;
 	int height;
 	/**
 	 * Contructor sin parametro
@@ -54,6 +54,7 @@ public class AVLNode {
 	 */
 	public void addArrayIndx(Integer indx) {
 		this.arrayIndx.add(new SimpleNode<Integer>(indx));
+		System.out.println(this.arrayIndx);
 	}
 	
 	public SimpleList<Integer> getArrayIndx() {

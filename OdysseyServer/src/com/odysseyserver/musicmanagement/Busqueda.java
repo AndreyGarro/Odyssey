@@ -18,7 +18,7 @@ public class Busqueda {
 
 	private AVLTree artistas;
 	private SplayTree<String> albums;
-	private AVLTree canciones;
+	private BTree<String> canciones;
 	private static Busqueda instance;
 
 	private Busqueda(JSONArray jsonCanciones) {
@@ -55,7 +55,7 @@ public class Busqueda {
 	}
 
 	private void generarArbolCanciones(JSONArray jsonArray) {
-		canciones = new AVLTree();
+		canciones = new BTree<>();
 		if (jsonArray.size() > 0) {
 			for (int i = 0; i < jsonArray.size(); i++) {
 				JSONObject temp = (JSONObject) jsonArray.get(i);
@@ -63,9 +63,7 @@ public class Busqueda {
 				canciones.insert(nombre, i);
 			}
 		}
-		System.out.println("Preorden");
-		canciones.preOrder();
-		System.out.println("Entré a canciones__________________________________");
+		canciones.toString();
 	}
 
 	private void generarArbolAlbumes(JSONArray jsonArray) {
@@ -118,10 +116,10 @@ public class Busqueda {
 	 * @return SimpleList que contiene los índices donde se encuentra el artista
 	 */
 	public SimpleList<Integer> buscarCancion(String cancion) {
-		if (canciones.searchTwo(cancion) != null) {
-			System.out.println(canciones.searchTwo(cancion).getArrayIndx());
-			System.out.println(canciones.search(cancion.trim()));
-			return canciones.searchTwo(cancion).arrayIndx;
+		if (canciones.get(cancion) != null) {
+			System.out.println(canciones.get(cancion));
+			System.out.println(canciones.get(cancion.trim()));
+			return canciones.get(cancion);
 		}
 		return null;
 	}

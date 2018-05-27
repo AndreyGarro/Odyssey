@@ -7,6 +7,7 @@ import sun.java2d.pipe.SpanShapeRenderer.Simple;
 
 /**
  * Arbol B, Metodos get, insertar, ToString
+ * 
  * @author Christian
  *
  * @param <T>
@@ -129,8 +130,9 @@ public class BTree<T extends Comparable<T>> {
 		// internal node
 		else {
 			for (int j = 0; j < current.numChildren; j++) {
-				if (j + 1 == current.numChildren || less(key, (T) children[j + 1].clave))
+				if (j + 1 == current.numChildren || less(key, (T) children[j + 1].clave)) {
 					return search(children[j].next, key, ht - 1);
+				}
 			}
 		}
 		return null;
@@ -201,8 +203,9 @@ public class BTree<T extends Comparable<T>> {
 	private NodeB split(NodeB h) {
 		NodeB t = new NodeB(M / 2);
 		h.numChildren = M / 2;
-		for (int j = 0; j < M / 2; j++)
+		for (int j = 0; j < M / 2; j++) {
 			t.children[j] = h.children[M / 2 + j];
+		}
 		return t;
 	}
 
@@ -279,6 +282,7 @@ public class BTree<T extends Comparable<T>> {
 		st.insert("q", 21);
 		st.insert("t", 78);
 		st.insert("l", 32);
+		st.insert("q", 23);
 		System.out.println(st.get("q"));
 		System.out.println(st.get("y"));
 		System.out.println(st.get("k"));

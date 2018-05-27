@@ -2,66 +2,12 @@
 <Respuesta>
   <valor>true</valor>
   <Cancion>
-    <nombre>Dura</nombre>
-    <artista>Daddy</artista>
-    <album />
-    <genero />
-    <ano>0</ano>
-    <calificacion>* * *</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
-    <nombre>Dura</nombre>
-    <artista>Daddy Yankee</artista>
-    <album />
-    <genero>12</genero>
-    <ano>0</ano>
-    <calificacion>* * * *</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
-    <nombre>Dura</nombre>
-    <artista>Daddy Yankee</artista>
-    <album />
-    <genero />
-    <ano>0</ano>
-    <calificacion>0</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
-    <nombre>FloRida Falso</nombre>
-    <artista>FloRida</artista>
-    <album>hola</album>
-    <genero>:v</genero>
-    <ano>0</ano>
-    <calificacion>* * * *</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
     <nombre>Live in the moment</nombre>
     <artista>Portugal the man</artista>
-    <album>SoyUnAlbum</album>
-    <genero />
+    <album>WoodStock</album>
+    <genero>Pop</genero>
     <ano>0</ano>
-    <calificacion>* * * * *</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
-    <nombre>Live in the moment</nombre>
-    <artista />
-    <album />
-    <genero />
-    <ano>0</ano>
-    <calificacion>0</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
-    <nombre>Whistle</nombre>
-    <artista>FloRida</artista>
-    <album>Hola</album>
-    <genero>Bueno</genero>
-    <ano>0</ano>
-    <calificacion>* * * * *</calificacion>
+    <calificacion>* * *</calificacion>
     <letra />
   </Cancion>
 </Respuesta>

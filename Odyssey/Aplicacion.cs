@@ -96,6 +96,7 @@ namespace Odyssey
             muestraBiblioteca();
             lstCanciones.Items.Clear();
             lstCanciones.Show();
+            ordenamientoActual = "00";
 
             XmlDocument cargar = DocumentoXML.ordenamiento("00");
             XmlDocument lista = SocketCliente.SendServidor(cargar);

@@ -224,7 +224,7 @@ public class AVLTree {
 	}
 
 	private AVLNode searchTwo(AVLNode current, String clave) {
-		AVLNode found = new AVLNode();
+		AVLNode found = null;
 		while ((current != null) && found == null) {
 			String rval = current.clave;
 			if (clave.compareToIgnoreCase(rval) < 0) {

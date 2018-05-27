@@ -219,4 +219,19 @@ public class SimpleList<T> {
 	public SimpleNode<T> getFirst() {
 		return first;
 	}
+
+	public boolean contains(T dato) {
+		for (int i = 0; i < length; i++) {
+			if (dato instanceof String) {
+				if (((String)find(i)).equalsIgnoreCase((String)dato)) {
+					return true;
+				}
+			} else {
+				if (find(i).equals(dato)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

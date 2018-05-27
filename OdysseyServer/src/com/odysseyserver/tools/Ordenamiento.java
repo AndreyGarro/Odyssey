@@ -53,7 +53,10 @@ public class Ordenamiento {
 		SimpleList<String> canciones = new SimpleList<>();
 
 		for (int i = 0; i < jsonMusicList.size(); i++) {
-			canciones.add(new SimpleNode<String>((String) ((JSONObject) (jsonMusicList.get(i))).get("nombre")));
+			if (!canciones.contains((String) ((JSONObject) (jsonMusicList.get(i))).get("nombre"))) {
+				canciones.add(new SimpleNode<String>((String) ((JSONObject) (jsonMusicList.get(i))).get("nombre")));
+			} 
+			
 		}
 		if (canciones.getFirst() != null) {
 			ordenarCancionAux(canciones, 0, canciones.getLength() - 1);
@@ -63,10 +66,10 @@ public class Ordenamiento {
 				for (int i = 0; i < jsonMusicList.size(); i++) {
 					if (canciones.find(fin).equals((String) ((JSONObject) (jsonMusicList.get(i))).get("nombre"))) {
 						ordenado.add(new SimpleNode<Integer>(i));
-						fin++;
-						break;
 					}
 				}
+				fin++;
+				
 			}
 			CreadorXML.responderOrdenado(ordenado, jsonMusicList);
 		} else {
@@ -122,8 +125,10 @@ public class Ordenamiento {
 		// Añade los nombres de los artistas
 		for (int i = 0; i < jsonMusicList.size(); i++) {
 			String artista = (String) ((JSONObject) (jsonMusicList.get(i))).get("artista");
-			canciones.add(new SimpleNode<String>(artista.toLowerCase()));
-			aux.add(new SimpleNode<String>(""));
+			if (!canciones.contains(artista)) {
+				canciones.add(new SimpleNode<String>(artista.toLowerCase()));
+				aux.add(new SimpleNode<String>(""));
+			}
 		}
 
 		if (canciones.getLength() != 0) {
@@ -131,14 +136,16 @@ public class Ordenamiento {
 			ordenarArtistaAux(canciones, aux, 0, canciones.getLength() - 1, 0);
 
 			// Envía la orden para responder XML guardado
-			for (int i = 0; i < canciones.getLength(); i++) {
+			int i = 0;
+			while (i < canciones.getLength()) {
+				System.out.println(canciones.find(i));
 				for (int j = 0; j < jsonMusicList.size(); j++) {
 					String artista = (String) ((JSONObject) (jsonMusicList.get(j))).get("artista");
 					if (canciones.find(i).equalsIgnoreCase(artista)) {
 						ordenArtistas.add(new SimpleNode<Integer>(j));
-						break;
 					}
 				}
+				i ++;
 			}
 			CreadorXML.responderOrdenado(ordenArtistas, jsonMusicList);
 		} else {

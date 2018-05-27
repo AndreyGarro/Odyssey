@@ -18,7 +18,7 @@ public class Busqueda {
 
 	private AVLTree artistas;
 	private SplayTree<String> albums;
-	private BTree<String> canciones;
+	private AVLTree canciones;
 	private static Busqueda instance;
 
 	private Busqueda(JSONArray jsonCanciones) {
@@ -49,11 +49,23 @@ public class Busqueda {
 				artistas.insert(artista, i);
 			}
 		}
-		System.out.println("Entré a artistas");
+		System.out.println("Preorden");
+		artistas.preOrder();
+		System.out.println("Entré a artistas__________________________________");
 	}
 
 	private void generarArbolCanciones(JSONArray jsonArray) {
-
+		canciones = new AVLTree();
+		if (jsonArray.size() > 0) {
+			for (int i = 0; i < jsonArray.size(); i++) {
+				JSONObject temp = (JSONObject) jsonArray.get(i);
+				String nombre = (String) temp.get("nombre");
+				canciones.insert(nombre, i);
+			}
+		}
+		System.out.println("Preorden");
+		canciones.preOrder();
+		System.out.println("Entré a canciones__________________________________");
 	}
 
 	private void generarArbolAlbumes(JSONArray jsonArray) {
@@ -65,7 +77,7 @@ public class Busqueda {
 				albums.insert(album, i);
 			}
 		}
-		System.out.println("Entré a albumes");
+		System.out.println("Entré a albumes____________________________________");
 	}
 
 	/**
@@ -90,7 +102,11 @@ public class Busqueda {
 	 * @return SimpleList que contiene los índices donde se encuentra el artista
 	 */
 	public SimpleList<Integer> buscarArtista(String artista) {
-		return artistas.searchTwo(artista).getArrayIndx();
+		System.out.println("En el Buscador" + artistas.search(artista));
+		if (artistas.searchTwo(artista.trim()) != null) {
+			return artistas.searchTwo(artista.trim()).getArrayIndx();
+		}
+		return null;
 	}
 
 	/**
@@ -102,6 +118,11 @@ public class Busqueda {
 	 * @return SimpleList que contiene los índices donde se encuentra el artista
 	 */
 	public SimpleList<Integer> buscarCancion(String cancion) {
+		if (canciones.searchTwo(cancion) != null) {
+			System.out.println(canciones.searchTwo(cancion).getArrayIndx());
+			System.out.println(canciones.search(cancion.trim()));
+			return canciones.searchTwo(cancion).arrayIndx;
+		}
 		return null;
 	}
 
@@ -114,7 +135,11 @@ public class Busqueda {
 	 * @return SimpleList que contiene los índices donde se encuentra el artista
 	 */
 	public SimpleList<Integer> buscarAlbum(String album) {
-		return albums.find(album).getArrayIndx();
+		System.out.println(albums.find(album));
+		if (albums.find(album) != null) {
+			return albums.find(album).getArrayIndx();
+		}
+		return null;
 
 	}
 
@@ -127,8 +152,8 @@ public class Busqueda {
 	 *            indice donde se encuentra la canción
 	 */
 	public void agregarCancion(JSONObject cancion, int indx) {
-		artistas.insert((String)cancion.get("artista"), indx);
-		albums.insert((String)cancion.get("artista"), indx);
+		artistas.insert((String) cancion.get("artista"), indx);
+		albums.insert((String) cancion.get("artista"), indx);
+		canciones.insert((String) cancion.get("nombre"), indx);
 	}
-
 }

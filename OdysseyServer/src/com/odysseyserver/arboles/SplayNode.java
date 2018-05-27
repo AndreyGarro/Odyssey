@@ -11,9 +11,9 @@ import com.odysseyserver.listas.SimpleNode;
  */
 public class SplayNode {
 	
-	public String clave;
-	public SimpleList<Integer> arrayIndx = new SimpleList<>();
-	public  SplayNode left, right;
+	protected String clave;
+	protected SimpleList<Integer> arrayIndx = new SimpleList<>();
+	protected SplayNode left, right;
 	/**
 	 * Constructor del nodo por defecto se necesitan minimo la clave
 	 * y la posicion del archivo.
@@ -43,5 +43,9 @@ public class SplayNode {
 	 */
 	public void addArrayIndx(Integer indx) {
 		this.arrayIndx.add(new SimpleNode<Integer>(indx));
+	}
+	
+	public SimpleList<Integer> getArrayIndx() {
+		return this.arrayIndx;
 	}
 }

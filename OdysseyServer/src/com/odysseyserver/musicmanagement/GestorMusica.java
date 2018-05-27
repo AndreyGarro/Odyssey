@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.odysseyserver.listas.SimpleList;
 import com.odysseyserver.tools.CreadorXML;
 import com.odysseyserver.tools.Ordenamiento;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
@@ -97,7 +98,8 @@ public class GestorMusica {
 				jsonMusicList.add(cancion);
 				System.out.println(jsonMusicList.toJSONString());
 				JSONMusica.guardarInfo(jsonMusicList);
-				gestorBusquedas.agregarCancion(cancion);
+				gestorBusquedas.agregarCancion(cancion, jsonMusicList.size() - 1);
+				gestorBusquedas.reconstruirArboles(jsonMusicList);
 
 				// Envía XML al cliente
 				CreadorXML.responderTrueFalse(true);
@@ -122,6 +124,12 @@ public class GestorMusica {
 
 	}
 
+	/**
+	 * Retorna los bytes de la canción que se está buscando
+	 * 
+	 * @param xml
+	 *            Document XML con la información de la canción solicitada
+	 */
 	public void reproducir(Document xml) {
 		Reproductor.reproducir(xml, jsonMusicList);
 	}
@@ -145,16 +153,6 @@ public class GestorMusica {
 	 */
 	public void ordenarArtista() {
 		Ordenamiento.ordenarArtista(jsonMusicList);
-	}
-
-	/**
-	 * Modifica la información de una canción específica
-	 * 
-	 * @param xmlDoc
-	 *            Document XML
-	 */
-	public void modificarInfo(Document xmlDoc) {
-
 	}
 
 	/**
@@ -194,6 +192,29 @@ public class GestorMusica {
 	 *            Docuemnt XML que contiene toda la información de la cancion
 	 */
 	public void eliminar(Document xmlDoc) {
-
+		String cancion = xmlDoc.getRootElement().getChildText("nombre");
+		String artista = xmlDoc.getRootElement().getChildText("artista");
+		SimpleList<Integer> indiceCancion = gestorBusquedas.buscarCancion(cancion);
+		SimpleList<Integer> indiceArtsita = gestorBusquedas.buscarArtista(artista);
+		for (int i = 0; i < indiceCancion.getLength(); i++) {
+			int cancionIndx = indiceCancion.find(i);
+			for (int j = 0; j < indiceArtsita.getLength(); j++) {
+				int artistaIndx = indiceArtsita.find(j);
+				if (cancionIndx == artistaIndx) {
+					JSONObject temp = (JSONObject) jsonMusicList.get(cancionIndx);
+					String path = (String) temp.get("path");
+					File eliminacion = new File(path);
+					eliminacion.delete();
+					jsonMusicList.remove(cancionIndx);
+					JSONMusica.guardarInfo(jsonMusicList);
+					gestorBusquedas.reconstruirArboles(jsonMusicList);
+					cancionIndx = -1;
+					break;
+				}
+			}
+			if (cancionIndx == -1) {
+				break;
+			}
+		}
 	}
 }

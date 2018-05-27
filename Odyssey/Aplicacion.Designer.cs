@@ -30,21 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPrincipal));
-            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation7 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation6 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation8 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation65 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation66 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation68 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation67 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation70 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation69 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation72 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation71 = new BunifuAnimatorNS.Animation();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.sideMenu = new System.Windows.Forms.Panel();
-            this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.miniLogo = new System.Windows.Forms.PictureBox();
             this.btntNotificaciones = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -103,6 +102,13 @@
             this.amigosSeleccionSale = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.btnXCheckSale = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panelModificar = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.bunifuFlatButton5 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panelBusqueda = new System.Windows.Forms.Panel();
+            this.tipoBusqueda = new System.Windows.Forms.ListBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnRealizarBusqueda = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnCancelarBusqueda = new Bunifu.Framework.UI.BunifuImageButton();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -119,6 +125,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelarModificacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAceptarModificacion)).BeginInit();
             this.panelBiblioteca.SuspendLayout();
+            this.panelBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRealizarBusqueda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBusqueda)).BeginInit();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -209,7 +218,6 @@
             // sideMenu
             // 
             this.sideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.sideMenu.Controls.Add(this.bunifuFlatButton5);
             this.sideMenu.Controls.Add(this.miniLogo);
             this.sideMenu.Controls.Add(this.btntNotificaciones);
             this.sideMenu.Controls.Add(this.bunifuFlatButton2);
@@ -230,49 +238,6 @@
             this.sideMenu.Size = new System.Drawing.Size(200, 523);
             this.sideMenu.TabIndex = 22;
             this.sideMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.sideMenu_Paint);
-            // 
-            // bunifuFlatButton5
-            // 
-            this.bunifuFlatButton5.Active = false;
-            this.bunifuFlatButton5.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bunifuFlatButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton5.BorderRadius = 0;
-            this.bunifuFlatButton5.ButtonText = "      Buscar";
-            this.bunifuFlatButton5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXCheckSale.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
-            this.panelModificar.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuFlatButton5.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton5.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton5.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton5.Iconimage")));
-            this.bunifuFlatButton5.Iconimage_right = null;
-            this.bunifuFlatButton5.Iconimage_right_Selected = null;
-            this.bunifuFlatButton5.Iconimage_Selected = null;
-            this.bunifuFlatButton5.IconMarginLeft = 0;
-            this.bunifuFlatButton5.IconMarginRight = 0;
-            this.bunifuFlatButton5.IconRightVisible = true;
-            this.bunifuFlatButton5.IconRightZoom = 0D;
-            this.bunifuFlatButton5.IconVisible = true;
-            this.bunifuFlatButton5.IconZoom = 80D;
-            this.bunifuFlatButton5.IsTab = true;
-            this.bunifuFlatButton5.Location = new System.Drawing.Point(-1, 389);
-            this.bunifuFlatButton5.Name = "bunifuFlatButton5";
-            this.bunifuFlatButton5.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton5.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuFlatButton5.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.bunifuFlatButton5.selected = false;
-            this.bunifuFlatButton5.Size = new System.Drawing.Size(201, 48);
-            this.bunifuFlatButton5.TabIndex = 26;
-            this.bunifuFlatButton5.Text = "      Buscar";
-            this.bunifuFlatButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton5.Textcolor = System.Drawing.Color.Silver;
-            this.bunifuFlatButton5.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // miniLogo
             // 
@@ -476,22 +441,22 @@
             // 
             this.logoAnimator.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.logoAnimator.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 0;
-            animation3.Padding = new System.Windows.Forms.Padding(30);
-            animation3.RotateCoeff = 0.5F;
-            animation3.RotateLimit = 0.2F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 0F;
-            animation3.TransparencyCoeff = 0F;
-            this.logoAnimator.DefaultAnimation = animation3;
+            animation65.AnimateOnlyDifferences = true;
+            animation65.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation65.BlindCoeff")));
+            animation65.LeafCoeff = 0F;
+            animation65.MaxTime = 1F;
+            animation65.MinTime = 0F;
+            animation65.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation65.MosaicCoeff")));
+            animation65.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation65.MosaicShift")));
+            animation65.MosaicSize = 0;
+            animation65.Padding = new System.Windows.Forms.Padding(30);
+            animation65.RotateCoeff = 0.5F;
+            animation65.RotateLimit = 0.2F;
+            animation65.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation65.ScaleCoeff")));
+            animation65.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation65.SlideCoeff")));
+            animation65.TimeCoeff = 0F;
+            animation65.TransparencyCoeff = 0F;
+            this.logoAnimator.DefaultAnimation = animation65;
             // 
             // reproductor
             // 
@@ -568,9 +533,9 @@
             this.lstCanciones.ForeColor = System.Drawing.Color.Transparent;
             this.lstCanciones.FormattingEnabled = true;
             this.lstCanciones.ItemHeight = 17;
-            this.lstCanciones.Location = new System.Drawing.Point(44, 78);
+            this.lstCanciones.Location = new System.Drawing.Point(18, 86);
             this.lstCanciones.Name = "lstCanciones";
-            this.lstCanciones.Size = new System.Drawing.Size(639, 374);
+            this.lstCanciones.Size = new System.Drawing.Size(695, 374);
             this.lstCanciones.TabIndex = 0;
             this.lstCanciones.SelectedIndexChanged += new System.EventHandler(this.lstCanciones_SelectedIndexChanged_1);
             // 
@@ -609,14 +574,14 @@
             this.btnNombre.IconVisible = true;
             this.btnNombre.IconZoom = 40D;
             this.btnNombre.IsTab = true;
-            this.btnNombre.Location = new System.Drawing.Point(44, 49);
+            this.btnNombre.Location = new System.Drawing.Point(18, 57);
             this.btnNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNombre.Name = "btnNombre";
             this.btnNombre.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnNombre.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnNombre.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnNombre.selected = true;
-            this.btnNombre.Size = new System.Drawing.Size(71, 24);
+            this.btnNombre.Size = new System.Drawing.Size(100, 24);
             this.btnNombre.TabIndex = 27;
             this.btnNombre.Text = "Nombre";
             this.btnNombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -659,14 +624,14 @@
             this.btnArtista.IconVisible = true;
             this.btnArtista.IconZoom = 40D;
             this.btnArtista.IsTab = true;
-            this.btnArtista.Location = new System.Drawing.Point(211, 49);
+            this.btnArtista.Location = new System.Drawing.Point(192, 57);
             this.btnArtista.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnArtista.Name = "btnArtista";
             this.btnArtista.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnArtista.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnArtista.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnArtista.selected = false;
-            this.btnArtista.Size = new System.Drawing.Size(57, 24);
+            this.btnArtista.Size = new System.Drawing.Size(86, 24);
             this.btnArtista.TabIndex = 28;
             this.btnArtista.Text = "Artista";
             this.btnArtista.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -709,14 +674,14 @@
             this.btnAlbum.IconVisible = true;
             this.btnAlbum.IconZoom = 40D;
             this.btnAlbum.IsTab = true;
-            this.btnAlbum.Location = new System.Drawing.Point(365, 49);
+            this.btnAlbum.Location = new System.Drawing.Point(339, 57);
             this.btnAlbum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAlbum.Name = "btnAlbum";
             this.btnAlbum.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnAlbum.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnAlbum.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnAlbum.selected = false;
-            this.btnAlbum.Size = new System.Drawing.Size(71, 24);
+            this.btnAlbum.Size = new System.Drawing.Size(100, 24);
             this.btnAlbum.TabIndex = 29;
             this.btnAlbum.Text = "Álbum";
             this.btnAlbum.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -759,14 +724,14 @@
             this.btnGenero.IconVisible = true;
             this.btnGenero.IconZoom = 40D;
             this.btnGenero.IsTab = true;
-            this.btnGenero.Location = new System.Drawing.Point(501, 49);
+            this.btnGenero.Location = new System.Drawing.Point(475, 57);
             this.btnGenero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGenero.Name = "btnGenero";
             this.btnGenero.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnGenero.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnGenero.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnGenero.selected = false;
-            this.btnGenero.Size = new System.Drawing.Size(71, 24);
+            this.btnGenero.Size = new System.Drawing.Size(100, 24);
             this.btnGenero.TabIndex = 30;
             this.btnGenero.Text = "Género";
             this.btnGenero.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -808,14 +773,14 @@
             this.btnCalificacion.IconVisible = true;
             this.btnCalificacion.IconZoom = 40D;
             this.btnCalificacion.IsTab = true;
-            this.btnCalificacion.Location = new System.Drawing.Point(590, 49);
+            this.btnCalificacion.Location = new System.Drawing.Point(593, 57);
             this.btnCalificacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCalificacion.Name = "btnCalificacion";
             this.btnCalificacion.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnCalificacion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnCalificacion.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnCalificacion.selected = false;
-            this.btnCalificacion.Size = new System.Drawing.Size(102, 24);
+            this.btnCalificacion.Size = new System.Drawing.Size(131, 24);
             this.btnCalificacion.TabIndex = 31;
             this.btnCalificacion.Text = "Calificación";
             this.btnCalificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1221,6 +1186,7 @@
             this.panelEntra.SetDecoration(this.lblNotificaciones, BunifuAnimatorNS.DecorationType.None);
             this.btnXCheckSale.SetDecoration(this.lblNotificaciones, BunifuAnimatorNS.DecorationType.None);
             this.lblNotificaciones.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotificaciones.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.lblNotificaciones.Location = new System.Drawing.Point(283, 29);
             this.lblNotificaciones.Name = "lblNotificaciones";
             this.lblNotificaciones.Size = new System.Drawing.Size(200, 32);
@@ -1504,6 +1470,7 @@
             // 
             this.lstBoxCalificacion.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.lstBoxCalificacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstBoxCalificacion.CheckOnClick = true;
             this.panelEntra.SetDecoration(this.lstBoxCalificacion, BunifuAnimatorNS.DecorationType.None);
             this.logoAnimator.SetDecoration(this.lstBoxCalificacion, BunifuAnimatorNS.DecorationType.None);
             this.lstAmigosSeleccionTransition.SetDecoration(this.lstBoxCalificacion, BunifuAnimatorNS.DecorationType.None);
@@ -1512,17 +1479,17 @@
             this.buttonCheckXTransition.SetDecoration(this.lstBoxCalificacion, BunifuAnimatorNS.DecorationType.None);
             this.panelModificar.SetDecoration(this.lstBoxCalificacion, BunifuAnimatorNS.DecorationType.None);
             this.btnXCheckSale.SetDecoration(this.lstBoxCalificacion, BunifuAnimatorNS.DecorationType.None);
-            this.lstBoxCalificacion.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstBoxCalificacion.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstBoxCalificacion.FormattingEnabled = true;
             this.lstBoxCalificacion.Items.AddRange(new object[] {
-            "★",
-            "★★",
-            "★★★",
-            "★★★★",
-            "★★★★★"});
-            this.lstBoxCalificacion.Location = new System.Drawing.Point(137, 199);
+            "*",
+            "* *",
+            "* * *",
+            "* * * *",
+            "* * * * *"});
+            this.lstBoxCalificacion.Location = new System.Drawing.Point(134, 183);
             this.lstBoxCalificacion.Name = "lstBoxCalificacion";
-            this.lstBoxCalificacion.Size = new System.Drawing.Size(91, 85);
+            this.lstBoxCalificacion.Size = new System.Drawing.Size(91, 105);
             this.lstBoxCalificacion.TabIndex = 58;
             this.lstBoxCalificacion.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
@@ -1636,6 +1603,8 @@
             // panelBiblioteca
             // 
             this.panelBiblioteca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.panelBiblioteca.Controls.Add(this.panelBusqueda);
+            this.panelBiblioteca.Controls.Add(this.bunifuFlatButton5);
             this.panelBiblioteca.Controls.Add(this.doubleBitmapControl3);
             this.panelBiblioteca.Controls.Add(this.pnlModificar);
             this.panelBiblioteca.Controls.Add(this.btnEcualizador);
@@ -1720,22 +1689,22 @@
             // 
             this.panelEntra.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.panelEntra.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.panelEntra.DefaultAnimation = animation2;
+            animation66.AnimateOnlyDifferences = true;
+            animation66.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation66.BlindCoeff")));
+            animation66.LeafCoeff = 0F;
+            animation66.MaxTime = 1F;
+            animation66.MinTime = 0F;
+            animation66.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation66.MosaicCoeff")));
+            animation66.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation66.MosaicShift")));
+            animation66.MosaicSize = 0;
+            animation66.Padding = new System.Windows.Forms.Padding(0);
+            animation66.RotateCoeff = 0F;
+            animation66.RotateLimit = 0F;
+            animation66.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation66.ScaleCoeff")));
+            animation66.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation66.SlideCoeff")));
+            animation66.TimeCoeff = 0F;
+            animation66.TransparencyCoeff = 0F;
+            this.panelEntra.DefaultAnimation = animation66;
             // 
             // bunifuElipse1
             // 
@@ -1746,127 +1715,293 @@
             // 
             this.panelFuera.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.panelFuera.Cursor = null;
-            animation5.AnimateOnlyDifferences = true;
-            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
-            animation5.LeafCoeff = 0F;
-            animation5.MaxTime = 1F;
-            animation5.MinTime = 0F;
-            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
-            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
-            animation5.MosaicSize = 0;
-            animation5.Padding = new System.Windows.Forms.Padding(0);
-            animation5.RotateCoeff = 0F;
-            animation5.RotateLimit = 0F;
-            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
-            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
-            animation5.TimeCoeff = 0F;
-            animation5.TransparencyCoeff = 0F;
-            this.panelFuera.DefaultAnimation = animation5;
+            animation68.AnimateOnlyDifferences = true;
+            animation68.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation68.BlindCoeff")));
+            animation68.LeafCoeff = 0F;
+            animation68.MaxTime = 1F;
+            animation68.MinTime = 0F;
+            animation68.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation68.MosaicCoeff")));
+            animation68.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation68.MosaicShift")));
+            animation68.MosaicSize = 0;
+            animation68.Padding = new System.Windows.Forms.Padding(0);
+            animation68.RotateCoeff = 0F;
+            animation68.RotateLimit = 0F;
+            animation68.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation68.ScaleCoeff")));
+            animation68.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation68.SlideCoeff")));
+            animation68.TimeCoeff = 0F;
+            animation68.TransparencyCoeff = 0F;
+            this.panelFuera.DefaultAnimation = animation68;
             // 
             // lstAmigosSeleccionTransition
             // 
             this.lstAmigosSeleccionTransition.AnimationType = BunifuAnimatorNS.AnimationType.Leaf;
             this.lstAmigosSeleccionTransition.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 1F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 0F;
-            this.lstAmigosSeleccionTransition.DefaultAnimation = animation4;
+            animation67.AnimateOnlyDifferences = true;
+            animation67.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation67.BlindCoeff")));
+            animation67.LeafCoeff = 1F;
+            animation67.MaxTime = 1F;
+            animation67.MinTime = 0F;
+            animation67.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation67.MosaicCoeff")));
+            animation67.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation67.MosaicShift")));
+            animation67.MosaicSize = 0;
+            animation67.Padding = new System.Windows.Forms.Padding(0);
+            animation67.RotateCoeff = 0F;
+            animation67.RotateLimit = 0F;
+            animation67.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation67.ScaleCoeff")));
+            animation67.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation67.SlideCoeff")));
+            animation67.TimeCoeff = 0F;
+            animation67.TransparencyCoeff = 0F;
+            this.lstAmigosSeleccionTransition.DefaultAnimation = animation67;
             // 
             // buttonCheckXTransition
             // 
             this.buttonCheckXTransition.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.buttonCheckXTransition.Cursor = null;
-            animation7.AnimateOnlyDifferences = true;
-            animation7.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.BlindCoeff")));
-            animation7.LeafCoeff = 0F;
-            animation7.MaxTime = 1F;
-            animation7.MinTime = 0F;
-            animation7.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicCoeff")));
-            animation7.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation7.MosaicShift")));
-            animation7.MosaicSize = 1;
-            animation7.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation7.RotateCoeff = 0F;
-            animation7.RotateLimit = 0F;
-            animation7.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.ScaleCoeff")));
-            animation7.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation7.SlideCoeff")));
-            animation7.TimeCoeff = 2F;
-            animation7.TransparencyCoeff = 0F;
-            this.buttonCheckXTransition.DefaultAnimation = animation7;
+            animation70.AnimateOnlyDifferences = true;
+            animation70.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation70.BlindCoeff")));
+            animation70.LeafCoeff = 0F;
+            animation70.MaxTime = 1F;
+            animation70.MinTime = 0F;
+            animation70.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation70.MosaicCoeff")));
+            animation70.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation70.MosaicShift")));
+            animation70.MosaicSize = 1;
+            animation70.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation70.RotateCoeff = 0F;
+            animation70.RotateLimit = 0F;
+            animation70.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation70.ScaleCoeff")));
+            animation70.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation70.SlideCoeff")));
+            animation70.TimeCoeff = 2F;
+            animation70.TransparencyCoeff = 0F;
+            this.buttonCheckXTransition.DefaultAnimation = animation70;
             // 
             // amigosSeleccionSale
             // 
             this.amigosSeleccionSale.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.amigosSeleccionSale.Cursor = null;
-            animation6.AnimateOnlyDifferences = true;
-            animation6.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.BlindCoeff")));
-            animation6.LeafCoeff = 0F;
-            animation6.MaxTime = 1F;
-            animation6.MinTime = 0F;
-            animation6.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicCoeff")));
-            animation6.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation6.MosaicShift")));
-            animation6.MosaicSize = 0;
-            animation6.Padding = new System.Windows.Forms.Padding(0);
-            animation6.RotateCoeff = 0F;
-            animation6.RotateLimit = 0F;
-            animation6.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.ScaleCoeff")));
-            animation6.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation6.SlideCoeff")));
-            animation6.TimeCoeff = 0F;
-            animation6.TransparencyCoeff = 1F;
-            this.amigosSeleccionSale.DefaultAnimation = animation6;
+            animation69.AnimateOnlyDifferences = true;
+            animation69.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation69.BlindCoeff")));
+            animation69.LeafCoeff = 0F;
+            animation69.MaxTime = 1F;
+            animation69.MinTime = 0F;
+            animation69.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation69.MosaicCoeff")));
+            animation69.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation69.MosaicShift")));
+            animation69.MosaicSize = 0;
+            animation69.Padding = new System.Windows.Forms.Padding(0);
+            animation69.RotateCoeff = 0F;
+            animation69.RotateLimit = 0F;
+            animation69.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation69.ScaleCoeff")));
+            animation69.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation69.SlideCoeff")));
+            animation69.TimeCoeff = 0F;
+            animation69.TransparencyCoeff = 1F;
+            this.amigosSeleccionSale.DefaultAnimation = animation69;
             // 
             // btnXCheckSale
             // 
             this.btnXCheckSale.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.btnXCheckSale.Cursor = null;
-            animation8.AnimateOnlyDifferences = true;
-            animation8.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.BlindCoeff")));
-            animation8.LeafCoeff = 0F;
-            animation8.MaxTime = 1F;
-            animation8.MinTime = 0F;
-            animation8.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicCoeff")));
-            animation8.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation8.MosaicShift")));
-            animation8.MosaicSize = 1;
-            animation8.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation8.RotateCoeff = 0F;
-            animation8.RotateLimit = 0F;
-            animation8.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.ScaleCoeff")));
-            animation8.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation8.SlideCoeff")));
-            animation8.TimeCoeff = 2F;
-            animation8.TransparencyCoeff = 0F;
-            this.btnXCheckSale.DefaultAnimation = animation8;
+            animation72.AnimateOnlyDifferences = true;
+            animation72.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation72.BlindCoeff")));
+            animation72.LeafCoeff = 0F;
+            animation72.MaxTime = 1F;
+            animation72.MinTime = 0F;
+            animation72.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation72.MosaicCoeff")));
+            animation72.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation72.MosaicShift")));
+            animation72.MosaicSize = 1;
+            animation72.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation72.RotateCoeff = 0F;
+            animation72.RotateLimit = 0F;
+            animation72.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation72.ScaleCoeff")));
+            animation72.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation72.SlideCoeff")));
+            animation72.TimeCoeff = 2F;
+            animation72.TransparencyCoeff = 0F;
+            this.btnXCheckSale.DefaultAnimation = animation72;
             // 
             // panelModificar
             // 
             this.panelModificar.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.panelModificar.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.panelModificar.DefaultAnimation = animation1;
+            animation71.AnimateOnlyDifferences = true;
+            animation71.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation71.BlindCoeff")));
+            animation71.LeafCoeff = 0F;
+            animation71.MaxTime = 1F;
+            animation71.MinTime = 0F;
+            animation71.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation71.MosaicCoeff")));
+            animation71.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation71.MosaicShift")));
+            animation71.MosaicSize = 0;
+            animation71.Padding = new System.Windows.Forms.Padding(0);
+            animation71.RotateCoeff = 0F;
+            animation71.RotateLimit = 0F;
+            animation71.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation71.ScaleCoeff")));
+            animation71.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation71.SlideCoeff")));
+            animation71.TimeCoeff = 0F;
+            animation71.TransparencyCoeff = 1F;
+            this.panelModificar.DefaultAnimation = animation71;
+            // 
+            // bunifuFlatButton5
+            // 
+            this.bunifuFlatButton5.Active = false;
+            this.bunifuFlatButton5.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.bunifuFlatButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton5.BorderRadius = 0;
+            this.bunifuFlatButton5.ButtonText = "      Buscar";
+            this.bunifuFlatButton5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXCheckSale.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.bunifuFlatButton5, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuFlatButton5.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton5.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton5.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton5.Iconimage")));
+            this.bunifuFlatButton5.Iconimage_right = null;
+            this.bunifuFlatButton5.Iconimage_right_Selected = null;
+            this.bunifuFlatButton5.Iconimage_Selected = null;
+            this.bunifuFlatButton5.IconMarginLeft = 0;
+            this.bunifuFlatButton5.IconMarginRight = 0;
+            this.bunifuFlatButton5.IconRightVisible = true;
+            this.bunifuFlatButton5.IconRightZoom = 0D;
+            this.bunifuFlatButton5.IconVisible = true;
+            this.bunifuFlatButton5.IconZoom = 80D;
+            this.bunifuFlatButton5.IsTab = true;
+            this.bunifuFlatButton5.Location = new System.Drawing.Point(533, 9);
+            this.bunifuFlatButton5.Name = "bunifuFlatButton5";
+            this.bunifuFlatButton5.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton5.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton5.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.bunifuFlatButton5.selected = false;
+            this.bunifuFlatButton5.Size = new System.Drawing.Size(120, 35);
+            this.bunifuFlatButton5.TabIndex = 56;
+            this.bunifuFlatButton5.Text = "      Buscar";
+            this.bunifuFlatButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton5.Textcolor = System.Drawing.Color.Silver;
+            this.bunifuFlatButton5.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuFlatButton5.Click += new System.EventHandler(this.bunifuFlatButton5_Click_2);
+            // 
+            // panelBusqueda
+            // 
+            this.panelBusqueda.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panelBusqueda.Controls.Add(this.btnCancelarBusqueda);
+            this.panelBusqueda.Controls.Add(this.btnRealizarBusqueda);
+            this.panelBusqueda.Controls.Add(this.label6);
+            this.panelBusqueda.Controls.Add(this.txtBuscar);
+            this.panelBusqueda.Controls.Add(this.tipoBusqueda);
+            this.panelModificar.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelBusqueda.Location = new System.Drawing.Point(193, 81);
+            this.panelBusqueda.Name = "panelBusqueda";
+            this.panelBusqueda.Size = new System.Drawing.Size(379, 135);
+            this.panelBusqueda.TabIndex = 57;
+            this.panelBusqueda.Visible = false;
+            // 
+            // tipoBusqueda
+            // 
+            this.buttonCheckXTransition.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.tipoBusqueda.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipoBusqueda.FormattingEnabled = true;
+            this.tipoBusqueda.ItemHeight = 20;
+            this.tipoBusqueda.Items.AddRange(new object[] {
+            "Nombre",
+            "Artista",
+            "Álbum"});
+            this.tipoBusqueda.Location = new System.Drawing.Point(16, 48);
+            this.tipoBusqueda.Name = "tipoBusqueda";
+            this.tipoBusqueda.Size = new System.Drawing.Size(122, 24);
+            this.tipoBusqueda.TabIndex = 0;
+            // 
+            // txtBuscar
+            // 
+            this.btnXCheckSale.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(163, 48);
+            this.txtBuscar.Multiline = true;
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(199, 25);
+            this.txtBuscar.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.logoAnimator.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(144, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 22);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Buscar";
+            // 
+            // btnRealizarBusqueda
+            // 
+            this.panelModificar.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnRealizarBusqueda.Image = ((System.Drawing.Image)(resources.GetObject("btnRealizarBusqueda.Image")));
+            this.btnRealizarBusqueda.ImageActive = null;
+            this.btnRealizarBusqueda.Location = new System.Drawing.Point(308, 79);
+            this.btnRealizarBusqueda.Name = "btnRealizarBusqueda";
+            this.btnRealizarBusqueda.Size = new System.Drawing.Size(54, 45);
+            this.btnRealizarBusqueda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnRealizarBusqueda.TabIndex = 3;
+            this.btnRealizarBusqueda.TabStop = false;
+            this.btnRealizarBusqueda.Zoom = 10;
+            this.btnRealizarBusqueda.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            // 
+            // btnCancelarBusqueda
+            // 
+            this.panelModificar.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnCancelarBusqueda.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarBusqueda.Image")));
+            this.btnCancelarBusqueda.ImageActive = null;
+            this.btnCancelarBusqueda.Location = new System.Drawing.Point(16, 82);
+            this.btnCancelarBusqueda.Name = "btnCancelarBusqueda";
+            this.btnCancelarBusqueda.Size = new System.Drawing.Size(54, 47);
+            this.btnCancelarBusqueda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCancelarBusqueda.TabIndex = 4;
+            this.btnCancelarBusqueda.TabStop = false;
+            this.btnCancelarBusqueda.Zoom = 10;
+            this.btnCancelarBusqueda.Click += new System.EventHandler(this.btnCancelarBusqueda_Click);
             // 
             // formPrincipal
             // 
@@ -1910,6 +2045,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnAceptarModificacion)).EndInit();
             this.panelBiblioteca.ResumeLayout(false);
             this.panelBiblioteca.PerformLayout();
+            this.panelBusqueda.ResumeLayout(false);
+            this.panelBusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRealizarBusqueda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBusqueda)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1932,7 +2071,6 @@
         private BunifuAnimatorNS.BunifuTransition panelEntra;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private BunifuAnimatorNS.BunifuTransition panelFuera;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
         private BunifuAnimatorNS.BunifuTransition lstAmigosSeleccionTransition;
         private BunifuAnimatorNS.BunifuTransition buttonCheckXTransition;
         private BunifuAnimatorNS.BunifuTransition amigosSeleccionSale;
@@ -1980,5 +2118,12 @@
         private Bunifu.Framework.UI.BunifuImageButton btnCancelarModificacion;
         private BunifuAnimatorNS.BunifuTransition panelModificar;
         private BunifuAnimatorNS.DoubleBitmapControl doubleBitmapControl3;
+        private System.Windows.Forms.Panel panelBusqueda;
+        private System.Windows.Forms.ListBox tipoBusqueda;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton5;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label label6;
+        private Bunifu.Framework.UI.BunifuImageButton btnCancelarBusqueda;
+        private Bunifu.Framework.UI.BunifuImageButton btnRealizarBusqueda;
     }
 }

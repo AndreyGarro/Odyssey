@@ -634,8 +634,14 @@ namespace Odyssey
 
         private void btnAceptarModificacion_Click_1(object sender, EventArgs e)
         {
-            SocketCliente.SendServidor(DocumentoXML.modificarData(nombreActual1, artistaActual1, txtModificarNombre.Text, txtModificarArtista.Text,
-               txtModificarAlbum.Text, txtModificarGenero.Text, lstBoxCalificacion.SelectedItem.ToString()));
+            String calificacion = "";
+            for (int x = 0; x <= lstBoxCalificacion.CheckedItems.Count - 1; x++)
+            {
+                calificacion += lstBoxCalificacion.CheckedItems[x].ToString();
+            }
+            XmlDocument datos = SocketCliente.SendServidor(DocumentoXML.modificarData(nombreActual1, artistaActual1, txtModificarNombre.Text, txtModificarArtista.Text,
+               txtModificarAlbum.Text, txtModificarGenero.Text, calificacion));
+            pnlModificar.Hide();
         }
 
         private void btnCancelarModificacion_Click(object sender, EventArgs e)
@@ -646,6 +652,77 @@ namespace Odyssey
         private void lstAmigosSelección_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton5_Click_2(object sender, EventArgs e)
+        {
+            panelBusqueda.Show();
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            if (txtBuscar.Text != "") {
+                lstCanciones.Items.Clear();
+                String tipo = tipoBusqueda.SelectedItem.ToString();
+                XmlDocument lista = new XmlDocument();
+                if (tipo.Equals("Nombre"))
+                {
+                    lista = SocketCliente.SendServidor(DocumentoXML.busqueda("00", txtBuscar.Text));
+                }
+                else if (tipo.Equals("Artista"))
+                {
+                    lista = SocketCliente.SendServidor(DocumentoXML.busqueda("01", txtBuscar.Text));
+                }
+                else if (tipo.Equals("Álbum"))
+                {
+                    lista = SocketCliente.SendServidor(DocumentoXML.busqueda("02", txtBuscar.Text));
+                }
+                lista.Save("lista1.xml");
+                XmlNodeList valor = lista.GetElementsByTagName("valor");
+                String valor1 = valor[0].InnerText;
+                if (valor1.Equals("true"))
+                {
+                    XmlNodeList nombre = lista.GetElementsByTagName("nombre");
+                    XmlNodeList artista = lista.GetElementsByTagName("artista");
+                    XmlNodeList album = lista.GetElementsByTagName("album");
+                    XmlNodeList genero = lista.GetElementsByTagName("genero");
+                    XmlNodeList calificacion = lista.GetElementsByTagName("calificacion");
+
+                    int cont = 0;
+                    foreach (XmlElement i in nombre)
+                    {
+                        String nombre1 = nombre.Item(cont).InnerText;
+                        String artista1 = artista.Item(cont).InnerText;
+                        String album1 = album.Item(cont).InnerText;
+                        String genero1 = genero.Item(cont).InnerText;
+                        String calificacion1 = calificacion.Item(cont).InnerText;
+                        lstCanciones.Items.Add(String.Format(stdDetails, nombre1, artista1, album1, genero1, calificacion1));
+
+                        cont++;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró ninguna canción, intente de nuevo", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                panelBusqueda.Hide();
+
+            }
+            else
+            {
+                MessageBox.Show("Escoga un método de búsqueda", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnCancelarBusqueda_Click(object sender, EventArgs e)
+        {
+            panelBusqueda.Hide();
         }
     }
 }

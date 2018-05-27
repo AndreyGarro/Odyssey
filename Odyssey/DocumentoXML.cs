@@ -226,7 +226,6 @@ namespace Odyssey
             artista1.AppendChild(solicitar.CreateTextNode(artista));
             raiz.AppendChild(artista1);
 
-            solicitar.Save("cancion.xml");
             return solicitar;
         }
 
@@ -276,10 +275,25 @@ namespace Odyssey
             nuevaCalificacion.AppendChild(modificar.CreateTextNode(calificacion));
             nuevo.AppendChild(nuevaCalificacion);
 
-            modificar.Save("modificar.xml");
-
             return modificar;
+        }
 
+        public static XmlDocument busqueda(String tipo, String buscar)
+        {
+            XmlDocument busqueda = new XmlDocument();
+
+            XmlElement raiz = busqueda.CreateElement("Busqueda");
+            busqueda.AppendChild(raiz);
+
+            XmlElement id = busqueda.CreateElement("id");
+            id.AppendChild(busqueda.CreateTextNode(tipo));
+            raiz.AppendChild(id);
+
+            XmlElement buscar1 = busqueda.CreateElement("buscar");
+            buscar1.AppendChild(busqueda.CreateTextNode(buscar));
+            raiz.AppendChild(buscar1);
+
+            return busqueda;
         }
     }
 }

@@ -32,7 +32,7 @@ public class JSONMusica {
 		cancion.put("genero", "");
 		cancion.put("calificacion", 0);
 		cancion.put("letra", "");
-		cancion.put("path", "data" + "\\" + "music" + "\\" + xml.getRootElement().getChildText("name") + ".mp3");
+		cancion.put("path", "data" + "\\" + "music" + "\\" + xml.getRootElement().getChildText("name") +"-" + xml.getRootElement().getChildText("artista") + ".mp3");
 		return cancion;
 	}
 

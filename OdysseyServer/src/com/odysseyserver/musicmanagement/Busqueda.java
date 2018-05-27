@@ -41,7 +41,15 @@ public class Busqueda {
 	}
 
 	private void generarArbolArtistas(JSONArray jsonArray) {
-
+		artistas = new AVLTree();
+		if (jsonArray.size() > 0) {
+			for (int i = 0; i < jsonArray.size(); i++) {
+				JSONObject temp = (JSONObject) jsonArray.get(i);
+				String artista = (String) temp.get("artista");
+				artistas.insert(artista, i);
+			}
+		}
+		System.out.println("Entré a artistas");
 	}
 
 	private void generarArbolCanciones(JSONArray jsonArray) {
@@ -49,7 +57,15 @@ public class Busqueda {
 	}
 
 	private void generarArbolAlbumes(JSONArray jsonArray) {
-
+		albums = new SplayTree<>();
+		if (jsonArray.size() > 0) {
+			for (int i = 0; i < jsonArray.size(); i++) {
+				JSONObject temp = (JSONObject) jsonArray.get(i);
+				String album = (String) temp.get("album");
+				albums.insert(album, i);
+			}
+		}
+		System.out.println("Entré a albumes");
 	}
 
 	/**
@@ -74,7 +90,7 @@ public class Busqueda {
 	 * @return SimpleList que contiene los índices donde se encuentra el artista
 	 */
 	public SimpleList<Integer> buscarArtista(String artista) {
-		return null;
+		return artistas.searchTwo(artista).getArrayIndx();
 	}
 
 	/**
@@ -98,7 +114,7 @@ public class Busqueda {
 	 * @return SimpleList que contiene los índices donde se encuentra el artista
 	 */
 	public SimpleList<Integer> buscarAlbum(String album) {
-		return null;
+		return albums.find(album).getArrayIndx();
 
 	}
 
@@ -107,9 +123,12 @@ public class Busqueda {
 	 * 
 	 * @param cancion
 	 *            JSONObject que contiene la información de la cancion
+	 * @param indx
+	 *            indice donde se encuentra la canción
 	 */
-	public void agregarCancion(JSONObject cancion) {
-
+	public void agregarCancion(JSONObject cancion, int indx) {
+		artistas.insert((String)cancion.get("artista"), indx);
+		albums.insert((String)cancion.get("artista"), indx);
 	}
 
 }

@@ -55,4 +55,8 @@ public class AVLNode {
 	public void addArrayIndx(Integer indx) {
 		this.arrayIndx.add(new SimpleNode<Integer>(indx));
 	}
+	
+	public SimpleList<Integer> getArrayIndx() {
+		return this.arrayIndx;
+	}
 }

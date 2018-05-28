@@ -300,7 +300,7 @@ namespace Odyssey
         {
             XmlDocument eliminar = new XmlDocument();
 
-            XmlElement raiz = eliminar.CreateElement("Busqueda");
+            XmlElement raiz = eliminar.CreateElement("Cancion");
             eliminar.AppendChild(raiz);
 
             XmlElement id = eliminar.CreateElement("id");

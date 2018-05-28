@@ -4,10 +4,10 @@
   <Cancion>
     <nombre>Live in the moment</nombre>
     <artista>Portugal the man</artista>
-    <album>WoodStock</album>
-    <genero>Pop</genero>
+    <album />
+    <genero />
     <ano>0</ano>
-    <calificacion>* * *</calificacion>
+    <calificacion>0</calificacion>
     <letra />
   </Cancion>
 </Respuesta>

@@ -264,6 +264,7 @@ public class GestorMusica {
 			for (int j = 0; j < indiceArtsita.getLength(); j++) {
 				int artistaIndx = indiceArtsita.find(j);
 				if (cancionIndx == artistaIndx) {
+					System.out.println("Entro aquí");
 					JSONObject temp = (JSONObject) jsonMusicList.get(cancionIndx);
 					String path = (String) temp.get("path");
 					File eliminacion = new File(path);
@@ -272,6 +273,7 @@ public class GestorMusica {
 					JSONMusica.guardarInfo(jsonMusicList);
 					gestorBusquedas.reconstruirArboles(jsonMusicList);
 					cancionIndx = -1;
+					CreadorXML.responderTrueFalse(true);
 					break;
 				}
 			}

@@ -109,6 +109,7 @@
             this.amigosSeleccionSale = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.btnXCheckSale = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panelModificar = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.doubleBitmapControl4 = new BunifuAnimatorNS.DoubleBitmapControl();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -502,7 +503,7 @@
             this.btnAgregaCancion.IconVisible = true;
             this.btnAgregaCancion.IconZoom = 40D;
             this.btnAgregaCancion.IsTab = true;
-            this.btnAgregaCancion.Location = new System.Drawing.Point(659, 9);
+            this.btnAgregaCancion.Location = new System.Drawing.Point(657, 9);
             this.btnAgregaCancion.Name = "btnAgregaCancion";
             this.btnAgregaCancion.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnAgregaCancion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -518,7 +519,6 @@
             // 
             // lstCanciones
             // 
-            this.lstCanciones.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lstCanciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.lstCanciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.buttonCheckXTransition.SetDecoration(this.lstCanciones, BunifuAnimatorNS.DecorationType.None);
@@ -543,9 +543,6 @@
             // 
             this.btnNombre.Active = true;
             this.btnNombre.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnNombre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnNombre.BorderRadius = 0;
@@ -593,9 +590,6 @@
             // 
             this.btnArtista.Active = false;
             this.btnArtista.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnArtista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnArtista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnArtista.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnArtista.BorderRadius = 0;
@@ -643,9 +637,6 @@
             // 
             this.btnAlbum.Active = false;
             this.btnAlbum.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnAlbum.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAlbum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnAlbum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAlbum.BorderRadius = 0;
@@ -693,9 +684,6 @@
             // 
             this.btnGenero.Active = false;
             this.btnGenero.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnGenero.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGenero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnGenero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnGenero.BorderRadius = 0;
@@ -780,7 +768,7 @@
             this.btnCalificacion.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.btnCalificacion.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnCalificacion.selected = false;
-            this.btnCalificacion.Size = new System.Drawing.Size(131, 24);
+            this.btnCalificacion.Size = new System.Drawing.Size(127, 24);
             this.btnCalificacion.TabIndex = 31;
             this.btnCalificacion.Text = "Calificación";
             this.btnCalificacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -819,7 +807,7 @@
             this.btnAgregarAmigo.IconVisible = true;
             this.btnAgregarAmigo.IconZoom = 40D;
             this.btnAgregarAmigo.IsTab = true;
-            this.btnAgregarAmigo.Location = new System.Drawing.Point(646, 381);
+            this.btnAgregarAmigo.Location = new System.Drawing.Point(644, 381);
             this.btnAgregarAmigo.Name = "btnAgregarAmigo";
             this.btnAgregarAmigo.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnAgregarAmigo.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -914,7 +902,7 @@
             this.btnRecomendar.IconVisible = true;
             this.btnRecomendar.IconZoom = 40D;
             this.btnRecomendar.IsTab = true;
-            this.btnRecomendar.Location = new System.Drawing.Point(716, 129);
+            this.btnRecomendar.Location = new System.Drawing.Point(714, 129);
             this.btnRecomendar.Name = "btnRecomendar";
             this.btnRecomendar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnRecomendar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -959,7 +947,7 @@
             this.btnModificar.IconVisible = true;
             this.btnModificar.IconZoom = 40D;
             this.btnModificar.IsTab = true;
-            this.btnModificar.Location = new System.Drawing.Point(716, 175);
+            this.btnModificar.Location = new System.Drawing.Point(714, 175);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnModificar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -1004,7 +992,7 @@
             this.btnReproducir.IconVisible = true;
             this.btnReproducir.IconZoom = 100D;
             this.btnReproducir.IsTab = true;
-            this.btnReproducir.Location = new System.Drawing.Point(716, 83);
+            this.btnReproducir.Location = new System.Drawing.Point(714, 83);
             this.btnReproducir.Name = "btnReproducir";
             this.btnReproducir.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnReproducir.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -1049,7 +1037,7 @@
             this.btnDeletMusic.IconVisible = true;
             this.btnDeletMusic.IconZoom = 50D;
             this.btnDeletMusic.IsTab = true;
-            this.btnDeletMusic.Location = new System.Drawing.Point(716, 221);
+            this.btnDeletMusic.Location = new System.Drawing.Point(714, 221);
             this.btnDeletMusic.Name = "btnDeletMusic";
             this.btnDeletMusic.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnDeletMusic.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -1060,6 +1048,7 @@
             this.btnDeletMusic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeletMusic.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(216)))), ((int)(((byte)(255)))));
             this.btnDeletMusic.TextFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletMusic.Click += new System.EventHandler(this.btnDeletMusic_Click);
             // 
             // lstAmigosSelección
             // 
@@ -1114,7 +1103,7 @@
             this.btnCancel.IconVisible = true;
             this.btnCancel.IconZoom = 80D;
             this.btnCancel.IsTab = true;
-            this.btnCancel.Location = new System.Drawing.Point(173, 278);
+            this.btnCancel.Location = new System.Drawing.Point(171, 278);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnCancel.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -1160,7 +1149,7 @@
             this.btnCheck.IconVisible = true;
             this.btnCheck.IconZoom = 80D;
             this.btnCheck.IsTab = true;
-            this.btnCheck.Location = new System.Drawing.Point(523, 278);
+            this.btnCheck.Location = new System.Drawing.Point(521, 278);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.btnCheck.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
@@ -1603,6 +1592,7 @@
             // panelBiblioteca
             // 
             this.panelBiblioteca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.panelBiblioteca.Controls.Add(this.doubleBitmapControl4);
             this.panelBiblioteca.Controls.Add(this.panelBusqueda);
             this.panelBiblioteca.Controls.Add(this.bunifuFlatButton5);
             this.panelBiblioteca.Controls.Add(this.doubleBitmapControl3);
@@ -1641,9 +1631,9 @@
             this.lstAmigosSeleccionTransition.SetDecoration(this.panelBiblioteca, BunifuAnimatorNS.DecorationType.None);
             this.logoAnimator.SetDecoration(this.panelBiblioteca, BunifuAnimatorNS.DecorationType.None);
             this.panelEntra.SetDecoration(this.panelBiblioteca, BunifuAnimatorNS.DecorationType.None);
-            this.panelBiblioteca.Location = new System.Drawing.Point(200, 39);
+            this.panelBiblioteca.Location = new System.Drawing.Point(204, 39);
             this.panelBiblioteca.Name = "panelBiblioteca";
-            this.panelBiblioteca.Size = new System.Drawing.Size(782, 523);
+            this.panelBiblioteca.Size = new System.Drawing.Size(778, 523);
             this.panelBiblioteca.TabIndex = 23;
             this.panelBiblioteca.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
@@ -2003,6 +1993,23 @@
             animation1.TransparencyCoeff = 1F;
             this.panelModificar.DefaultAnimation = animation1;
             // 
+            // doubleBitmapControl4
+            // 
+            this.amigosSeleccionSale.SetDecoration(this.doubleBitmapControl4, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.doubleBitmapControl4, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.doubleBitmapControl4, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.doubleBitmapControl4, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.doubleBitmapControl4, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.doubleBitmapControl4, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.doubleBitmapControl4, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.doubleBitmapControl4, BunifuAnimatorNS.DecorationType.None);
+            this.doubleBitmapControl4.Location = new System.Drawing.Point(583, 297);
+            this.doubleBitmapControl4.Name = "doubleBitmapControl4";
+            this.doubleBitmapControl4.Size = new System.Drawing.Size(75, 23);
+            this.doubleBitmapControl4.TabIndex = 58;
+            this.doubleBitmapControl4.Text = "doubleBitmapControl4";
+            this.doubleBitmapControl4.Visible = false;
+            // 
             // formPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2125,5 +2132,6 @@
         private System.Windows.Forms.Label label6;
         private Bunifu.Framework.UI.BunifuImageButton btnCancelarBusqueda;
         private Bunifu.Framework.UI.BunifuImageButton btnRealizarBusqueda;
+        private BunifuAnimatorNS.DoubleBitmapControl doubleBitmapControl4;
     }
 }

@@ -295,5 +295,28 @@ namespace Odyssey
 
             return busqueda;
         }
+
+        public static XmlDocument eliminar(String nombre, String artista)
+        {
+            XmlDocument eliminar = new XmlDocument();
+
+            XmlElement raiz = eliminar.CreateElement("Busqueda");
+            eliminar.AppendChild(raiz);
+
+            XmlElement id = eliminar.CreateElement("id");
+            id.AppendChild(eliminar.CreateTextNode("03"));
+            raiz.AppendChild(id);
+
+            XmlElement nombre1 = eliminar.CreateElement("nombre");
+            nombre1.AppendChild(eliminar.CreateTextNode(nombre));
+            raiz.AppendChild(nombre1);
+
+            XmlElement artista1 = eliminar.CreateElement("artista");
+            artista1.AppendChild(eliminar.CreateTextNode(artista));
+            raiz.AppendChild(artista1);
+
+            eliminar.Save("eliminar.xml");
+            return eliminar;
+        }
     }
 }

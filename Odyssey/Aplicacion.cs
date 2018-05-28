@@ -62,8 +62,8 @@ namespace Odyssey
         {
             if (sideMenu.Width == 50)
             {
-                panelBiblioteca.Width = 778;
-                panelBiblioteca.Height = 0;
+                panelBiblioteca.SetBounds(201, 39, 778, 523);
+                lstCanciones.SetBounds(18, 86, 695, 374);
                 sideMenu.Visible = false;
                 sideMenu.Width = 200;
                 miniLogo.Hide();
@@ -73,7 +73,8 @@ namespace Odyssey
             }
             else
             {
-                panelBiblioteca.Width = 937; 
+                panelBiblioteca.SetBounds(45, 39, 937, 523);
+                lstCanciones.SetBounds(18, 86, 881, 374);
                 logoAnimator.HideSync(logo);
                 sideMenu.Visible = false;
                 sideMenu.Width = 50;

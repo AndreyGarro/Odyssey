@@ -62,6 +62,8 @@ namespace Odyssey
         {
             if (sideMenu.Width == 50)
             {
+                panelBiblioteca.Width = 778;
+                panelBiblioteca.Height = 0;
                 sideMenu.Visible = false;
                 sideMenu.Width = 200;
                 miniLogo.Hide();
@@ -71,6 +73,7 @@ namespace Odyssey
             }
             else
             {
+                panelBiblioteca.Width = 937; 
                 logoAnimator.HideSync(logo);
                 sideMenu.Visible = false;
                 sideMenu.Width = 50;
@@ -455,7 +458,7 @@ namespace Odyssey
             escondeAmigos();
             escondeBiblioteca();
             txtNotificaciones.Items.Clear();
-            
+
 
             XmlDocument notificaciones = SocketCliente.SendServidor(DocumentoXML.notificaciones(UsuarioActual.getInstance().nombre));
 
@@ -567,7 +570,7 @@ namespace Odyssey
 
         private async void trackBar_ValueChanged(object sender, EventArgs e)
         {
-                trackBar.Value = (int)reproductor.Ctlcontrols.currentPosition;
+            trackBar.Value = (int)reproductor.Ctlcontrols.currentPosition;
         }
 
         private void btnEcualizador_Click(object sender, EventArgs e)
@@ -630,7 +633,7 @@ namespace Odyssey
 
         private void btnAceptarModificacion_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnAceptarModificacion_Click_1(object sender, EventArgs e)
@@ -667,7 +670,8 @@ namespace Odyssey
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            if (txtBuscar.Text != "") {
+            if (txtBuscar.Text != "")
+            {
                 lstCanciones.Items.Clear();
                 String tipo = tipoBusqueda.SelectedItem.ToString();
                 XmlDocument lista = new XmlDocument();
@@ -724,6 +728,39 @@ namespace Odyssey
         private void btnCancelarBusqueda_Click(object sender, EventArgs e)
         {
             panelBusqueda.Hide();
+        }
+
+        private void btnDeletMusic_Click(object sender, EventArgs e)
+        {
+            if (ordenamientoActual != null)
+            {
+                if (lstCanciones.SelectedItem != null)
+                {
+                    XmlDocument listaCanciones = SocketCliente.SendServidor(DocumentoXML.ordenamiento(ordenamientoActual));
+                    int index = lstCanciones.SelectedIndex;
+
+                    XmlNodeList nodosN = listaCanciones.GetElementsByTagName("nombre");
+                    XmlNodeList nodosA = listaCanciones.GetElementsByTagName("artista");
+
+                    String nombreActual = "";
+                    String artistaActual = "";
+                    int cont = 0;
+                    while (cont <= index)
+                    {
+                        nombreActual = nodosN.Item(cont).InnerText;
+                        artistaActual = nodosA.Item(cont).InnerText;
+                        cont++;
+                    }
+
+                    DialogResult result = MessageBox.Show("¿Seguro que desea eliminar la canción?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        SocketCliente.SendServidor(DocumentoXML.eliminar(nombreActual, artistaActual));
+                    }
+
+                }
+            }
         }
     }
 }

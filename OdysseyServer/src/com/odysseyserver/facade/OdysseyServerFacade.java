@@ -58,7 +58,7 @@ public class OdysseyServerFacade {
 				System.out.println("Registrar");
 				gestorUsuario.registrar(doc);
 			} else if (id.equals("01")) {
-				System.out.println("Inicia sesión");
+				System.out.println("Inicia se sión");
 				gestorUsuario.verificarSesion(doc);
 			} else {
 				throw new IOException();

@@ -2,30 +2,12 @@
 <Respuesta>
   <valor>true</valor>
   <Cancion>
-    <nombre>Hola</nombre>
-    <artista>Adios</artista>
-    <album>No se</album>
-    <genero>Tampoco</genero>
+    <nombre>qwertyuiop</nombre>
+    <artista>qwertyuiop</artista>
+    <album>qwertyuiop</album>
+    <genero>qwertyuiop</genero>
     <ano>0</ano>
-    <calificacion>* * * *</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
-    <nombre>Live in the moment</nombre>
-    <artista>Portugal the man</artista>
-    <album />
-    <genero />
-    <ano>0</ano>
-    <calificacion>0</calificacion>
-    <letra />
-  </Cancion>
-  <Cancion>
-    <nombre>Wura</nombre>
-    <artista>Daddy Yankee</artista>
-    <album />
-    <genero />
-    <ano>0</ano>
-    <calificacion />
+    <calificacion>* * * * *</calificacion>
     <letra />
   </Cancion>
 </Respuesta>

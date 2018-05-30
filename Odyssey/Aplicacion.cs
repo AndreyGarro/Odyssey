@@ -27,7 +27,8 @@ namespace Odyssey
         private String ordenamientoActual = "00";
         private byte[] musicArray = null;
         private String stdDetails = "{0, -20}{1, -15}{2, -15}{3, -15}{4, -15}";
-        private String formatoAmigos = "{0, -20}{1, -0}";
+        private String formatoAmigos = "{0, -20}{1, 50}";
+        private String letra = "";
 
         public formPrincipal()
         {
@@ -62,8 +63,13 @@ namespace Odyssey
         {
             if (sideMenu.Width == 50)
             {
+                stdDetails = "{0, -20}{1, -15}{2, -15}{3, -15}{4, -15}";
                 panelBiblioteca.SetBounds(201, 39, 778, 523);
                 lstCanciones.SetBounds(18, 86, 695, 374);
+                btnArtista.SetBounds(192, 57, 86, 24);
+                btnAlbum.SetBounds(339, 57, 100, 24);
+                btnGenero.SetBounds(475, 57, 706, 24);
+                btnCalificacion.SetBounds(593, 57, 127, 24);
                 sideMenu.Visible = false;
                 sideMenu.Width = 200;
                 miniLogo.Hide();
@@ -73,6 +79,11 @@ namespace Odyssey
             }
             else
             {
+                stdDetails = "{0, -25}{1, -20}{2, -20}{3, -20}{4, -20}";
+                btnArtista.SetBounds(240, 57, 86, 24);
+                btnAlbum.SetBounds(420, 57, 100, 24);
+                btnGenero.SetBounds(600, 57, 706, 24);
+                btnCalificacion.SetBounds(780, 57, 127, 24);
                 panelBiblioteca.SetBounds(45, 39, 937, 523);
                 lstCanciones.SetBounds(18, 86, 881, 374);
                 logoAnimator.HideSync(logo);
@@ -279,7 +290,9 @@ namespace Odyssey
             btnRecomendar.Show();
             btnReproducir.Show();
             btnModificar.Show();
+            btnBuscarCancion.Show();
             btnDeletMusic.Show();
+            btnEcualizador.Show();
             panelBiblioteca.Show();
             btnNombre.Show();
             btnArtista.Show();
@@ -295,9 +308,11 @@ namespace Odyssey
         {
             reproductor.Hide();
             btnRecomendar.Hide();
+            btnBuscarCancion.Hide();
             btnReproducir.Hide();
             btnModificar.Hide();
             btnDeletMusic.Hide();
+            btnEcualizador.Hide();
             btnNombre.Hide();
             btnArtista.Hide();
             btnAlbum.Hide();
@@ -313,6 +328,9 @@ namespace Odyssey
         {
             panelBiblioteca.Show();
             lstFriends.Show();
+            lblAmigos.Show();
+            lblNyA.Show();
+            lblUsuario.Show();
             txtNuevoAmigo.Show();
             btnAgregarAmigo.Show();
         }
@@ -321,11 +339,15 @@ namespace Odyssey
         {
             lstFriends.Hide();
             txtNuevoAmigo.Hide();
+            lblAmigos.Hide();
+            lblNyA.Hide();
+            lblUsuario.Hide();
             btnAgregarAmigo.Hide();
         }
 
         private void muestraNotificaciones()
         {
+            panelBiblioteca.Show();
             txtNotificaciones.Show();
             lblNotificaciones.Show();
         }
@@ -455,9 +477,10 @@ namespace Odyssey
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
-            muestraNotificaciones();
+            
             escondeAmigos();
             escondeBiblioteca();
+            muestraNotificaciones();
             txtNotificaciones.Items.Clear();
 
 
@@ -486,6 +509,7 @@ namespace Odyssey
         private void btnReproducir_Click(object sender, EventArgs e)
         {
             reproductor.close();
+            btnPause.Visible = true;
             if (ordenamientoActual != null)
             {
                 if (lstCanciones.SelectedItem != null)
@@ -495,6 +519,7 @@ namespace Odyssey
 
                     XmlNodeList nodosN = listaCanciones.GetElementsByTagName("nombre");
                     XmlNodeList nodosA = listaCanciones.GetElementsByTagName("artista");
+                    XmlNodeList nodosL = listaCanciones.GetElementsByTagName("letra");
 
                     String nombreActual = "";
                     String artistaActual = "";
@@ -503,6 +528,7 @@ namespace Odyssey
                     {
                         nombreActual = nodosN.Item(cont).InnerText;
                         artistaActual = nodosA.Item(cont).InnerText;
+                        letra = nodosL.Item(cont).InnerText;
                         cont++;
                     }
 
@@ -524,19 +550,20 @@ namespace Odyssey
                 }
             }
         }
-        private void hola(String h)
-        {
 
-        }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            btnPlay.Visible = false;
             reproductor.Ctlcontrols.play();
+            btnPause.Visible = true;
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
+            btnPause.Visible = false;
             reproductor.Ctlcontrols.pause();
+            btnPlay.Visible = true;
         }
 
         private void trackBar_Scroll(object sender, EventArgs e)
@@ -645,7 +672,7 @@ namespace Odyssey
                 calificacion += lstBoxCalificacion.CheckedItems[x].ToString();
             }
             XmlDocument datos = SocketCliente.SendServidor(DocumentoXML.modificarData(nombreActual1, artistaActual1, txtModificarNombre.Text, txtModificarArtista.Text,
-               txtModificarAlbum.Text, txtModificarGenero.Text, calificacion));
+               txtModificarAlbum.Text, txtModificarGenero.Text, calificacion, letra));
             pnlModificar.Hide();
         }
 
@@ -762,6 +789,43 @@ namespace Odyssey
 
                 }
             }
+        }
+
+        private void bunifuImageButton1_Click_1(object sender, EventArgs e)
+        {
+            pnlLetra.Show();
+            btnAceptarLetra.Show();
+            btnCancelarLetra.Show();
+            XmlDocument letra1 = SocketCliente.SendServidor(DocumentoXML.solicitarCancion(artistaActual1, nombreActual1));
+            XmlNodeList nodoL = letra1.GetElementsByTagName("letra");
+            letra = nodoL.Item(0).InnerText;
+            txtLetra.Text = letra;
+            txtLetra.Show();      
+            
+        }
+
+        private void btnAceptarLetra_Click(object sender, EventArgs e)
+        {
+            letra = txtLetra.Text;
+            pnlLetra.Hide();
+        }
+
+        private void btnCancelarLetra_Click(object sender, EventArgs e)
+        {
+            pnlLetra.Hide();
+        }
+
+        private void btnVerLetra_Click(object sender, EventArgs e)
+        {
+            pnlLetra.Show();
+            txtLetra.Show();
+            btnAceptarLetra.Show();
+            txtLetra.Text = letra;
+        }
+
+        private void btnAceptarVerLetra_Click(object sender, EventArgs e)
+        {
+            pnlLetra.Hide();
         }
     }
 }

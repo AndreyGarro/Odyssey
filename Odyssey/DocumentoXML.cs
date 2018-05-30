@@ -230,7 +230,7 @@ namespace Odyssey
         }
 
         public static XmlDocument modificarData(String nombreActual, String artistaActual, String nombre, 
-            String artista, String album, String genero, String calificacion)
+            String artista, String album, String genero, String calificacion, String letra)
         {
             XmlDocument modificar = new XmlDocument();
 
@@ -274,6 +274,10 @@ namespace Odyssey
             XmlElement nuevaCalificacion = modificar.CreateElement("calificacion");
             nuevaCalificacion.AppendChild(modificar.CreateTextNode(calificacion));
             nuevo.AppendChild(nuevaCalificacion);
+
+            XmlElement nuevaLetra = modificar.CreateElement("letra");
+            nuevaLetra.AppendChild(modificar.CreateTextNode(letra));
+            nuevo.AppendChild(nuevaLetra);
 
             return modificar;
         }

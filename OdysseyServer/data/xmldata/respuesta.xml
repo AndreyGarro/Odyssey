@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Respuesta>
-  <valor>true</valor>
-  <Cancion>
-    <nombre>qwertyuiop</nombre>
-    <artista>qwertyuiop</artista>
-    <album>qwertyuiop</album>
-    <genero>qwertyuiop</genero>
-    <ano>0</ano>
-    <calificacion>* * * * *</calificacion>
-    <letra />
-  </Cancion>
+  <valor>false</valor>
 </Respuesta>

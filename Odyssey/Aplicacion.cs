@@ -27,7 +27,7 @@ namespace Odyssey
         private String ordenamientoActual = "00";
         private byte[] musicArray = null;
         private String stdDetails = "{0, -20}{1, -15}{2, -15}{3, -15}{4, -15}";
-        private String formatoAmigos = "{0, -20}{1, -0}";
+        private String formatoAmigos = "{0, -50}{1, -0}";
 
         public formPrincipal()
         {
@@ -62,8 +62,13 @@ namespace Odyssey
         {
             if (sideMenu.Width == 50)
             {
+                stdDetails = "{0, -20}{1, -15}{2, -15}{3, -15}{4, -15}";
                 panelBiblioteca.SetBounds(201, 39, 778, 523);
                 lstCanciones.SetBounds(18, 86, 695, 374);
+                btnArtista.SetBounds(192, 57, 86, 24);
+                btnAlbum.SetBounds(339, 57, 100, 24);
+                btnGenero.SetBounds(475, 57, 706, 24);
+                btnCalificacion.SetBounds(593, 57, 127, 24);
                 sideMenu.Visible = false;
                 sideMenu.Width = 200;
                 miniLogo.Hide();
@@ -73,6 +78,11 @@ namespace Odyssey
             }
             else
             {
+                stdDetails = "{0, -25}{1, -20}{2, -20}{3, -20}{4, -20}";
+                btnArtista.SetBounds(240, 57, 86, 24);
+                btnAlbum.SetBounds(425, 57, 100, 24);
+                btnGenero.SetBounds(610, 57, 706, 24);
+                btnCalificacion.SetBounds(780, 57, 127, 24);
                 panelBiblioteca.SetBounds(45, 39, 937, 523);
                 lstCanciones.SetBounds(18, 86, 881, 374);
                 logoAnimator.HideSync(logo);
@@ -279,6 +289,7 @@ namespace Odyssey
             btnRecomendar.Show();
             btnReproducir.Show();
             btnModificar.Show();
+            btnBuscarCancion.Show();
             btnDeletMusic.Show();
             panelBiblioteca.Show();
             btnNombre.Show();
@@ -295,6 +306,7 @@ namespace Odyssey
         {
             reproductor.Hide();
             btnRecomendar.Hide();
+            btnBuscarCancion.Hide();
             btnReproducir.Hide();
             btnModificar.Hide();
             btnDeletMusic.Hide();
@@ -311,8 +323,10 @@ namespace Odyssey
 
         private void muestraAmigos()
         {
-            panelBiblioteca.Show();
             lstFriends.Show();
+            lblAmigos.Show();
+            lblNyA.Show();
+            lblUsuario.Show();
             txtNuevoAmigo.Show();
             btnAgregarAmigo.Show();
         }
@@ -321,6 +335,9 @@ namespace Odyssey
         {
             lstFriends.Hide();
             txtNuevoAmigo.Hide();
+            lblAmigos.Hide();
+            lblNyA.Hide();
+            lblUsuario.Hide();
             btnAgregarAmigo.Hide();
         }
 
@@ -486,6 +503,7 @@ namespace Odyssey
         private void btnReproducir_Click(object sender, EventArgs e)
         {
             reproductor.close();
+            btnPause.Visible = true;
             if (ordenamientoActual != null)
             {
                 if (lstCanciones.SelectedItem != null)
@@ -524,19 +542,20 @@ namespace Odyssey
                 }
             }
         }
-        private void hola(String h)
-        {
 
-        }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
+            btnPlay.Visible = false;
             reproductor.Ctlcontrols.play();
+            btnPause.Visible = true;
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
+            btnPause.Visible = false;
             reproductor.Ctlcontrols.pause();
+            btnPlay.Visible = true;
         }
 
         private void trackBar_Scroll(object sender, EventArgs e)

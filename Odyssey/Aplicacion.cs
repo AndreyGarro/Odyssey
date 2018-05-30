@@ -301,12 +301,14 @@ namespace Odyssey
             btnCalificacion.Show();
             lstCanciones.Show();
             btnAgregaCancion.Show();
+            btnVerLetra.Show();
 
         }
 
         private void escondeBiblioteca()
         {
             reproductor.Hide();
+            btnVerLetra.Hide();
             btnRecomendar.Hide();
             btnBuscarCancion.Hide();
             btnReproducir.Hide();

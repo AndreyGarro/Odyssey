@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formPrincipal));
-            BunifuAnimatorNS.Animation animation17 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation24 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation21 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation23 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation19 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation20 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation22 = new BunifuAnimatorNS.Animation();
-            BunifuAnimatorNS.Animation animation18 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation105 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation109 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation107 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation110 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation106 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation111 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation112 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation108 = new BunifuAnimatorNS.Animation();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
@@ -78,6 +78,7 @@
             this.doubleBitmapControl1 = new BunifuAnimatorNS.DoubleBitmapControl();
             this.btnEcualizador = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pnlModificar = new System.Windows.Forms.Panel();
+            this.btnAgregarLetra = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnCancelarModificacion = new Bunifu.Framework.UI.BunifuImageButton();
             this.btnAceptarModificacion = new Bunifu.Framework.UI.BunifuImageButton();
             this.txtModificarGenero = new System.Windows.Forms.TextBox();
@@ -92,19 +93,26 @@
             this.label1 = new System.Windows.Forms.Label();
             this.doubleBitmapControl2 = new BunifuAnimatorNS.DoubleBitmapControl();
             this.panelBiblioteca = new System.Windows.Forms.Panel();
-            this.panelBusqueda = new System.Windows.Forms.Panel();
-            this.lblNyA = new System.Windows.Forms.Label();
-            this.btnCancelarBusqueda = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnRealizarBusqueda = new Bunifu.Framework.UI.BunifuImageButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.tipoBusqueda = new System.Windows.Forms.ListBox();
+            this.pnlLetra = new System.Windows.Forms.Panel();
+            this.btnAceptarVerLetra = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnAceptarLetra = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnCancelarLetra = new Bunifu.Framework.UI.BunifuImageButton();
+            this.txtLetra = new System.Windows.Forms.TextBox();
+            this.btnVerLetra = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lblUsuario = new System.Windows.Forms.Label();
             this.lblAmigos = new System.Windows.Forms.Label();
+            this.lblNyA = new System.Windows.Forms.Label();
             this.doubleBitmapControl5 = new BunifuAnimatorNS.DoubleBitmapControl();
             this.doubleBitmapControl4 = new BunifuAnimatorNS.DoubleBitmapControl();
             this.btnBuscarCancion = new Bunifu.Framework.UI.BunifuFlatButton();
             this.doubleBitmapControl3 = new BunifuAnimatorNS.DoubleBitmapControl();
             this.txtNotificaciones = new System.Windows.Forms.ListBox();
+            this.panelBusqueda = new System.Windows.Forms.Panel();
+            this.btnCancelarBusqueda = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnRealizarBusqueda = new Bunifu.Framework.UI.BunifuImageButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.tipoBusqueda = new System.Windows.Forms.ListBox();
             this.panelEntra = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.panelFuera = new BunifuAnimatorNS.BunifuTransition(this.components);
@@ -113,14 +121,6 @@
             this.amigosSeleccionSale = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.btnXCheckSale = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panelModificar = new BunifuAnimatorNS.BunifuTransition(this.components);
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.btnVerLetra = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.pnlLetra = new System.Windows.Forms.Panel();
-            this.txtLetra = new System.Windows.Forms.TextBox();
-            this.btnAgregarLetra = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnCancelarLetra = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnAceptarLetra = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnAceptarVerLetra = new Bunifu.Framework.UI.BunifuImageButton();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -134,17 +134,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPause)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.pnlModificar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarLetra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelarModificacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAceptarModificacion)).BeginInit();
             this.panelBiblioteca.SuspendLayout();
+            this.pnlLetra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAceptarVerLetra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAceptarLetra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarLetra)).BeginInit();
             this.panelBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBusqueda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRealizarBusqueda)).BeginInit();
-            this.pnlLetra.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarLetra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarLetra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAceptarLetra)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAceptarVerLetra)).BeginInit();
             this.SuspendLayout();
             // 
             // notifyIcon1
@@ -458,22 +458,22 @@
             // 
             this.logoAnimator.AnimationType = BunifuAnimatorNS.AnimationType.ScaleAndRotate;
             this.logoAnimator.Cursor = null;
-            animation17.AnimateOnlyDifferences = true;
-            animation17.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation17.BlindCoeff")));
-            animation17.LeafCoeff = 0F;
-            animation17.MaxTime = 1F;
-            animation17.MinTime = 0F;
-            animation17.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation17.MosaicCoeff")));
-            animation17.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation17.MosaicShift")));
-            animation17.MosaicSize = 0;
-            animation17.Padding = new System.Windows.Forms.Padding(30);
-            animation17.RotateCoeff = 0.5F;
-            animation17.RotateLimit = 0.2F;
-            animation17.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation17.ScaleCoeff")));
-            animation17.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation17.SlideCoeff")));
-            animation17.TimeCoeff = 0F;
-            animation17.TransparencyCoeff = 0F;
-            this.logoAnimator.DefaultAnimation = animation17;
+            animation105.AnimateOnlyDifferences = true;
+            animation105.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation105.BlindCoeff")));
+            animation105.LeafCoeff = 0F;
+            animation105.MaxTime = 1F;
+            animation105.MinTime = 0F;
+            animation105.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation105.MosaicCoeff")));
+            animation105.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation105.MosaicShift")));
+            animation105.MosaicSize = 0;
+            animation105.Padding = new System.Windows.Forms.Padding(30);
+            animation105.RotateCoeff = 0.5F;
+            animation105.RotateLimit = 0.2F;
+            animation105.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation105.ScaleCoeff")));
+            animation105.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation105.SlideCoeff")));
+            animation105.TimeCoeff = 0F;
+            animation105.TransparencyCoeff = 0F;
+            this.logoAnimator.DefaultAnimation = animation105;
             // 
             // reproductor
             // 
@@ -1085,7 +1085,7 @@
             this.lstAmigosSelección.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstAmigosSelección.FormattingEnabled = true;
             this.lstAmigosSelección.ItemHeight = 20;
-            this.lstAmigosSelección.Location = new System.Drawing.Point(228, 83);
+            this.lstAmigosSelección.Location = new System.Drawing.Point(231, 57);
             this.lstAmigosSelección.Name = "lstAmigosSelección";
             this.lstAmigosSelección.Size = new System.Drawing.Size(292, 244);
             this.lstAmigosSelección.TabIndex = 40;
@@ -1380,6 +1380,27 @@
             this.pnlModificar.TabIndex = 54;
             this.pnlModificar.Visible = false;
             // 
+            // btnAgregarLetra
+            // 
+            this.panelModificar.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnAgregarLetra.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarLetra.Image")));
+            this.btnAgregarLetra.ImageActive = null;
+            this.btnAgregarLetra.Location = new System.Drawing.Point(304, 193);
+            this.btnAgregarLetra.Name = "btnAgregarLetra";
+            this.btnAgregarLetra.Size = new System.Drawing.Size(37, 40);
+            this.btnAgregarLetra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAgregarLetra.TabIndex = 65;
+            this.btnAgregarLetra.TabStop = false;
+            this.btnAgregarLetra.Zoom = 10;
+            this.btnAgregarLetra.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
+            // 
             // btnCancelarModificacion
             // 
             this.panelModificar.SetDecoration(this.btnCancelarModificacion, BunifuAnimatorNS.DecorationType.None);
@@ -1619,7 +1640,10 @@
             // panelBiblioteca
             // 
             this.panelBiblioteca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.panelBiblioteca.Controls.Add(this.lstAmigosSelección);
             this.panelBiblioteca.Controls.Add(this.pnlLetra);
+            this.panelBiblioteca.Controls.Add(this.pnlModificar);
+            this.panelBiblioteca.Controls.Add(this.panelBusqueda);
             this.panelBiblioteca.Controls.Add(this.btnVerLetra);
             this.panelBiblioteca.Controls.Add(this.lblUsuario);
             this.panelBiblioteca.Controls.Add(this.lblAmigos);
@@ -1629,7 +1653,6 @@
             this.panelBiblioteca.Controls.Add(this.doubleBitmapControl4);
             this.panelBiblioteca.Controls.Add(this.btnBuscarCancion);
             this.panelBiblioteca.Controls.Add(this.doubleBitmapControl3);
-            this.panelBiblioteca.Controls.Add(this.pnlModificar);
             this.panelBiblioteca.Controls.Add(this.btnEcualizador);
             this.panelBiblioteca.Controls.Add(this.doubleBitmapControl1);
             this.panelBiblioteca.Controls.Add(this.trackBar1);
@@ -1653,8 +1676,6 @@
             this.panelBiblioteca.Controls.Add(this.btnNombre);
             this.panelBiblioteca.Controls.Add(this.lstCanciones);
             this.panelBiblioteca.Controls.Add(this.btnAgregaCancion);
-            this.panelBiblioteca.Controls.Add(this.lstAmigosSelección);
-            this.panelBiblioteca.Controls.Add(this.panelBusqueda);
             this.panelBiblioteca.Controls.Add(this.lstFriends);
             this.panelModificar.SetDecoration(this.panelBiblioteca, BunifuAnimatorNS.DecorationType.None);
             this.buttonCheckXTransition.SetDecoration(this.panelBiblioteca, BunifuAnimatorNS.DecorationType.None);
@@ -1670,146 +1691,172 @@
             this.panelBiblioteca.TabIndex = 23;
             this.panelBiblioteca.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
             // 
-            // panelBusqueda
+            // pnlLetra
             // 
-            this.panelBusqueda.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panelBusqueda.Controls.Add(this.btnCancelarBusqueda);
-            this.panelBusqueda.Controls.Add(this.btnRealizarBusqueda);
-            this.panelBusqueda.Controls.Add(this.label6);
-            this.panelBusqueda.Controls.Add(this.txtBuscar);
-            this.panelBusqueda.Controls.Add(this.tipoBusqueda);
-            this.panelModificar.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelBusqueda.Location = new System.Drawing.Point(207, 107);
-            this.panelBusqueda.Name = "panelBusqueda";
-            this.panelBusqueda.Size = new System.Drawing.Size(379, 135);
-            this.panelBusqueda.TabIndex = 57;
-            this.panelBusqueda.Visible = false;
+            this.pnlLetra.Controls.Add(this.txtLetra);
+            this.pnlLetra.Controls.Add(this.btnAceptarVerLetra);
+            this.pnlLetra.Controls.Add(this.btnAceptarLetra);
+            this.pnlLetra.Controls.Add(this.btnCancelarLetra);
+            this.panelModificar.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
+            this.pnlLetra.Location = new System.Drawing.Point(193, 64);
+            this.pnlLetra.Name = "pnlLetra";
+            this.pnlLetra.Size = new System.Drawing.Size(384, 369);
+            this.pnlLetra.TabIndex = 64;
+            this.pnlLetra.Visible = false;
             // 
-            // lblNyA
+            // btnAceptarVerLetra
             // 
-            this.lblNyA.AutoSize = true;
-            this.logoAnimator.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
-            this.panelModificar.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
-            this.lblNyA.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNyA.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNyA.Location = new System.Drawing.Point(129, 83);
-            this.lblNyA.Name = "lblNyA";
-            this.lblNyA.Size = new System.Drawing.Size(159, 21);
-            this.lblNyA.TabIndex = 61;
-            this.lblNyA.Text = "Nombre y Apellidos";
+            this.panelModificar.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnAceptarVerLetra.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptarVerLetra.Image")));
+            this.btnAceptarVerLetra.ImageActive = null;
+            this.btnAceptarVerLetra.Location = new System.Drawing.Point(312, 316);
+            this.btnAceptarVerLetra.Name = "btnAceptarVerLetra";
+            this.btnAceptarVerLetra.Size = new System.Drawing.Size(50, 45);
+            this.btnAceptarVerLetra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAceptarVerLetra.TabIndex = 3;
+            this.btnAceptarVerLetra.TabStop = false;
+            this.btnAceptarVerLetra.Visible = false;
+            this.btnAceptarVerLetra.Zoom = 10;
+            this.btnAceptarVerLetra.Click += new System.EventHandler(this.btnAceptarVerLetra_Click);
             // 
-            // btnCancelarBusqueda
+            // btnAceptarLetra
             // 
-            this.panelModificar.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.btnCancelarBusqueda.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarBusqueda.Image")));
-            this.btnCancelarBusqueda.ImageActive = null;
-            this.btnCancelarBusqueda.Location = new System.Drawing.Point(16, 82);
-            this.btnCancelarBusqueda.Name = "btnCancelarBusqueda";
-            this.btnCancelarBusqueda.Size = new System.Drawing.Size(54, 47);
-            this.btnCancelarBusqueda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCancelarBusqueda.TabIndex = 4;
-            this.btnCancelarBusqueda.TabStop = false;
-            this.btnCancelarBusqueda.Zoom = 10;
-            this.btnCancelarBusqueda.Click += new System.EventHandler(this.btnCancelarBusqueda_Click);
+            this.panelModificar.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnAceptarLetra.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptarLetra.Image")));
+            this.btnAceptarLetra.ImageActive = null;
+            this.btnAceptarLetra.Location = new System.Drawing.Point(311, 316);
+            this.btnAceptarLetra.Name = "btnAceptarLetra";
+            this.btnAceptarLetra.Size = new System.Drawing.Size(50, 45);
+            this.btnAceptarLetra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAceptarLetra.TabIndex = 2;
+            this.btnAceptarLetra.TabStop = false;
+            this.btnAceptarLetra.Visible = false;
+            this.btnAceptarLetra.Zoom = 10;
+            this.btnAceptarLetra.Click += new System.EventHandler(this.btnAceptarLetra_Click);
             // 
-            // btnRealizarBusqueda
+            // btnCancelarLetra
             // 
-            this.panelModificar.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.btnRealizarBusqueda.Image = ((System.Drawing.Image)(resources.GetObject("btnRealizarBusqueda.Image")));
-            this.btnRealizarBusqueda.ImageActive = null;
-            this.btnRealizarBusqueda.Location = new System.Drawing.Point(308, 79);
-            this.btnRealizarBusqueda.Name = "btnRealizarBusqueda";
-            this.btnRealizarBusqueda.Size = new System.Drawing.Size(54, 45);
-            this.btnRealizarBusqueda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnRealizarBusqueda.TabIndex = 3;
-            this.btnRealizarBusqueda.TabStop = false;
-            this.btnRealizarBusqueda.Zoom = 10;
-            this.btnRealizarBusqueda.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            this.panelModificar.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnCancelarLetra.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarLetra.Image")));
+            this.btnCancelarLetra.ImageActive = null;
+            this.btnCancelarLetra.Location = new System.Drawing.Point(30, 317);
+            this.btnCancelarLetra.Name = "btnCancelarLetra";
+            this.btnCancelarLetra.Size = new System.Drawing.Size(50, 44);
+            this.btnCancelarLetra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCancelarLetra.TabIndex = 1;
+            this.btnCancelarLetra.TabStop = false;
+            this.btnCancelarLetra.Visible = false;
+            this.btnCancelarLetra.Zoom = 10;
+            this.btnCancelarLetra.Click += new System.EventHandler(this.btnCancelarLetra_Click);
             // 
-            // label6
+            // txtLetra
             // 
-            this.label6.AutoSize = true;
-            this.logoAnimator.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.panelModificar.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(144, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 22);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Buscar";
+            this.btnXCheckSale.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
+            this.txtLetra.Location = new System.Drawing.Point(33, 19);
+            this.txtLetra.Multiline = true;
+            this.txtLetra.Name = "txtLetra";
+            this.txtLetra.Size = new System.Drawing.Size(332, 295);
+            this.txtLetra.TabIndex = 0;
+            this.txtLetra.Visible = false;
             // 
-            // txtBuscar
+            // btnVerLetra
             // 
-            this.btnXCheckSale.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.panelModificar.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
-            this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(163, 48);
-            this.txtBuscar.Multiline = true;
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(199, 25);
-            this.txtBuscar.TabIndex = 1;
+            this.btnVerLetra.Active = false;
+            this.btnVerLetra.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnVerLetra.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnVerLetra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnVerLetra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnVerLetra.BorderRadius = 0;
+            this.btnVerLetra.ButtonText = "bunifuFlatButton3";
+            this.btnVerLetra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXCheckSale.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
+            this.btnVerLetra.DisabledColor = System.Drawing.Color.Gray;
+            this.btnVerLetra.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnVerLetra.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnVerLetra.Iconimage")));
+            this.btnVerLetra.Iconimage_right = null;
+            this.btnVerLetra.Iconimage_right_Selected = null;
+            this.btnVerLetra.Iconimage_Selected = null;
+            this.btnVerLetra.IconMarginLeft = 0;
+            this.btnVerLetra.IconMarginRight = 0;
+            this.btnVerLetra.IconRightVisible = true;
+            this.btnVerLetra.IconRightZoom = 0D;
+            this.btnVerLetra.IconVisible = true;
+            this.btnVerLetra.IconZoom = 90D;
+            this.btnVerLetra.IsTab = false;
+            this.btnVerLetra.Location = new System.Drawing.Point(714, 241);
+            this.btnVerLetra.Name = "btnVerLetra";
+            this.btnVerLetra.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnVerLetra.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnVerLetra.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnVerLetra.selected = false;
+            this.btnVerLetra.Size = new System.Drawing.Size(41, 40);
+            this.btnVerLetra.TabIndex = 63;
+            this.btnVerLetra.Text = "bunifuFlatButton3";
+            this.btnVerLetra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerLetra.Textcolor = System.Drawing.Color.White;
+            this.btnVerLetra.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerLetra.Click += new System.EventHandler(this.btnVerLetra_Click);
             // 
-            // tipoBusqueda
+            // lblUsuario
             // 
-            this.buttonCheckXTransition.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelModificar.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
-            this.tipoBusqueda.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tipoBusqueda.FormattingEnabled = true;
-            this.tipoBusqueda.ItemHeight = 20;
-            this.tipoBusqueda.Items.AddRange(new object[] {
-            "Nombre",
-            "Artista",
-            "Álbum"});
-            this.tipoBusqueda.Location = new System.Drawing.Point(16, 48);
-            this.tipoBusqueda.Name = "tipoBusqueda";
-            this.tipoBusqueda.Size = new System.Drawing.Size(122, 24);
-            this.tipoBusqueda.TabIndex = 0;
+            this.lblUsuario.AutoSize = true;
+            this.logoAnimator.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
+            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblUsuario.Location = new System.Drawing.Point(444, 83);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(66, 21);
+            this.lblUsuario.TabIndex = 62;
+            this.lblUsuario.Text = "Usuario";
             // 
             // lblAmigos
             // 
@@ -1830,6 +1877,25 @@
             this.lblAmigos.TabIndex = 60;
             this.lblAmigos.Text = "Amigos";
             this.lblAmigos.Visible = false;
+            // 
+            // lblNyA
+            // 
+            this.lblNyA.AutoSize = true;
+            this.logoAnimator.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.lblNyA, BunifuAnimatorNS.DecorationType.None);
+            this.lblNyA.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNyA.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblNyA.Location = new System.Drawing.Point(129, 83);
+            this.lblNyA.Name = "lblNyA";
+            this.lblNyA.Size = new System.Drawing.Size(159, 21);
+            this.lblNyA.TabIndex = 61;
+            this.lblNyA.Text = "Nombre y Apellidos";
             // 
             // doubleBitmapControl5
             // 
@@ -1947,26 +2013,148 @@
             this.txtNotificaciones.TabIndex = 43;
             this.txtNotificaciones.Visible = false;
             // 
+            // panelBusqueda
+            // 
+            this.panelBusqueda.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panelBusqueda.Controls.Add(this.btnCancelarBusqueda);
+            this.panelBusqueda.Controls.Add(this.btnRealizarBusqueda);
+            this.panelBusqueda.Controls.Add(this.label6);
+            this.panelBusqueda.Controls.Add(this.txtBuscar);
+            this.panelBusqueda.Controls.Add(this.tipoBusqueda);
+            this.panelModificar.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.panelBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelBusqueda.Location = new System.Drawing.Point(191, 114);
+            this.panelBusqueda.Name = "panelBusqueda";
+            this.panelBusqueda.Size = new System.Drawing.Size(379, 135);
+            this.panelBusqueda.TabIndex = 57;
+            this.panelBusqueda.Visible = false;
+            // 
+            // btnCancelarBusqueda
+            // 
+            this.panelModificar.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.btnCancelarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnCancelarBusqueda.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarBusqueda.Image")));
+            this.btnCancelarBusqueda.ImageActive = null;
+            this.btnCancelarBusqueda.Location = new System.Drawing.Point(16, 82);
+            this.btnCancelarBusqueda.Name = "btnCancelarBusqueda";
+            this.btnCancelarBusqueda.Size = new System.Drawing.Size(54, 47);
+            this.btnCancelarBusqueda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCancelarBusqueda.TabIndex = 4;
+            this.btnCancelarBusqueda.TabStop = false;
+            this.btnCancelarBusqueda.Zoom = 10;
+            this.btnCancelarBusqueda.Click += new System.EventHandler(this.btnCancelarBusqueda_Click);
+            // 
+            // btnRealizarBusqueda
+            // 
+            this.panelModificar.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.btnRealizarBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnRealizarBusqueda.Image = ((System.Drawing.Image)(resources.GetObject("btnRealizarBusqueda.Image")));
+            this.btnRealizarBusqueda.ImageActive = null;
+            this.btnRealizarBusqueda.Location = new System.Drawing.Point(308, 79);
+            this.btnRealizarBusqueda.Name = "btnRealizarBusqueda";
+            this.btnRealizarBusqueda.Size = new System.Drawing.Size(54, 45);
+            this.btnRealizarBusqueda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnRealizarBusqueda.TabIndex = 3;
+            this.btnRealizarBusqueda.TabStop = false;
+            this.btnRealizarBusqueda.Zoom = 10;
+            this.btnRealizarBusqueda.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.logoAnimator.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(144, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(71, 22);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            this.btnXCheckSale.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.buttonCheckXTransition.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.txtBuscar, BunifuAnimatorNS.DecorationType.None);
+            this.txtBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(163, 48);
+            this.txtBuscar.Multiline = true;
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(199, 25);
+            this.txtBuscar.TabIndex = 1;
+            // 
+            // tipoBusqueda
+            // 
+            this.buttonCheckXTransition.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelFuera.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelModificar.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.panelEntra.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.logoAnimator.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.lstAmigosSeleccionTransition.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.amigosSeleccionSale.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.btnXCheckSale.SetDecoration(this.tipoBusqueda, BunifuAnimatorNS.DecorationType.None);
+            this.tipoBusqueda.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipoBusqueda.FormattingEnabled = true;
+            this.tipoBusqueda.ItemHeight = 20;
+            this.tipoBusqueda.Items.AddRange(new object[] {
+            "Nombre",
+            "Artista",
+            "Álbum"});
+            this.tipoBusqueda.Location = new System.Drawing.Point(16, 48);
+            this.tipoBusqueda.Name = "tipoBusqueda";
+            this.tipoBusqueda.Size = new System.Drawing.Size(122, 24);
+            this.tipoBusqueda.TabIndex = 0;
+            // 
             // panelEntra
             // 
             this.panelEntra.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.panelEntra.Cursor = null;
-            animation24.AnimateOnlyDifferences = true;
-            animation24.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation24.BlindCoeff")));
-            animation24.LeafCoeff = 0F;
-            animation24.MaxTime = 1F;
-            animation24.MinTime = 0F;
-            animation24.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation24.MosaicCoeff")));
-            animation24.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation24.MosaicShift")));
-            animation24.MosaicSize = 0;
-            animation24.Padding = new System.Windows.Forms.Padding(0);
-            animation24.RotateCoeff = 0F;
-            animation24.RotateLimit = 0F;
-            animation24.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation24.ScaleCoeff")));
-            animation24.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation24.SlideCoeff")));
-            animation24.TimeCoeff = 0F;
-            animation24.TransparencyCoeff = 0F;
-            this.panelEntra.DefaultAnimation = animation24;
+            animation109.AnimateOnlyDifferences = true;
+            animation109.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation109.BlindCoeff")));
+            animation109.LeafCoeff = 0F;
+            animation109.MaxTime = 1F;
+            animation109.MinTime = 0F;
+            animation109.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation109.MosaicCoeff")));
+            animation109.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation109.MosaicShift")));
+            animation109.MosaicSize = 0;
+            animation109.Padding = new System.Windows.Forms.Padding(0);
+            animation109.RotateCoeff = 0F;
+            animation109.RotateLimit = 0F;
+            animation109.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation109.ScaleCoeff")));
+            animation109.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation109.SlideCoeff")));
+            animation109.TimeCoeff = 0F;
+            animation109.TransparencyCoeff = 0F;
+            this.panelEntra.DefaultAnimation = animation109;
             // 
             // bunifuElipse1
             // 
@@ -1977,315 +2165,127 @@
             // 
             this.panelFuera.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
             this.panelFuera.Cursor = null;
-            animation21.AnimateOnlyDifferences = true;
-            animation21.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.BlindCoeff")));
-            animation21.LeafCoeff = 0F;
-            animation21.MaxTime = 1F;
-            animation21.MinTime = 0F;
-            animation21.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.MosaicCoeff")));
-            animation21.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation21.MosaicShift")));
-            animation21.MosaicSize = 0;
-            animation21.Padding = new System.Windows.Forms.Padding(0);
-            animation21.RotateCoeff = 0F;
-            animation21.RotateLimit = 0F;
-            animation21.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.ScaleCoeff")));
-            animation21.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation21.SlideCoeff")));
-            animation21.TimeCoeff = 0F;
-            animation21.TransparencyCoeff = 0F;
-            this.panelFuera.DefaultAnimation = animation21;
+            animation107.AnimateOnlyDifferences = true;
+            animation107.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation107.BlindCoeff")));
+            animation107.LeafCoeff = 0F;
+            animation107.MaxTime = 1F;
+            animation107.MinTime = 0F;
+            animation107.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation107.MosaicCoeff")));
+            animation107.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation107.MosaicShift")));
+            animation107.MosaicSize = 0;
+            animation107.Padding = new System.Windows.Forms.Padding(0);
+            animation107.RotateCoeff = 0F;
+            animation107.RotateLimit = 0F;
+            animation107.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation107.ScaleCoeff")));
+            animation107.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation107.SlideCoeff")));
+            animation107.TimeCoeff = 0F;
+            animation107.TransparencyCoeff = 0F;
+            this.panelFuera.DefaultAnimation = animation107;
             // 
             // lstAmigosSeleccionTransition
             // 
             this.lstAmigosSeleccionTransition.AnimationType = BunifuAnimatorNS.AnimationType.Leaf;
             this.lstAmigosSeleccionTransition.Cursor = null;
-            animation23.AnimateOnlyDifferences = true;
-            animation23.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation23.BlindCoeff")));
-            animation23.LeafCoeff = 1F;
-            animation23.MaxTime = 1F;
-            animation23.MinTime = 0F;
-            animation23.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation23.MosaicCoeff")));
-            animation23.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation23.MosaicShift")));
-            animation23.MosaicSize = 0;
-            animation23.Padding = new System.Windows.Forms.Padding(0);
-            animation23.RotateCoeff = 0F;
-            animation23.RotateLimit = 0F;
-            animation23.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation23.ScaleCoeff")));
-            animation23.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation23.SlideCoeff")));
-            animation23.TimeCoeff = 0F;
-            animation23.TransparencyCoeff = 0F;
-            this.lstAmigosSeleccionTransition.DefaultAnimation = animation23;
+            animation110.AnimateOnlyDifferences = true;
+            animation110.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation110.BlindCoeff")));
+            animation110.LeafCoeff = 1F;
+            animation110.MaxTime = 1F;
+            animation110.MinTime = 0F;
+            animation110.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation110.MosaicCoeff")));
+            animation110.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation110.MosaicShift")));
+            animation110.MosaicSize = 0;
+            animation110.Padding = new System.Windows.Forms.Padding(0);
+            animation110.RotateCoeff = 0F;
+            animation110.RotateLimit = 0F;
+            animation110.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation110.ScaleCoeff")));
+            animation110.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation110.SlideCoeff")));
+            animation110.TimeCoeff = 0F;
+            animation110.TransparencyCoeff = 0F;
+            this.lstAmigosSeleccionTransition.DefaultAnimation = animation110;
             // 
             // buttonCheckXTransition
             // 
             this.buttonCheckXTransition.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.buttonCheckXTransition.Cursor = null;
-            animation19.AnimateOnlyDifferences = true;
-            animation19.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation19.BlindCoeff")));
-            animation19.LeafCoeff = 0F;
-            animation19.MaxTime = 1F;
-            animation19.MinTime = 0F;
-            animation19.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation19.MosaicCoeff")));
-            animation19.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation19.MosaicShift")));
-            animation19.MosaicSize = 1;
-            animation19.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation19.RotateCoeff = 0F;
-            animation19.RotateLimit = 0F;
-            animation19.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation19.ScaleCoeff")));
-            animation19.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation19.SlideCoeff")));
-            animation19.TimeCoeff = 2F;
-            animation19.TransparencyCoeff = 0F;
-            this.buttonCheckXTransition.DefaultAnimation = animation19;
+            animation106.AnimateOnlyDifferences = true;
+            animation106.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation106.BlindCoeff")));
+            animation106.LeafCoeff = 0F;
+            animation106.MaxTime = 1F;
+            animation106.MinTime = 0F;
+            animation106.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation106.MosaicCoeff")));
+            animation106.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation106.MosaicShift")));
+            animation106.MosaicSize = 1;
+            animation106.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation106.RotateCoeff = 0F;
+            animation106.RotateLimit = 0F;
+            animation106.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation106.ScaleCoeff")));
+            animation106.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation106.SlideCoeff")));
+            animation106.TimeCoeff = 2F;
+            animation106.TransparencyCoeff = 0F;
+            this.buttonCheckXTransition.DefaultAnimation = animation106;
             // 
             // amigosSeleccionSale
             // 
             this.amigosSeleccionSale.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.amigosSeleccionSale.Cursor = null;
-            animation20.AnimateOnlyDifferences = true;
-            animation20.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation20.BlindCoeff")));
-            animation20.LeafCoeff = 0F;
-            animation20.MaxTime = 1F;
-            animation20.MinTime = 0F;
-            animation20.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation20.MosaicCoeff")));
-            animation20.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation20.MosaicShift")));
-            animation20.MosaicSize = 0;
-            animation20.Padding = new System.Windows.Forms.Padding(0);
-            animation20.RotateCoeff = 0F;
-            animation20.RotateLimit = 0F;
-            animation20.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation20.ScaleCoeff")));
-            animation20.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation20.SlideCoeff")));
-            animation20.TimeCoeff = 0F;
-            animation20.TransparencyCoeff = 1F;
-            this.amigosSeleccionSale.DefaultAnimation = animation20;
+            animation111.AnimateOnlyDifferences = true;
+            animation111.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation111.BlindCoeff")));
+            animation111.LeafCoeff = 0F;
+            animation111.MaxTime = 1F;
+            animation111.MinTime = 0F;
+            animation111.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation111.MosaicCoeff")));
+            animation111.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation111.MosaicShift")));
+            animation111.MosaicSize = 0;
+            animation111.Padding = new System.Windows.Forms.Padding(0);
+            animation111.RotateCoeff = 0F;
+            animation111.RotateLimit = 0F;
+            animation111.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation111.ScaleCoeff")));
+            animation111.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation111.SlideCoeff")));
+            animation111.TimeCoeff = 0F;
+            animation111.TransparencyCoeff = 1F;
+            this.amigosSeleccionSale.DefaultAnimation = animation111;
             // 
             // btnXCheckSale
             // 
             this.btnXCheckSale.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.btnXCheckSale.Cursor = null;
-            animation22.AnimateOnlyDifferences = true;
-            animation22.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.BlindCoeff")));
-            animation22.LeafCoeff = 0F;
-            animation22.MaxTime = 1F;
-            animation22.MinTime = 0F;
-            animation22.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.MosaicCoeff")));
-            animation22.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation22.MosaicShift")));
-            animation22.MosaicSize = 1;
-            animation22.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation22.RotateCoeff = 0F;
-            animation22.RotateLimit = 0F;
-            animation22.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.ScaleCoeff")));
-            animation22.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation22.SlideCoeff")));
-            animation22.TimeCoeff = 2F;
-            animation22.TransparencyCoeff = 0F;
-            this.btnXCheckSale.DefaultAnimation = animation22;
+            animation112.AnimateOnlyDifferences = true;
+            animation112.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation112.BlindCoeff")));
+            animation112.LeafCoeff = 0F;
+            animation112.MaxTime = 1F;
+            animation112.MinTime = 0F;
+            animation112.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation112.MosaicCoeff")));
+            animation112.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation112.MosaicShift")));
+            animation112.MosaicSize = 1;
+            animation112.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation112.RotateCoeff = 0F;
+            animation112.RotateLimit = 0F;
+            animation112.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation112.ScaleCoeff")));
+            animation112.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation112.SlideCoeff")));
+            animation112.TimeCoeff = 2F;
+            animation112.TransparencyCoeff = 0F;
+            this.btnXCheckSale.DefaultAnimation = animation112;
             // 
             // panelModificar
             // 
             this.panelModificar.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.panelModificar.Cursor = null;
-            animation18.AnimateOnlyDifferences = true;
-            animation18.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation18.BlindCoeff")));
-            animation18.LeafCoeff = 0F;
-            animation18.MaxTime = 1F;
-            animation18.MinTime = 0F;
-            animation18.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation18.MosaicCoeff")));
-            animation18.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation18.MosaicShift")));
-            animation18.MosaicSize = 0;
-            animation18.Padding = new System.Windows.Forms.Padding(0);
-            animation18.RotateCoeff = 0F;
-            animation18.RotateLimit = 0F;
-            animation18.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation18.ScaleCoeff")));
-            animation18.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation18.SlideCoeff")));
-            animation18.TimeCoeff = 0F;
-            animation18.TransparencyCoeff = 1F;
-            this.panelModificar.DefaultAnimation = animation18;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.logoAnimator.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.panelModificar.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.lblUsuario, BunifuAnimatorNS.DecorationType.None);
-            this.lblUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblUsuario.Location = new System.Drawing.Point(444, 83);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(66, 21);
-            this.lblUsuario.TabIndex = 62;
-            this.lblUsuario.Text = "Usuario";
-            // 
-            // btnVerLetra
-            // 
-            this.btnVerLetra.Active = false;
-            this.btnVerLetra.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnVerLetra.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnVerLetra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnVerLetra.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnVerLetra.BorderRadius = 0;
-            this.btnVerLetra.ButtonText = "bunifuFlatButton3";
-            this.btnVerLetra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXCheckSale.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelModificar.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.btnVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnVerLetra.DisabledColor = System.Drawing.Color.Gray;
-            this.btnVerLetra.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnVerLetra.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnVerLetra.Iconimage")));
-            this.btnVerLetra.Iconimage_right = null;
-            this.btnVerLetra.Iconimage_right_Selected = null;
-            this.btnVerLetra.Iconimage_Selected = null;
-            this.btnVerLetra.IconMarginLeft = 0;
-            this.btnVerLetra.IconMarginRight = 0;
-            this.btnVerLetra.IconRightVisible = true;
-            this.btnVerLetra.IconRightZoom = 0D;
-            this.btnVerLetra.IconVisible = true;
-            this.btnVerLetra.IconZoom = 90D;
-            this.btnVerLetra.IsTab = false;
-            this.btnVerLetra.Location = new System.Drawing.Point(714, 241);
-            this.btnVerLetra.Name = "btnVerLetra";
-            this.btnVerLetra.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnVerLetra.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnVerLetra.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnVerLetra.selected = false;
-            this.btnVerLetra.Size = new System.Drawing.Size(41, 40);
-            this.btnVerLetra.TabIndex = 63;
-            this.btnVerLetra.Text = "bunifuFlatButton3";
-            this.btnVerLetra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerLetra.Textcolor = System.Drawing.Color.White;
-            this.btnVerLetra.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerLetra.Click += new System.EventHandler(this.btnVerLetra_Click);
-            // 
-            // pnlLetra
-            // 
-            this.pnlLetra.Controls.Add(this.btnAceptarVerLetra);
-            this.pnlLetra.Controls.Add(this.btnAceptarLetra);
-            this.pnlLetra.Controls.Add(this.btnCancelarLetra);
-            this.pnlLetra.Controls.Add(this.txtLetra);
-            this.panelModificar.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.pnlLetra, BunifuAnimatorNS.DecorationType.None);
-            this.pnlLetra.Location = new System.Drawing.Point(193, 64);
-            this.pnlLetra.Name = "pnlLetra";
-            this.pnlLetra.Size = new System.Drawing.Size(384, 369);
-            this.pnlLetra.TabIndex = 64;
-            this.pnlLetra.Visible = false;
-            // 
-            // txtLetra
-            // 
-            this.btnXCheckSale.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelModificar.SetDecoration(this.txtLetra, BunifuAnimatorNS.DecorationType.None);
-            this.txtLetra.Location = new System.Drawing.Point(30, 16);
-            this.txtLetra.Multiline = true;
-            this.txtLetra.Name = "txtLetra";
-            this.txtLetra.Size = new System.Drawing.Size(332, 295);
-            this.txtLetra.TabIndex = 0;
-            this.txtLetra.Visible = false;
-            // 
-            // btnAgregarLetra
-            // 
-            this.panelModificar.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.btnAgregarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnAgregarLetra.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarLetra.Image")));
-            this.btnAgregarLetra.ImageActive = null;
-            this.btnAgregarLetra.Location = new System.Drawing.Point(304, 193);
-            this.btnAgregarLetra.Name = "btnAgregarLetra";
-            this.btnAgregarLetra.Size = new System.Drawing.Size(37, 40);
-            this.btnAgregarLetra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAgregarLetra.TabIndex = 65;
-            this.btnAgregarLetra.TabStop = false;
-            this.btnAgregarLetra.Zoom = 10;
-            this.btnAgregarLetra.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
-            // 
-            // btnCancelarLetra
-            // 
-            this.panelModificar.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.btnCancelarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnCancelarLetra.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarLetra.Image")));
-            this.btnCancelarLetra.ImageActive = null;
-            this.btnCancelarLetra.Location = new System.Drawing.Point(30, 317);
-            this.btnCancelarLetra.Name = "btnCancelarLetra";
-            this.btnCancelarLetra.Size = new System.Drawing.Size(50, 44);
-            this.btnCancelarLetra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCancelarLetra.TabIndex = 1;
-            this.btnCancelarLetra.TabStop = false;
-            this.btnCancelarLetra.Visible = false;
-            this.btnCancelarLetra.Zoom = 10;
-            this.btnCancelarLetra.Click += new System.EventHandler(this.btnCancelarLetra_Click);
-            // 
-            // btnAceptarLetra
-            // 
-            this.panelModificar.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.btnAceptarLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnAceptarLetra.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptarLetra.Image")));
-            this.btnAceptarLetra.ImageActive = null;
-            this.btnAceptarLetra.Location = new System.Drawing.Point(311, 316);
-            this.btnAceptarLetra.Name = "btnAceptarLetra";
-            this.btnAceptarLetra.Size = new System.Drawing.Size(50, 45);
-            this.btnAceptarLetra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAceptarLetra.TabIndex = 2;
-            this.btnAceptarLetra.TabStop = false;
-            this.btnAceptarLetra.Visible = false;
-            this.btnAceptarLetra.Zoom = 10;
-            this.btnAceptarLetra.Click += new System.EventHandler(this.btnAceptarLetra_Click);
-            // 
-            // btnAceptarVerLetra
-            // 
-            this.panelModificar.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelEntra.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.logoAnimator.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.lstAmigosSeleccionTransition.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.panelFuera.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.amigosSeleccionSale.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.buttonCheckXTransition.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnXCheckSale.SetDecoration(this.btnAceptarVerLetra, BunifuAnimatorNS.DecorationType.None);
-            this.btnAceptarVerLetra.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptarVerLetra.Image")));
-            this.btnAceptarVerLetra.ImageActive = null;
-            this.btnAceptarVerLetra.Location = new System.Drawing.Point(312, 316);
-            this.btnAceptarVerLetra.Name = "btnAceptarVerLetra";
-            this.btnAceptarVerLetra.Size = new System.Drawing.Size(50, 45);
-            this.btnAceptarVerLetra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnAceptarVerLetra.TabIndex = 3;
-            this.btnAceptarVerLetra.TabStop = false;
-            this.btnAceptarVerLetra.Visible = false;
-            this.btnAceptarVerLetra.Zoom = 10;
-            this.btnAceptarVerLetra.Click += new System.EventHandler(this.btnAceptarVerLetra_Click);
+            animation108.AnimateOnlyDifferences = true;
+            animation108.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation108.BlindCoeff")));
+            animation108.LeafCoeff = 0F;
+            animation108.MaxTime = 1F;
+            animation108.MinTime = 0F;
+            animation108.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation108.MosaicCoeff")));
+            animation108.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation108.MosaicShift")));
+            animation108.MosaicSize = 0;
+            animation108.Padding = new System.Windows.Forms.Padding(0);
+            animation108.RotateCoeff = 0F;
+            animation108.RotateLimit = 0F;
+            animation108.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation108.ScaleCoeff")));
+            animation108.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation108.SlideCoeff")));
+            animation108.TimeCoeff = 0F;
+            animation108.TransparencyCoeff = 1F;
+            this.panelModificar.DefaultAnimation = animation108;
             // 
             // formPrincipal
             // 
@@ -2325,20 +2325,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.pnlModificar.ResumeLayout(false);
             this.pnlModificar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarLetra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelarModificacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAceptarModificacion)).EndInit();
             this.panelBiblioteca.ResumeLayout(false);
             this.panelBiblioteca.PerformLayout();
+            this.pnlLetra.ResumeLayout(false);
+            this.pnlLetra.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAceptarVerLetra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAceptarLetra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarLetra)).EndInit();
             this.panelBusqueda.ResumeLayout(false);
             this.panelBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelarBusqueda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRealizarBusqueda)).EndInit();
-            this.pnlLetra.ResumeLayout(false);
-            this.pnlLetra.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAgregarLetra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelarLetra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAceptarLetra)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAceptarVerLetra)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -795,14 +795,17 @@ namespace Odyssey
 
         private void bunifuImageButton1_Click_1(object sender, EventArgs e)
         {
+            pnlModificar.Hide();
+            txtLetra.Text = "";
             pnlLetra.Show();
             btnAceptarLetra.Show();
             btnCancelarLetra.Show();
-            XmlDocument letra1 = SocketCliente.SendServidor(DocumentoXML.solicitarCancion(artistaActual1, nombreActual1));
+            txtLetra.Show();
+            XmlDocument letra1 = SocketCliente.SendServidor(DocumentoXML.solicitarCancion(nombreActual1, artistaActual1));
             XmlNodeList nodoL = letra1.GetElementsByTagName("letra");
             letra = nodoL.Item(0).InnerText;
             txtLetra.Text = letra;
-            txtLetra.Show();      
+      
             
         }
 
@@ -810,6 +813,7 @@ namespace Odyssey
         {
             letra = txtLetra.Text;
             pnlLetra.Hide();
+            pnlModificar.Show();
         }
 
         private void btnCancelarLetra_Click(object sender, EventArgs e)
@@ -822,12 +826,14 @@ namespace Odyssey
             pnlLetra.Show();
             txtLetra.Show();
             btnAceptarLetra.Show();
+            
             txtLetra.Text = letra;
         }
 
         private void btnAceptarVerLetra_Click(object sender, EventArgs e)
         {
             pnlLetra.Hide();
+            
         }
     }
 }
